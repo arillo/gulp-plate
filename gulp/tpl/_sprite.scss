@@ -11,7 +11,7 @@
 
 
 ${{common}}-map: (
-  {{common}}-map-path: url("../images/{{{sprite}}}"),
+  {{common}}-map-path: url("{{{cssPath}}}{{{sprite}}}"),
   {{common}}-map-width: {{spriteWidth}}px,
   {{common}}-map-height: {{spriteHeight}}px,
   {{#shapes}}
@@ -36,7 +36,7 @@ ${{common}}-map: (
 }
 
 %{{common}} {
-  background-image: url("../images/{{{sprite}}}");
+  background-image: url("{{{cssPath}}}{{{sprite}}}");
 }
 
 @mixin extend-{{common}}-url($extend: true) {

@@ -16,7 +16,8 @@ gulp.task('sass', function () {
     .on('error', handleErrors)
     .pipe(sourcemaps.write())
     .pipe(autoprefixer({ browsers: config.prefix }))
-    // .pipe(importCss())
+    .pipe(importCss())
+    .on('error', handleErrors)
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.reload({stream:true}));
 });

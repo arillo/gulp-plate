@@ -15,7 +15,7 @@ var watch = require('gulp-watch');
 gulp.task('watch', ['clean'], function() {
   runSequence('default', ['watchify','browserSync']);
 
-  watch(config.svgSprite.cwd + '/' + config.svgSprite.src, function(){
+  watch(config.svgSprite.src + '/' + config.svgSprite.glob, function(){
     runSequence('sprite', browserSync.reload);
   });
 

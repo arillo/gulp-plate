@@ -8,7 +8,7 @@ var config  = require('../config').svgSprite;
 // Clean
 /* jshint ignore:start */
 gulp.task('sprite:clean', function(cb){
-  del([config.dest + '/src/images/sprite-*.svg'], {dot: true}, cb);
+  del([config.dest + '/images/sprite-*.svg'], {dot: true}, cb);
 });
 /* jshint ignore:end */
 
