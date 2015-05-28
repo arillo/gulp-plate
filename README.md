@@ -1,6 +1,6 @@
 # Gulp-Plate
 
-Gulp boilerplate build system [gulp.js](http://gulpjs.com/) workflow.
+[Gulp](http://gulpjs.com/) boilerplate & build system.
 
 Includes the following tools, tasks, and workflows:
 
