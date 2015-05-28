@@ -1,13 +1,13 @@
 {
-  "name": "tronko-home",
+  "name": "arillo-gulp-starter-kit",
   "version": "0.0.1",
-  "description": "Tronko home page builder",
+  "description": "A gulp started kit",
   "repository": {
     "type": "git",
-    "url": "git@git.universe.io:tronko/home.git"
+    "url": ""
   },
   "browser": {
-    "singlePageNav": "./src/javascript/vendor/jquery.singlePageNav.js"
+    "plugin": "./src/js/vendor/jquery-plugin.js"
   },
   "browserify": {
     "transform": [
@@ -16,9 +16,10 @@
     ]
   },
   "browserify-shim": {
-    "singlePageNav": {
+    "plugin": {
+      "exports": "plugin",
       "depends": [
-        "jquery:jQuery"
+        "jquery:$"
       ]
     }
   },
@@ -36,6 +37,7 @@
     "gulp-file-include": "^0.9.0",
     "gulp-filesize": "0.0.6",
     "gulp-imagemin": "^2.2.1",
+    "gulp-import-css": "^0.1.2",
     "gulp-jscs": "^1.6.0",
     "gulp-jshint": "^1.11.0",
     "gulp-minify-css": "~0.5.1",
@@ -68,9 +70,6 @@
     "watchify": "^2.4.0"
   },
   "dependencies": {
-    "browsernizr": "^1.0.2",
-    "jquery": "~2.1.0",
-    "lodash.throttle": "^3.0.2",
-    "picturefill": "^2.3.1"
+    "jquery": "~2.1.0"
   }
 }

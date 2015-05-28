@@ -1,7 +1,6 @@
 'use strict';
 
 var path = require('path');
-var gulp = require('gulp');
 
 function distName() {
   var folder = path.dirname(__dirname);
@@ -18,12 +17,12 @@ module.exports = {
   destFolder: dest,
 
   browserSync: {
-    notify: false,
     port: 9000,
     server: {
       // Serve up our build folder
       baseDir: dest
-    }
+    },
+    notify: false
   },
 
   sass: {
@@ -94,25 +93,28 @@ module.exports = {
   },
 
   svgSprite: {
-    cwd: src + '/icons',
-    src: '**/*.svg',
+    src: src + '/icons',
+    glob: '**/*.svg',
     dest: dest + '/images',
     options : {
       mode: {
         css: {
-          layout: "horizontal",
-          prefix: ".i-%s",
-          common: "i",
-          dimensions: "-s",
-          sprite: "sprite.svg",
+          layout: 'horizontal',
+          prefix: '.i-%s',
+          common: 'i',
+          dimensions: '-s',
+          sprite: 'sprite.svg',
           dest: '.',
           render: {
             scss: {
-              template: "gulp/tpl/_sprite.scss",
-              dest: "../../src/sass/_sprite.scss"
+              template: 'gulp/tpl/_sprite.scss',
+              dest: '../src/sass/_sprite.scss'
             }
           }
         }
+      },
+      variables: {
+        cssPath: '../images/'
       }
     }
   }
