@@ -1,0 +1,83 @@
+//============================================
+// Grid system
+//============================================
+
+
+// Config example
+//============================================
+
+// $config: (
+//   "name": "xs",
+//   "cols": 24,
+//   "gutter": 15px,
+//   "bp": false,
+//   "off": false,
+//   "pull": false,
+//   "push": false,
+// );
+
+
+// Main mixin
+//============================================
+
+=grid($configs...)
+  // Default Classes
+  .g-row
+    +cf()
+
+  .g
+    float: left
+    width: 100%
+    min-height: 1px
+    position: relative
+
+  @each $config in $configs
+
+    // Get config
+    $name:    map-get($config, "name")
+    $cols:    map-get($config, "cols")
+    $gutter-lft:  ceil(map-get($config, "gutter") / 2)
+    $gutter-rgt:  floor(map-get($config, "gutter") / 2)
+
+
+    // Base unit
+    $base: (100%/$cols)
+
+    +mq(map-get($config, "bp"))
+
+      // Update row
+      .g-row
+        margin-left: -$gutter-lft
+        margin-right: -$gutter-rgt
+
+      // Update unit
+      .g
+        padding-left: $gutter-lft
+        padding-right: $gutter-rgt
+
+      // Units
+      @for $i from 1 through $cols
+        .g-#{$name}-#{$i}
+          width: $base * $i
+
+      // Helpers
+      +grid-helper($config, "off", margin-left, 0)
+      +grid-helper($config, "pull", right, auto)
+      +grid-helper($config, "push", left, auto)
+
+
+// Helper mixin
+//============================================
+
+=grid-helper ($config, $type, $prop, $val0)
+  $name: map-get($config, "name")
+  $cols: map-get($config, "cols")
+  $base: (100%/$cols)
+
+  @if map-get($config, $type)
+    .g-#{$name}-#{$type}-0
+      #{$prop}: $val0
+
+    @for $i from 1 to $cols
+      .g-#{$name}-#{$type}-#{$i}
+        #{$prop}: $base * $i

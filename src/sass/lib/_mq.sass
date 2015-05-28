@@ -1,0 +1,10 @@
+//============================================
+// Respond
+//============================================
+
+=mq($breakpoint, $media: all)
+  @if $breakpoint
+    @media #{$media} and #{$breakpoint}
+      @content
+  @else
+    @content

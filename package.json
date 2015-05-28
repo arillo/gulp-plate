@@ -1,0 +1,71 @@
+{
+  "name": "tronko-home",
+  "version": "0.0.1",
+  "description": "Tronko home page builder",
+  "repository": {
+    "type": "git",
+    "url": "git@git.universe.io:tronko/home.git"
+  },
+  "browser": {
+    "singlePageNav": "./src/javascript/vendor/jquery.singlePageNav.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "coffeeify"
+    ]
+  },
+  "browserify-shim": {
+    "singlePageNav": {
+      "depends": [
+        "jquery:jQuery"
+      ]
+    }
+  },
+  "devDependencies": {
+    "browser-sync": "~2.2.2",
+    "browserify": "^9.0.3",
+    "browserify-shim": "^3.8.2",
+    "coffeeify": "~1.0.0",
+    "del": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-changed": "^1.1.1",
+    "gulp-file-include": "^0.9.0",
+    "gulp-filesize": "0.0.6",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-minify-css": "~0.5.1",
+    "gulp-minify-html": "^1.0.2",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "~1.3.3",
+    "gulp-sourcemaps": "^1.5.0",
+    "gulp-svg-sprite": "^1.1.2",
+    "gulp-uglify": "^1.1.0",
+    "gulp-util": "^3.0.4",
+    "gulp-watch": "^4.2.4",
+    "handlebars": "^3.0.0",
+    "hbsfy": "~2.2.1",
+    "karma": "^0.12.31",
+    "karma-browserify": "^4.0.0",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-coffee-preprocessor": "^0.2.1",
+    "karma-mocha": "^0.1.10",
+    "karma-nyan-reporter": "0.0.51",
+    "karma-sinon-chai": "^0.3.0",
+    "lodash": "^3.3.1",
+    "merge-stream": "^0.1.7",
+    "pretty-hrtime": "~1.0.0",
+    "require-dir": "^0.1.0",
+    "run-sequence": "^1.1.0",
+    "vinyl": "^0.4.6",
+    "vinyl-source-stream": "~1.0.0",
+    "watchify": "^2.4.0"
+  },
+  "dependencies": {
+    "browsernizr": "^1.0.2",
+    "jquery": "~2.1.0",
+    "lodash.throttle": "^3.0.2",
+    "picturefill": "^2.3.1"
+  }
+}

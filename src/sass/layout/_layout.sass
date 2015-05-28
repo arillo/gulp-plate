@@ -1,0 +1,27 @@
+//============================================
+// Layout
+//============================================
+
+
+// Container
+//============================================
+
+.l-container
+  max-width: $layout-width-xs
+  padding: 0 $layout-gutter-xs
+  margin: 0 auto
+
++mq($bp-sm)
+  .l-container
+    max-width: $layout-width-sm
+    padding: 0 $layout-gutter-sm
+
++mq($bp-md)
+  .l-container
+    max-width: $layout-width-md
+    padding: 0 $layout-gutter-md
+
++mq($bp-lg)
+  .l-container
+    max-width: $layout-width-lg
+    padding: 0 $layout-gutter-lg

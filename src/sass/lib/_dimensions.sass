@@ -1,0 +1,86 @@
+//============================================
+// Dimension utility mixin
+//============================================
+
+=generate-dimension-helpers($config)
+  $pull: map-get($config, "pull")
+  $push: map-get($config, "push")
+  $padd: map-get($config, "padd")
+
+  $sizes: map-get($config, "sizes")
+
+  @if not length($sizes)
+    @warn "No sizes defined"
+
+  @each $key, $val in $sizes
+
+    @if str-length($key) != 0
+      $key: "-#{$key}"
+
+    @if $pull
+      .u-pull-top#{$key}
+        margin-top: - $val
+      .u-pull-lft#{$key}
+        margin-left: - $val
+      .u-pull-rgt#{$key}
+        margin-right: - $val
+      .u-pull-bot#{$key}
+        margin-bottom: - $val
+
+      .u-pull#{$key}
+        @extend .u-pull-top#{$key}
+        @extend .u-pull-lft#{$key}
+        @extend .u-pull-rgt#{$key}
+        @extend .u-pull-bot#{$key}
+
+      .u-pull-horz#{$key}
+        @extend .u-pull-lft#{$key}
+        @extend .u-pull-rgt#{$key}
+      .u-pull-vert#{$key}
+        @extend .u-pull-top#{$key}
+        @extend .u-pull-bot#{$key}
+
+    @if $push
+      .u-push-top#{$key}
+        margin-top: $val
+      .u-push-lft#{$key}
+        margin-left: $val
+      .u-push-rgt#{$key}
+        margin-right: $val
+      .u-push-bot#{$key}
+        margin-bottom: $val
+
+      .u-push#{$key}
+        @extend .u-push-top#{$key}
+        @extend .u-push-lft#{$key}
+        @extend .u-push-rgt#{$key}
+        @extend .u-push-bot#{$key}
+
+      .u-push-horz#{$key}
+        @extend .u-push-lft#{$key}
+        @extend .u-push-rgt#{$key}
+      .u-push-vert#{$key}
+        @extend .u-push-top#{$key}
+        @extend .u-push-bot#{$key}
+
+    @if $padd
+      .u-padd-top#{$key}
+        padding-top: $val
+      .u-padd-lft#{$key}
+        padding-left: $val
+      .u-padd-rgt#{$key}
+        padding-right: $val
+      .u-padd-bot#{$key}
+        padding-bottom: $val
+
+      .u-padd#{$key}
+        @extend .u-padd-top#{$key}
+        @extend .u-padd-lft#{$key}
+        @extend .u-padd-rgt#{$key}
+        @extend .u-padd-bot#{$key}
+      .u-padd-horz#{$key}
+        @extend .u-padd-lft#{$key}
+        @extend .u-padd-rgt#{$key}
+      .u-padd-vert#{$key}
+        @extend .u-padd-top#{$key}
+        @extend .u-padd-bot#{$key}

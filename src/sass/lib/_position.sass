@@ -1,0 +1,53 @@
+//============================================
+// Position
+//============================================
+
+=position($amounts, $sides, $pos: absolute, $auto-overwrite: false)
+
+  @if $amounts and $sides
+
+    $map: ( top: null, left: null, right: null, bottom: null,)
+
+    // Set to complete overwrite mode
+    @if $auto-overwrite
+      $map: ( top: auto, left: auto, right: auto, bottom: auto,)
+
+    // Position property - validation & render
+    @if $pos == absolute or $pos == fixed or $pos == relative or $pos == static
+      position: $pos
+    @else if $pos != none
+      @warn "The $pos argument is invalid, use `absolute`, `fixed`, `relative`, `static`, or `none` (invalid value: #{$pos})"
+
+    // Populate the map with sides
+    @if $sides == all and length($amounts) == 1
+      top: $amounts; left: $amounts; right: $amounts; bottom: $amounts
+
+    @else if length($sides) == length($amounts)
+      @for $i from 1 through length($sides)
+        $map: map-merge($map, (nth($sides, $i):nth($amounts, $i)))
+
+    @else if length($amounts) == 1
+      @for $i from 1 through length($sides)
+        $map: map-merge($map, (nth($sides, $i):$amounts))
+
+    @else
+      @warn "The number of $amounts has to match the $sides or be a single value"
+
+    // Render (properties with value `null` don't get rendered)
+    @each $key, $val in $map
+      #{$key}: #{$val}
+
+    // Validation, still rendering but at least you know
+    @each $amount in $amounts
+      @if type-of($amount) == number or $amount == auto
+      @else
+        @warn "Invalid amount: #{$amount}"
+
+    @each $side in $sides
+      @if $side == top or $side == left or $side == right or $side == bottom or $side == all
+      @else
+        @warn "Invalid side: #{$side}"
+
+// Alias
+=pos($amounts, $sides, $pos: absolute, $auto-overwrite: false)
+  +position($amounts, $sides, $pos, $auto-overwrite)

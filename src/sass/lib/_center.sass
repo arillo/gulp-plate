@@ -1,0 +1,16 @@
+//============================================
+// Center Absolute
+//============================================
+
+@import "position"
+@import "size"
+
+=center($width, $height: $width, $position: false)
+  @if $position
+    +pos(50%, top left, $position)
+  @else
+    +pos(50%, top left)
+
+  +size($width, $height)
+  margin-left: -$width / 2
+  margin-top: -$height / 2

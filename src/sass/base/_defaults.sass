@@ -1,0 +1,156 @@
+//============================================
+// Defaults
+//============================================
+
+
+// Reset box-model
+//============================================
+
+*
+  box-sizing: border-box
+
+:before, :after
+  box-sizing: inherit
+
+
+// IE
+//============================================
+
+@-ms-viewport
+  width: device-width
+
+
+// Root
+//============================================
+
+html
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+  font-size: 100%
+
+
+// Body
+//============================================
+
+body
+  font: #{$fs}/#{$lh} $font
+  background: $color-bg
+  color: $color-text
+
+
+// Vertical rhythm
+//============================================
+
+p, table, blockquote, address, pre, iframe
+  margin: 0 0 $space
+
+
+// Anchors
+//============================================
+
+a
+  text-decoration: none
+  color: inherit
+
+  &:hover
+    text-decoration: none
+
+
+// Lists (enumeration)
+//============================================
+
+ul, ol
+  margin-top: 0
+  margin-bottom: $space
+
+  ul, ol
+    margin-bottom: 0
+
+// helper class
+.list-reset, .list-unstyled
+  padding-left: 0
+  list-style: none
+
+
+// Lists (definition)
+//============================================
+
+dl
+  margin-top: 0
+  margin-bottom: $space
+
+dt
+  font-weight: bold
+
+dd
+  margin-left: 0
+
+
+// Embeded Content
+//============================================
+
+img
+  -ms-interpolation-mode: bicubic
+  vertical-align: bottom
+
+embed, object, iframe
+  border: 0
+  vertical-align: bottom
+
+
+// Tables
+//============================================
+
+td, th
+  vertical-align: top
+
+th
+  text-align: left
+  font-weight: bold
+
+
+// Address
+//============================================
+
+address
+  font-style: normal
+
+
+// Horizontal rule
+//============================================
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid rgba($gray-light, .5)
+  margin: $space 0
+  padding: 0
+  clear: both
+
+
+// Code
+//============================================
+
+pre, code
+  font-family: $font-mono
+
+pre
+  background-color: $gray-light
+  overflow: auto
+  margin:0 0 $space-half
+  padding: $space-half
+  line-height: inherit
+  white-space: pre
+  word-wrap: break-word
+  text-align: left
+
+
+// Quotes
+//============================================
+
+blockquote
+  padding-left: 15px
+  border-left: 2px solid $gray-light
+
+q
+  quotes: "\201C" "\201D" "\2018" "\2019"

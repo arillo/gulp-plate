@@ -1,0 +1,125 @@
+//============================================
+// Global variables
+//============================================
+
+
+// Colors
+//============================================
+
+$primary:     #00f;
+$black:       #111;
+$gray-light:  #999;
+
+$color-text:  $black;
+$color-bg:    white;
+
+
+// Dimensions
+//============================================
+
+$space:      24px;
+$space-half: $space * 0.5;
+$space-quarter: $space * 0.25;
+
+$dimension-utility-config: (
+  "pull": true,
+  "push": true,
+  "padd": true,
+
+  "sizes": (
+    "sm": $space-quarter,
+    "md": $space-half,
+    "": $space,
+    "lg": $space * 2,
+    "none": 0
+  )
+);
+
+
+// Typography
+//============================================
+
+$font:      "Helvetica Neue", Arial, sans-serif;
+$font-mono: monospace, monospace;
+$fs:        16px;
+$lh:        ($space / $fs);
+
+
+// Layout
+//============================================
+
+// XS
+$layout-gutter-xs: 15px;
+$layout-width-xs:  416px;
+
+// SM
+$layout-gutter-sm: 20px;
+$layout-width-sm:  728px;
+
+// MD
+$layout-gutter-md: 22px;
+$layout-width-md:  966px;
+
+// LG
+$layout-gutter-lg: 30px;
+$layout-width-lg:  1290px;
+
+
+// Breakpoints
+//============================================
+
+$bp-xs:       "(min-width: #{$layout-width-xs + ($layout-gutter-xs * 2)})";
+$bp-sm:       "(min-width: #{$layout-width-sm + ($layout-gutter-sm * 2)})";
+$bp-md:       "(min-width: #{$layout-width-md + ($layout-gutter-md * 2)})";
+$bp-lg:       "(min-width: #{$layout-width-lg + ($layout-gutter-lg * 2)})";
+
+$bp-xxs-max:  "(max-width: #{($layout-width-xs + ($layout-gutter-xs * 2)) - 1px})";
+$bp-xs-max:   "(max-width: #{($layout-width-sm + ($layout-gutter-sm * 2)) - 1px})";
+$bp-sm-max:   "(max-width: #{($layout-width-md + ($layout-gutter-md * 2)) - 1px})";
+$bp-md-max:   "(max-width: #{($layout-width-lg + ($layout-gutter-lg * 2)) - 1px})";
+
+
+// Grid
+//============================================
+
+$grid-columns: 24;
+
+$grid-config-xs: (
+  "name": "xs",
+  "cols": $grid-columns,
+  "gutter": 16px,
+  "bp": false,
+  "off": false,
+  "pull": false,
+  "push": false
+);
+
+$grid-config-sm: (
+  "name": "sm",
+  "cols": $grid-columns,
+  "gutter": 20px,
+  "bp": $bp-sm,
+  "off": true,
+  "pull": true,
+  "push": true
+);
+
+$grid-config-md: (
+  "name": "md",
+  "cols": $grid-columns,
+  "gutter": 22px,
+  "bp": $bp-md,
+  "off": true,
+  "pull": true,
+  "push": true
+);
+
+$grid-config-lg: (
+  "name": "lg",
+  "cols": $grid-columns,
+  "gutter": 30px,
+  "bp": $bp-lg,
+  "off": true,
+  "pull": true,
+  "push": true
+);

@@ -1,0 +1,78 @@
+//============================================
+// Icons
+//============================================
+
+// Define default var to prevent a sass error
+$i-map: () !default
+
+
+// Icon width
+//============================================
+
+@function icon-width($name)
+  $name: $name + "-width"
+  $val: map-get($i-map, $name)
+
+  @if $val
+    @return $val
+  @else
+    @warn "Icon not defined"
+    @return false
+
+// Alias
+@function iw($name)
+  @return icon-width($name)
+
+
+// Icon Height
+//============================================
+
+@function icon-height($name)
+  $name: $name + "-height"
+  $val: map-get($i-map, $name)
+
+  @if $val
+    @return $val
+  @else
+    @warn "Icon not defined"
+    @return false
+
+// Alias
+@function ih($name)
+  @return icon-height($name)
+
+
+// Icon Position
+//============================================
+
+@function icon-position($name)
+  $name: $name + "-position"
+  $val: map-get($i-map, $name)
+
+  @if $val
+    @return $val
+  @else
+    @warn "Icon not defined"
+    @return false
+
+=icon-position($name)
+  background-position: icon-position($name)
+
+// Alias
+@function ip($name)
+  @return icon-position($name)
+
+=ip($name)
+  +icon-position($name)
+
+
+// Icon Size
+//============================================
+
+=icon-size ($name)
+  +size(icon-width($name), icon-height($name))
+
+// Alias
+=is($name)
+  +icon-size($name)
+
