@@ -1,6 +1,8 @@
+'use strict';
 /* Notes:
    - gulp/tasks/browserify.js handles js recompiling with watchify
    - gulp/tasks/browserSync.js watches and reloads compiled files
+   - watchers are made using `gulp-watch` so new files are automatically watched
 */
 
 var gulp     = require('gulp');
@@ -15,6 +17,14 @@ gulp.task('watch', ['clean'], function() {
 
   watch(config.svgSprite.cwd + '/' + config.svgSprite.src, function(){
     runSequence('sprite', browserSync.reload);
+  });
+
+  watch(config.jslint.srcJs, function(){
+    runSequence('jshint', 'jscs');
+  });
+
+  watch(config.jslint.srcCoffee, function(){
+    runSequence('coffeelint');
   });
 
   watch(config.sass.src, function(){
