@@ -57,6 +57,11 @@ module.exports = {
     dest: dest + "/"
   },
 
+  jslint: {
+    srcJs: src + '/js/**/*.js',
+    srcCoffee: src + '/js/**/*.coffee'
+  },
+
   browserify: {
     // A separate bundle will be generated for each
     // bundle config in the list below
