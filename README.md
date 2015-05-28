@@ -169,6 +169,6 @@ Want to just run `karma start`? Either add `alias karma="./node_modules/karma/bi
 
 ## References / Credits
 
-- Silverstripe clean theme is based on https://github.com/greypants/gulp-starter
+- Gulp-plate based on https://github.com/greypants/gulp-starter
 - Read the [blog post](http://viget.com/extend/gulp-browserify-starter-faq)
 - Check out the [Wiki](https://github.com/greypants/gulp-starter/wiki)
