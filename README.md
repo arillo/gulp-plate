@@ -166,6 +166,7 @@ Want to just run `karma start`? Either add `alias karma="./node_modules/karma/bi
 - Sass sourcemaps are not working properly, the handling of Sass indented syntax seems a little buggy.
 - No great sass & scss linter is available at the time of writing. https://github.com/sasstools/sass-lint looks promising but does not seem finished yet.
 - `.coffeeelintignore` seems not to be working, be aware when changing the path to watch more than your `./src/js` directory.
+- The Sass files to be rendered as `.css` files need to have the extension `.sass` otherwise the compiler fails. Partials can be both `.sass` and `.scss`.
 
 ## References / Credits
 
