@@ -10,6 +10,21 @@
 .u-tt-uppercase
   text-transform: uppercase
 
++mq($bp-sm)
+  .u-tt-sm-caps,
+  .u-tt-sm-uppercase
+    text-transform: uppercase
+
++mq($bp-md)
+  .u-tt-md-caps,
+  .u-tt-md-uppercase
+    text-transform: uppercase
+
++mq($bp-lg)
+  .u-tt-lg-caps,
+  .u-tt-lg-uppercase
+    text-transform: uppercase
+
 
 // Text Align
 //============================================
@@ -23,12 +38,66 @@
 .u-ta-center
   text-align: center
 
++mq($bp-sm)
+  .u-ta-sm-lft
+    text-align: left
+
+  .u-ta-sm-rgt
+    text-align: right
+
+  .u-ta-sm-center
+    text-align: center
+
++mq($bp-md)
+  .u-ta-md-lft
+    text-align: left
+
+  .u-ta-md-rgt
+    text-align: right
+
+  .u-ta-md-center
+    text-align: center
+
++mq($bp-lg)
+  .u-ta-lg-lft
+    text-align: left
+
+  .u-ta-lg-rgt
+    text-align: right
+
+  .u-ta-lg-center
+    text-align: center
+
 
 // Text Color
 //============================================
 
 .u-c-primary
   color: $primary
+
+.u-c-text
+  color: $color-text
+
++mq($bp-sm)
+  .u-c-sm-primary
+    color: $primary
+
+  .u-c-sm-text
+    color: $color-text
+
++mq($bp-md)
+  .u-c-md-primary
+    color: $primary
+
+  .u-c-md-text
+    color: $color-text
+
++mq($bp-lg)
+  .u-c-lg-primary
+    color: $primary
+
+  .u-c-lg-text
+    color: $color-text
 
 
 // Truncate
@@ -43,9 +112,51 @@
 .u-fw-normal
   font-weight: normal
 
++mq($bp-sm)
+  .u-fw-sm-bold
+    font-weight: bold
+
+  .u-fw-sm-semi
+    font-weight: 600
+
+  .u-fw-sm-normal
+    font-weight: normal
+
++mq($bp-md)
+  .u-fw-md-bold
+    font-weight: bold
+
+  .u-fw-md-semi
+    font-weight: 600
+
+  .u-fw-md-normal
+    font-weight: normal
+
++mq($bp-lg)
+  .u-fw-lg-bold
+    font-weight: bold
+
+  .u-fw-lg-semi
+    font-weight: 600
+
+  .u-fw-lg-normal
+    font-weight: normal
+
 
 // Truncate
 //============================================
 
 .u-truncate
   +truncate
+
++mq($bp-sm)
+  .u-truncate-sm
+    +truncate
+
++mq($bp-md)
+  .u-truncate-md
+    +truncate
+
++mq($bp-lg)
+  .u-truncate-lg
+    +truncate

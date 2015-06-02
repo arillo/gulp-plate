@@ -21,20 +21,6 @@ $space:      24px;
 $space-half: $space * 0.5;
 $space-quarter: $space * 0.25;
 
-$dimension-utility-config: (
-  "pull": true,
-  "push": true,
-  "padd": true,
-
-  "sizes": (
-    "sm": $space-quarter,
-    "md": $space-half,
-    "": $space,
-    "lg": $space * 2,
-    "none": 0
-  )
-);
-
 
 // Typography
 //============================================
@@ -85,7 +71,7 @@ $bp-md-max:   "(max-width: #{($layout-width-lg + ($layout-gutter-lg * 2)) - 1px}
 $grid-columns: 24;
 
 $grid-config-xs: (
-  "name": "xs",
+  "name": "",
   "cols": $grid-columns,
   "gutter": 16px,
   "bp": false,
@@ -122,4 +108,56 @@ $grid-config-lg: (
   "off": true,
   "pull": true,
   "push": true
+);
+
+
+// Dimension Utility
+//============================================
+
+$dimension-utility-sizes: (
+  "sm": $space-quarter,
+  "md": $space-half,
+  "": $space,
+  "lg": $space * 2,
+  "none": 0
+);
+
+$dimension-utility-config-xs: (
+  "name": "",
+  "pull": true,
+  "push": true,
+  "padd": true,
+  "bp": false,
+
+  "sizes": $dimension-utility-sizes
+);
+
+$dimension-utility-config-sm: (
+  "name": "sm",
+  "pull": true,
+  "push": true,
+  "padd": true,
+  "bp": $bp-sm,
+
+  "sizes": $dimension-utility-sizes
+);
+
+$dimension-utility-config-md: (
+  "name": "md",
+  "pull": true,
+  "push": true,
+  "padd": true,
+  "bp": $bp-md,
+
+  "sizes": $dimension-utility-sizes
+);
+
+$dimension-utility-config-lg: (
+  "name": "lg",
+  "pull": true,
+  "push": true,
+  "padd": true,
+  "bp": $bp-lg,
+
+  "sizes": $dimension-utility-sizes
 );

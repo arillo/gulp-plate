@@ -12,7 +12,8 @@ module.exports = {
       // Serve up our build folder
       baseDir: dest
     },
-    notify: false
+    notify: false,
+    open: false
   },
 
   sass: {
