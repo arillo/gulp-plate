@@ -35,7 +35,7 @@ $lh:        ($space / $fs);
 //============================================
 
 // XS
-$layout-gutter-xs: 15px;
+$layout-gutter-xs: 16px;
 $layout-width-xs:  416px;
 
 // SM
@@ -73,7 +73,7 @@ $grid-columns: 24;
 $grid-config-xs: (
   "name": "",
   "cols": $grid-columns,
-  "gutter": 16px,
+  "gutter": $layout-gutter-xs,
   "bp": false,
   "off": false,
   "pull": false,
@@ -83,7 +83,7 @@ $grid-config-xs: (
 $grid-config-sm: (
   "name": "sm",
   "cols": $grid-columns,
-  "gutter": 20px,
+  "gutter": $layout-gutter-sm,
   "bp": $bp-sm,
   "off": true,
   "pull": true,
@@ -93,7 +93,7 @@ $grid-config-sm: (
 $grid-config-md: (
   "name": "md",
   "cols": $grid-columns,
-  "gutter": 22px,
+  "gutter": $layout-gutter-md,
   "bp": $bp-md,
   "off": true,
   "pull": true,
@@ -103,7 +103,7 @@ $grid-config-md: (
 $grid-config-lg: (
   "name": "lg",
   "cols": $grid-columns,
-  "gutter": 30px,
+  "gutter": $layout-gutter-lg,
   "bp": $bp-lg,
   "off": true,
   "pull": true,
@@ -115,10 +115,10 @@ $grid-config-lg: (
 //============================================
 
 $dimension-utility-sizes: (
-  "sm": $space-quarter,
-  "md": $space-half,
+  "quarter": $space-quarter,
+  "half": $space-half,
   "": $space,
-  "lg": $space * 2,
+  "double": $space * 2,
   "none": 0
 );
 
