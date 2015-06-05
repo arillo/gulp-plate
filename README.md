@@ -97,6 +97,17 @@ If you want to include external css files from npm or bower (bower is not setup 
 @import "../../node_modules/normalize.css/normalize.css"
 ```
 
+
+__Note:__
+
+This does not work if the `@import` is scoped inside a class like this:
+
+```sass
+// This will output a regular import!!!
+.myClass
+  @import "../../node_modules/normalize.css/normalize.css"
+```
+
 ## Shim a jQuery plugin to work with browserify
 
 ```js
@@ -167,6 +178,7 @@ Want to just run `karma start`? Either add `alias karma="./node_modules/karma/bi
 - No great sass & scss linter is available at the time of writing. https://github.com/sasstools/sass-lint looks promising but does not seem finished yet.
 - `.coffeeelintignore` seems not to be working, be aware when changing the path to watch more than your `./src/js` directory.
 - The Sass files to be rendered as `.css` files need to have the extension `.sass` otherwise the compiler fails. Partials can be both `.sass` and `.scss`.
+
 
 ## References / Credits
 
