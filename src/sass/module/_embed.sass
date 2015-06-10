@@ -1,0 +1,38 @@
+//============================================
+// Embed
+//============================================
+
+
+// Wraper
+//============================================
+
+.embed
+  position: relative
+  overflow: hidden
+  height: 0
+  display: block
+
+.embed-16-9
+  padding-bottom: (9 / 16) * 100%
+
+.embed-4-3
+  padding-bottom: (3 / 4) * 100%
+
+.embed-3-2
+  padding-bottom: (2 / 3) * 100%
+
+.embed-2-1
+  padding-bottom: 50%
+
+.embed object,
+.embed iframe,
+.embed embed,
+.embed video,
+.embed_media-img,
+.embed_media
+  +pos(0, top left)
+  +size(100%)
+  display: block
+
+.embed_media-img
+  +size(100%, auto)
