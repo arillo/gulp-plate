@@ -10,7 +10,7 @@ var minifyHTML = require('gulp-minify-html');
 gulp.task('markup', function() {
   return gulp.src(config.src)
     .pipe(include({
-      basepath: './src/html/partials/'
+      basepath: config.partialsSrc
     }))
     .pipe(rename({extname: ""}))
     .pipe(rename({extname: ".html"}))

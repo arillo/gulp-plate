@@ -42,7 +42,7 @@ module.exports = {
   },
 
   markup: {
-    partialsSrc: src + '/html/partials/**',
+    partialsSrc: src + '/html/partials/',
     src: src + "/html/*.tpl.html",
     dest: dest + "/"
   },
