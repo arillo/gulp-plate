@@ -84,7 +84,8 @@ $grid-config-xs: (
   "bp": false,
   "off": false,
   "pull": false,
-  "push": false
+  "push": false,
+  "clear": 2
 );
 
 $grid-config-sm: (
@@ -94,7 +95,8 @@ $grid-config-sm: (
   "bp": $bp-sm,
   "off": true,
   "pull": true,
-  "push": true
+  "push": true,
+  "clear": 2
 );
 
 $grid-config-md: (
@@ -104,7 +106,8 @@ $grid-config-md: (
   "bp": $bp-md,
   "off": true,
   "pull": true,
-  "push": true
+  "push": true,
+  "clear": 3
 );
 
 $grid-config-lg: (
@@ -114,7 +117,8 @@ $grid-config-lg: (
   "bp": $bp-lg,
   "off": true,
   "pull": true,
-  "push": true
+  "push": true,
+  "clear": 3 4
 );
 
 

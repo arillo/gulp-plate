@@ -42,7 +42,6 @@
     @if str-length($name) != 0
       $name: "-#{$name}"
 
-
     // Base unit
     $base: (100%/$cols)
 
@@ -53,6 +52,15 @@
         margin-left: -$gutter-lft
         margin-right: -$gutter-rgt
 
+      // Clear
+      @if map-get($config, "clear")
+        @each $col in map-get($config, "clear")
+          .g#{$name}-clear-#{$col}
+            .g:nth-child(#{$col}n+1)
+              clear: left
+            .g:not(:nth-child(#{$col}n+1))
+              clear: none
+
       // Update unit
       .g
         padding-left: $gutter-lft
@@ -62,6 +70,7 @@
       @for $i from 1 through $cols
         .g#{$name}-#{$i}
           width: $base * $i
+
 
       // Helpers
       +grid-helper($config, "off", margin-left, 0)
