@@ -1,0 +1,35 @@
+.btn
+  transition: background-color .2s, border-color .2s
+  padding: $space-quarter 20px
+  border: 1px solid $gray-dark
+  background: $gray-dark
+  font-size: inherit
+  font-weight: normal
+  font-family: inherit
+  text-transform: uppercase
+  border-radius: 3px
+  width: auto
+  display: inline-block
+  color: white
+  line-height: $lh
+  text-align: center
+  vertical-align: middle
+  white-space: nowrap
+  text-shadow: none
+
+.no-touchevents .btn:focus,
+.no-touchevents .btn:hover
+  background-color: $primary
+  border-color: $primary
+  z-index: 1
+  outline: 0
+  cursor: pointer
+
+.no-touchevents .btn.disabled:hover,
+.no-touchevents .btn[disabled]:hover,
+.btn.disabled,
+.btn[disabled]
+  background-color: $gray-light
+  border-color: $gray-light
+  color: $gray
+  cursor: not-allowed
