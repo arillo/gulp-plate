@@ -1,4 +1,4 @@
-# Gulp-Plate
+![Gulp Plate](http://turbo.aminalhazwani.com.s3.amazonaws.com/github/gulp-plate.png)
 
 [Gulp](http://gulpjs.com/) boilerplate & build system.
 
