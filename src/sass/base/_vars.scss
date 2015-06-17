@@ -69,10 +69,10 @@ $bp-sm:       "(min-width: #{$layout-width-sm + ($layout-gutter-sm * 2)})";
 $bp-md:       "(min-width: #{$layout-width-md + ($layout-gutter-md * 2)})";
 $bp-lg:       "(min-width: #{$layout-width-lg + ($layout-gutter-lg * 2)})";
 
-$bp-xxs-max:  "(max-width: #{($layout-width-xs + ($layout-gutter-xs * 2)) - 1px})";
-$bp-xs-max:   "(max-width: #{($layout-width-sm + ($layout-gutter-sm * 2)) - 1px})";
-$bp-sm-max:   "(max-width: #{($layout-width-md + ($layout-gutter-md * 2)) - 1px})";
-$bp-md-max:   "(max-width: #{($layout-width-lg + ($layout-gutter-lg * 2)) - 1px})";
+$bp-xs-down:  "(max-width: #{($layout-width-xs + ($layout-gutter-xs * 2)) - 1px})";
+$bp-sm-down:  "(max-width: #{($layout-width-sm + ($layout-gutter-sm * 2)) - 1px})";
+$bp-md-down:  "(max-width: #{($layout-width-md + ($layout-gutter-md * 2)) - 1px})";
+$bp-lg-down:  "(max-width: #{($layout-width-lg + ($layout-gutter-lg * 2)) - 1px})";
 
 
 // Grid
