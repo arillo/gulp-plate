@@ -35,7 +35,8 @@
 
     // Render (properties with value `null` don't get rendered)
     @each $key, $val in $map
-      #{$key}: #{$val}
+      @if $val != null
+        #{$key}: #{$val}
 
     // Validation, still rendering but at least you know
     @each $amount in $amounts
