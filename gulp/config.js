@@ -62,21 +62,34 @@ module.exports = {
   },
 
   svgSprite: {
+    type: 'background', // 'inline'
     src: src + '/icons',
     glob: '**/*.svg',
     dest: dest + '/images',
-    options : {
+    removeFills: true,
+    optionsInline: {
       mode: {
-        css: {
-          layout: 'horizontal',
-          prefix: '.i-%s',
-          common: 'i',
-          dimensions: '-s',
+        symbol: {
           sprite: 'sprite.svg',
           dest: '.',
           render: {
             scss: {
-              template: 'gulp/tpl/_sprite.scss',
+              template: 'gulp/tpl/_sprite-inline.scss',
+              dest: '../../src/sass/_sprite.scss'
+            }
+          }
+        }
+      }
+    },
+    optionsBackground: {
+      mode: {
+        css: {
+          layout: 'horizontal',
+          sprite: 'sprite.svg',
+          dest: '.',
+          render: {
+            scss: {
+              template: 'gulp/tpl/_sprite-background.scss',
               dest: '../../src/sass/_sprite.scss'
             }
           }

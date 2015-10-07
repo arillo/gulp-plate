@@ -87,6 +87,23 @@ myTheme_source/
 
 Any additional folder to be moved to the production theme needs a new dedicated task e.g. `"moveFonts"` if you would need to move a `fonts/` folder.
 
+__Sprite config__
+
+Set what type of sprite generation you want to use:
+
+```javascript
+...
+svgSprite: {
+  type: 'background' // set to 'inline' or 'background' (default)
+  ...
+}
+...
+
+```
+
+- __`'background'`__ creates a svg sprite that can be used as a background image in css.
+- __`'inline'`__ creates a svg image that can be used to reference icons with a `<use>` tag.
+
 ## Include external vendor css files
 
 If you want to include external css files from npm or bower (bower is not setup by default but feel free to include it) you can just import them in your sass files as css imports. The gulp `sass` task will take care of pulling the file content into the generated css file.

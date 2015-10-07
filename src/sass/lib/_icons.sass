@@ -76,3 +76,28 @@ $i-map: () !default
 =is($name)
   +icon-size($name)
 
+
+// Scale Icon (Inline only)
+//============================================
+
+=scale-icon ($name, $width, $round: "round")
+  $w: $name + "-width"
+  $w: map-get($i-map-inline, $w)
+  $h: $name + "-height"
+  $h: map-get($i-map-inline, $h)
+
+  $height: ($width / $w) * $h
+
+  @if $round == "round"
+    $height: round($height)
+  @if $round == "ceil"
+    $height: ceil($height)
+  @if $round == "floor"
+    $height: floor($height)
+
+  +size($width, $height)
+
+// Alias
+=iscale ($name, $width, $round: "round")
+  +scale-icon($name, $width)
+

@@ -1,6 +1,12 @@
-# Browserify entry point for the global.js bundle (yay CoffeeScript!)
 $ = require 'jquery'
-plugin = require 'plugin'
 
-# console.log 'main.js loaded!'
-plugin()
+# Shimmed plugin example
+# plugin = require 'plugin'
+
+# Enable inline svgs in IE
+# svg4everybody = require 'svg4everybody'
+# svg4everybody()
+
+$ ->
+  # Shimmed plugin example
+  # plugin()

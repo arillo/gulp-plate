@@ -9,9 +9,9 @@
 $primary:     #00f;
 $black:       #111;
 
-$gray: #ddd;
+$gray:        #ddd;
 $gray-light:  #f7f7f7;
-$gray-dark: #767676;
+$gray-dark:   #767676;
 
 $color-text:  $black;
 $color-bg:    white;
@@ -20,8 +20,8 @@ $color-bg:    white;
 // Dimensions
 //============================================
 
-$space:      24px;
-$space-half: $space * 0.5;
+$space:         24px;
+$space-half:    $space * 0.5;
 $space-quarter: $space * 0.25;
 
 
@@ -78,7 +78,7 @@ $bp-lg-down:  "(max-width: #{($layout-width-lg + ($layout-gutter-lg * 2)) - 1px}
 // Grid
 //============================================
 
-$grid-columns: 24;
+$grid-columns: 12;
 
 $grid-config-xs: (
   "name": "",
@@ -110,7 +110,7 @@ $grid-config-md: (
   "off": true,
   "pull": true,
   "push": true,
-  "clear": 3
+  "clear": 3 4
 );
 
 $grid-config-lg: (
