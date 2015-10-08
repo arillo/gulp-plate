@@ -180,17 +180,6 @@ var myScript = require('./ui/myScript');
 
 ```
 
-## JavaScript Tests with Karma
-
-This repo includes a basic js testing setup with the following: [Karma](http://karma-runner.github.io/0.12/index.html), [Mocha](http://mochajs.org/), [Chai](http://chaijs.com/), and [Sinon](http://sinonjs.org/). There is `karma` gulp task, which the `production` task uses to run the tests before compiling. If any tests fail, the `production` task will abort.
-
-To run the tests and start monitoring files:
-```
-./node_modules/karma/bin/karma start
-```
-
-Want to just run `karma start`? Either add `alias karma="./node_modules/karma/bin/karma"` to your shell config or install the karma command line interface globally with `npm install -g karma-cli`.
-
 ## Known issues
 
 - Sass sourcemaps are not working properly, the handling of Sass indented syntax seems a little buggy.
