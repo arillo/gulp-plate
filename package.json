@@ -1,13 +1,10 @@
 {
-  "name": "arillo-gulp-starter-kit",
+  "name": "gulp-plate",
   "version": "1.2.1",
-  "description": "A gulp started kit",
+  "description": "Gulp boilerplate for static page generation",
   "repository": {
     "type": "git",
-    "url": ""
-  },
-  "browser": {
-    "plugin": "./src/js/vendor/jquery-plugin.js"
+    "url": "git://github.com/arillo/gulp-plate.git"
   },
   "browserify": {
     "transform": [
@@ -15,14 +12,10 @@
       "coffeeify"
     ]
   },
-  "browserify-shim": {
-    "plugin": {
-      "exports": "plugin",
-      "depends": [
-        "jquery:$"
-      ]
-    }
-  },
+
+  "browser": {},
+  "browserify-shim": {},
+
   "devDependencies": {
     "browser-sync": "~2.2.2",
     "browserify": "^9.0.3",

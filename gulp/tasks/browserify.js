@@ -78,7 +78,7 @@ var browserifyTask = function(devMode) {
 };
 
 gulp.task('browserify', function() {
-  return browserifyTask()
+  return browserifyTask();
 });
 
 // Exporting the task so we can call it directly in our watch task, with the 'devMode' option
