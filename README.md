@@ -190,7 +190,7 @@ When creating multiple JavaScript bundles it is important to include each librar
 
 __In your `package.json`__
 
-```json
+```js
 {
   //...
   // Add the library you want to share to the `browser` object
