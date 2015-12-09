@@ -219,7 +219,7 @@ __In your `gulp/config.js`__
         // This will include `jquery` in the main bundle weather it is uses
         //`require('jquery')` itself or not, and make it available to the
         // other bundles
-        require: ['libary-to-share']
+        require: ['jquery']
       },
 
       // This is another bundle that will be generated
