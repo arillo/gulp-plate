@@ -26,7 +26,7 @@ Install Node. If you use homebrew, do:
 $ brew install node
 ```
 
-Otherwise, you can download and install from [here](http://nodejs.org/download/).
+Otherwise, you can download and install from [here](http://nodejs.org/download/). At the time of writing Node version 4+ is needed.
 
 Install Gulp globally:
 
@@ -82,7 +82,8 @@ myTheme_source/
     images/     # other images
     js/         # js code, can be coffeescript or plain js (mix is possible)
     sass/       # Sass code, scss and sass syntax possible
-    templates/  # Silverstripe templates
+    html/       # html templates
+      partials/ # html partials
 ```
 
 Any additional folder to be moved to the production theme needs a new dedicated task e.g. `"moveFonts"` if you would need to move a `fonts/` folder.
@@ -104,6 +105,10 @@ svgSprite: {
 - __`'background'`__ creates a svg sprite that can be used as a background image in css.
 - __`'inline'`__ creates a svg image that can be used to reference icons with a `<use>` tag.
 
+## HTML Templates
+
+HTML Templates need to have a `*.tmpl.html` extension to be transformed and moved properly. All partials should go in the partials folder and can be included in the templates using the [`gulp-file-include`](https://www.npmjs.com/package/gulp-file-include) plugin.
+
 ## Include external vendor css files
 
 If you want to include external css files from npm or bower (bower is not setup by default but feel free to include it) you can just import them in your sass files as css imports. The gulp `sass` task will take care of pulling the file content into the generated css file.
@@ -115,7 +120,6 @@ If you want to include external css files from npm or bower (bower is not setup 
 // will be inlined in the main file:
 @import "../../node_modules/normalize.css/normalize.css"
 ```
-
 
 __Note:__
 
@@ -180,6 +184,62 @@ var myScript = require('./ui/myScript');
 
 ```
 
+## Multiple JavaScript bundles & library sharing between bundles
+
+When creating multiple JavaScript bundles it is important to include each library (e.g. jQuery) only once in your _main_ or _library_ bundle instead of every single bundle. To make this work follow the steps below to share `jquery` for example:
+
+__In your `package.json`__
+
+```json
+{
+  //...
+  // Add the library you want to share to the `browser` object
+  // Look inside the package.json file of the library you want to share 
+  // to know which is the `main` file it exports.
+  "browser" : {
+    "jquery": "./node_modules/jquery/dist/jquery.js"
+  },
+  //...
+}
+```
+
+__In your `gulp/config.js`__
+
+```js
+{
+  //...
+  browserify: {
+    bundleConfigs: [
+      // This is the main bundle that contains the libraries
+      {
+        entries: src + '/js/main.coffee',
+        dest: dest + '/js',
+        outputName: 'main.js',
+        extensions: ['.coffee'],
+        // This will include `jquery` in the main bundle weather it is uses
+        //`require('jquery')` itself or not, and make it available to the
+        // other bundles
+        require: ['libary-to-share']
+      },
+
+      // This is another bundle that will be generated
+      // it uses `jquery` but does not include it itself
+      {
+        entries: src + '/js/other-bundle.coffee',
+        dest: dest + '/js',
+        outputName: 'other-bundle.js',
+        extensions: ['.coffee'],
+        // This bit lets the bundle know that it has to get 
+        // jquery from somewhere else
+        external: ['jquery']
+
+      }
+    ]
+  }
+  //...
+}
+```
+
 ## Known issues
 
 - Sass sourcemaps are not working properly, the handling of Sass indented syntax seems a little buggy.
@@ -187,9 +247,8 @@ var myScript = require('./ui/myScript');
 - `.coffeeelintignore` seems not to be working, be aware when changing the path to watch more than your `./src/js` directory.
 - The Sass files to be rendered as `.css` files need to have the extension `.sass` otherwise the compiler fails. Partials can be both `.sass` and `.scss`.
 
-
 ## References / Credits
 
-- Gulp-plate based on https://github.com/greypants/gulp-starter
+- Gulp-plate is based on https://github.com/greypants/gulp-starter
 - Read the [blog post](http://viget.com/extend/gulp-browserify-starter-faq)
 - Check out the [Wiki](https://github.com/greypants/gulp-starter/wiki)

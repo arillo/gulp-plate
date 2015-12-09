@@ -17,7 +17,7 @@ module.exports = {
   },
 
   sass: {
-    src: src + "/sass/**/*.{sass,scss}",
+    src: src + '/sass/**/*.{sass,scss}',
     dest: dest + '/css',
     prefix: [
       'ie >= 9',
@@ -37,15 +37,15 @@ module.exports = {
   },
 
   images: {
-    src: src + "/images/**",
-    dest: dest + "/images"
+    src: src + '/images/**',
+    dest: dest + '/images'
   },
 
   markup: {
-    partialsGlob: "**/*.html",
+    partialsGlob: '**/*.html',
     partialsSrc: src + '/html/partials/',
-    src: src + "/html/*.tpl.html",
-    dest: dest + "/"
+    src: src + '/html/*.tpl.html',
+    dest: dest + '/'
   },
 
   jslint: {
@@ -62,7 +62,7 @@ module.exports = {
   },
 
   svgSprite: {
-    type: 'inline', // 'inline'
+    type: 'background', // 'inline'
     src: src + '/icons',
     glob: '**/*.svg',
     dest: dest + '/images',
@@ -103,24 +103,16 @@ module.exports = {
 
   browserify: {
     // A separate bundle will be generated for each
-    // bundle config in the list below
-    bundleConfigs: [{
-      entries: src + '/js/main.coffee',
-      dest: dest + '/js',
-      outputName: 'main.js',
-      // Additional file extentions to make optional
-      extensions: ['.coffee'],
-      // list of modules to make require-able externally
-      require: ['jquery']
-      // old: require: ['jquery', 'backbone/node_modules/underscore']
-      // See https://github.com/greypants/gulp-starter/issues/87 for note about
-      // why this is 'backbone/node_modules/underscore' and not 'underscore'
-    // }, {
-    //   entries: src + '/javascript/page.js',
-    //   dest: dest + '/js',
-    //   outputName: 'page.js',
-    //   // list of externally available modules to exclude from the bundle
-    //   external: ['jquery', 'underscore']
-    }]
+    // bundle config in the list below.
+    // See README.md for more info.
+    bundleConfigs: [
+      {
+        entries: src + '/js/main.coffee',
+        dest: dest + '/js',
+        outputName: 'main.js',
+        extensions: ['.coffee'],
+        require: ['jquery']
+      }
+    ]
   }
 };
