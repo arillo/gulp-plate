@@ -5,5 +5,3 @@ $ = require 'jquery'
 # svg4everybody()
 
 $ ->
-  # Shimmed plugin example
-  # plugin()
