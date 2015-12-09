@@ -247,8 +247,6 @@ __In your `gulp/config.js`__
 - `.coffeeelintignore` seems not to be working, be aware when changing the path to watch more than your `./src/js` directory.
 - The Sass files to be rendered as `.css` files need to have the extension `.sass` otherwise the compiler fails. Partials can be both `.sass` and `.scss`.
 
-## References / Credits
+## Credits
 
 - Gulp-plate is based on https://github.com/greypants/gulp-starter
-- Read the [blog post](http://viget.com/extend/gulp-browserify-starter-faq)
-- Check out the [Wiki](https://github.com/greypants/gulp-starter/wiki)
