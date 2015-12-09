@@ -6,6 +6,7 @@
     "type": "git",
     "url": "git://github.com/arillo/gulp-plate.git"
   },
+  "license": "MIT",
   "browserify": {
     "transform": [
       "browserify-shim",
