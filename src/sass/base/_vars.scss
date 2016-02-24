@@ -20,9 +20,12 @@ $color-bg:    white;
 // Dimensions
 //============================================
 
-$space:         24px;
-$space-half:    $space * 0.5;
-$space-quarter: $space * 0.25;
+$space:              2.4rem; // 24px
+$space-quarter:      $space * 0.25;
+$space-half:         $space * 0.5;
+$space-threeQuarter: round($space * 0.75);
+$space-oneAndHalf:   $space * 1.5;
+$space-double:       $space * 2;
 
 
 // Typography
@@ -30,49 +33,67 @@ $space-quarter: $space * 0.25;
 
 $font:      "Helvetica Neue", Arial, sans-serif;
 $font-mono: monospace, monospace;
-$fs:        16px;
+$fs:        1.6rem;
 $lh:        ($space / $fs);
 
-$fs-h1: 48px;
-$fs-h2: 36px;
-$fs-h3: 30px;
-$fs-h4: 24px;
-$fs-h5: 20px;
-$fs-h6: 16px;
+$fs-h1: 4.8rem;
+$fs-h2: 3.6rem;
+$fs-h3: 3rem;
+$fs-h4: 2.5rem;
+$fs-h5: 2rem;
+$fs-h6: 1.6rem;
 
 
 // Layout
 //============================================
 
+// 1. Breakpoints are defined in em's, they are not affected by the
+// reset on the html element. They use 16px (browser default)
+// as a base for calculations. Keep in mind when creating new breakpoints.
+
+// 2. Substract 1px (1 / 16 = 0.0625em) to make the max-width query.
+
 // XS
-$layout-gutter-xs: 16px;
-$layout-width-xs:  416px;
+$layout-gutter-xs: 1.6rem;
+$layout-width-xs:  36.8rem;
+
+$layout-width-xs-mq: 25em; // 1. == 400px
+$layout-width-xs-mq-down: $layout-width-xs-mq - 0.0625em; // 2.
 
 // SM
-$layout-gutter-sm: 20px;
-$layout-width-sm:  728px;
+$layout-gutter-sm: 1.8rem;
+$layout-width-sm:  56rem;
+
+$layout-width-sm-mq: 37.25em; // 1. == 596px
+$layout-width-sm-mq-down: $layout-width-sm-mq - 0.0625em; // 2.
 
 // MD
-$layout-gutter-md: 22px;
-$layout-width-md:  966px;
+$layout-gutter-md: 1.8rem;
+$layout-width-md:  72.4rem;
+
+$layout-width-md-mq: 47.5em; // 1. == 760px
+$layout-width-md-mq-down: $layout-width-md-mq - 0.0625em; // 2.
 
 // LG
-$layout-gutter-lg: 30px;
-$layout-width-lg:  1290px;
+$layout-gutter-lg: 1.8rem;
+$layout-width-lg:  98.8rem;
+
+$layout-width-lg-mq: 64em; // 1. == 1024px
+$layout-width-lg-mq-down: $layout-width-lg-mq - 0.0625em; // 2.
 
 
 // Breakpoints
 //============================================
 
-$bp-xs:       "(min-width: #{$layout-width-xs + ($layout-gutter-xs * 2)})";
-$bp-sm:       "(min-width: #{$layout-width-sm + ($layout-gutter-sm * 2)})";
-$bp-md:       "(min-width: #{$layout-width-md + ($layout-gutter-md * 2)})";
-$bp-lg:       "(min-width: #{$layout-width-lg + ($layout-gutter-lg * 2)})";
+$bp-xs:       "(min-width: #{$layout-width-xs-mq})";
+$bp-sm:       "(min-width: #{$layout-width-sm-mq})";
+$bp-md:       "(min-width: #{$layout-width-md-mq})";
+$bp-lg:       "(min-width: #{$layout-width-lg-mq})";
 
-$bp-xs-down:  "(max-width: #{($layout-width-xs + ($layout-gutter-xs * 2)) - 1px})";
-$bp-sm-down:  "(max-width: #{($layout-width-sm + ($layout-gutter-sm * 2)) - 1px})";
-$bp-md-down:  "(max-width: #{($layout-width-md + ($layout-gutter-md * 2)) - 1px})";
-$bp-lg-down:  "(max-width: #{($layout-width-lg + ($layout-gutter-lg * 2)) - 1px})";
+$bp-xs-down:  "(max-width: #{$layout-width-xs-mq-down})";
+$bp-sm-down:  "(max-width: #{$layout-width-sm-mq-down})";
+$bp-md-down:  "(max-width: #{$layout-width-md-mq-down})";
+$bp-lg-down:  "(max-width: #{$layout-width-lg-mq-down})";
 
 
 // Grid
@@ -124,13 +145,30 @@ $grid-config-lg: (
   "clear": 3 4
 );
 
+// Grid sizes for print
+$grid-config-print: (
+  "name": "print",
+  "cols": $grid-columns,
+  "gutter": $layout-gutter-md,
+  "bp": "print",
+  "off": true,
+  "pull": true,
+  "push": true,
+  "clear": 2 3
+);
+
 
 // Dimension Utility
 //============================================
 
 $dimension-utility-sizes: (
+  "1": 0.1rem,
+  "2": 0.2rem,
+  "3": 0.3rem,
+  "4": 0.4rem,
   "quarter": $space-quarter,
   "half": $space-half,
+  "threeQuarter": $space-threeQuarter,
   "": $space,
   "double": $space * 2,
   "none": 0
