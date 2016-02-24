@@ -23,9 +23,14 @@
 // Root
 //============================================
 
+// 1. Remove gray overlay on links for ios
+// 2. Reset font-size to 10px for more straight forward calculations
+// 3. If this base changes keep in mind to change the `rem` custom
+// function in the sprite configuration in the config.js file. !!
+
 html
-  -webkit-tap-highlight-color: rgba(0,0,0,0)
-  font-size: 100%
+  -webkit-tap-highlight-color: rgba(0,0,0,0) // 1.
+  font-size: 62.5% // 2., 3.
 
 
 // Body
@@ -120,9 +125,9 @@ address
 
 hr
   display: block
-  height: 1px
+  height: .1rem
   border: 0
-  border-top: 1px solid rgba($gray-light, .5)
+  border-top: .1rem solid rgba($gray-light, .5)
   margin: $space 0
   padding: 0
   clear: both
@@ -147,8 +152,8 @@ pre
 //============================================
 
 blockquote
-  padding-left: 15px
-  border-left: 2px solid $gray-light
+  padding-left: 1.5rem
+  border-left: .2rem solid $gray-light
 
 q
   quotes: "\201C" "\201D" "\2018" "\2019"
