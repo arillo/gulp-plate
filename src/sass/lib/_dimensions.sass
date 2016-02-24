@@ -15,7 +15,7 @@
     $sizes: map-get($config, "sizes")
 
     @if str-length($name) != 0
-      $name: "-#{$name}"
+      $name: "#{\@}#{$name}"
 
     @if not length($sizes)
       @warn "No sizes defined"
@@ -27,69 +27,69 @@
           $key: "-#{$key}"
 
         @if $pull
-          .u#{$name}-pull-top#{$key}
+          .u-pull-top#{$key}#{$name}
             margin-top: - $val
-          .u#{$name}-pull-lft#{$key}
+          .u-pull-lft#{$key}#{$name}
             margin-left: - $val
-          .u#{$name}-pull-rgt#{$key}
+          .u-pull-rgt#{$key}#{$name}
             margin-right: - $val
-          .u#{$name}-pull-btm#{$key}
+          .u-pull-btm#{$key}#{$name}
             margin-bottom: - $val
 
-          .u#{$name}-pull#{$key}
-            @extend .u#{$name}-pull-top#{$key}
-            @extend .u#{$name}-pull-lft#{$key}
-            @extend .u#{$name}-pull-rgt#{$key}
-            @extend .u#{$name}-pull-btm#{$key}
+          .u-pull#{$key}#{$name}
+            @extend .u-pull-top#{$key}#{$name}
+            @extend .u-pull-lft#{$key}#{$name}
+            @extend .u-pull-rgt#{$key}#{$name}
+            @extend .u-pull-btm#{$key}#{$name}
 
-          .u#{$name}-pull-horz#{$key}
-            @extend .u#{$name}-pull-lft#{$key}
-            @extend .u#{$name}-pull-rgt#{$key}
-          .u#{$name}-pull-vert#{$key}
-            @extend .u#{$name}-pull-top#{$key}
-            @extend .u#{$name}-pull-btm#{$key}
+          .u-pull-horz#{$key}#{$name}
+            @extend .u-pull-lft#{$key}#{$name}
+            @extend .u-pull-rgt#{$key}#{$name}
+          .u-pull-vert#{$key}#{$name}
+            @extend .u-pull-top#{$key}#{$name}
+            @extend .u-pull-btm#{$key}#{$name}
 
         @if $push
-          .u#{$name}-push-top#{$key}
+          .u-push-top#{$key}#{$name}
             margin-top: $val
-          .u#{$name}-push-lft#{$key}
+          .u-push-lft#{$key}#{$name}
             margin-left: $val
-          .u#{$name}-push-rgt#{$key}
+          .u-push-rgt#{$key}#{$name}
             margin-right: $val
-          .u#{$name}-push-btm#{$key}
+          .u-push-btm#{$key}#{$name}
             margin-bottom: $val
 
-          .u#{$name}-push#{$key}
-            @extend .u#{$name}-push-top#{$key}
-            @extend .u#{$name}-push-lft#{$key}
-            @extend .u#{$name}-push-rgt#{$key}
-            @extend .u#{$name}-push-btm#{$key}
+          .u-push#{$key}#{$name}
+            @extend .u-push-top#{$key}#{$name}
+            @extend .u-push-lft#{$key}#{$name}
+            @extend .u-push-rgt#{$key}#{$name}
+            @extend .u-push-btm#{$key}#{$name}
 
-          .u#{$name}-push-horz#{$key}
-            @extend .u#{$name}-push-lft#{$key}
-            @extend .u#{$name}-push-rgt#{$key}
-          .u#{$name}-push-vert#{$key}
-            @extend .u#{$name}-push-top#{$key}
-            @extend .u#{$name}-push-btm#{$key}
+          .u-push-horz#{$key}#{$name}
+            @extend .u-push-lft#{$key}#{$name}
+            @extend .u-push-rgt#{$key}#{$name}
+          .u-push-vert#{$key}#{$name}
+            @extend .u-push-top#{$key}#{$name}
+            @extend .u-push-btm#{$key}#{$name}
 
         @if $padd
-          .u#{$name}-padd-top#{$key}
+          .u-padd-top#{$key}#{$name}
             padding-top: $val
-          .u#{$name}-padd-lft#{$key}
+          .u-padd-lft#{$key}#{$name}
             padding-left: $val
-          .u#{$name}-padd-rgt#{$key}
+          .u-padd-rgt#{$key}#{$name}
             padding-right: $val
-          .u#{$name}-padd-btm#{$key}
+          .u-padd-btm#{$key}#{$name}
             padding-bottom: $val
 
-          .u#{$name}-padd#{$key}
-            @extend .u#{$name}-padd-top#{$key}
-            @extend .u#{$name}-padd-lft#{$key}
-            @extend .u#{$name}-padd-rgt#{$key}
-            @extend .u#{$name}-padd-btm#{$key}
-          .u#{$name}-padd-horz#{$key}
-            @extend .u#{$name}-padd-lft#{$key}
-            @extend .u#{$name}-padd-rgt#{$key}
-          .u#{$name}-padd-vert#{$key}
-            @extend .u#{$name}-padd-top#{$key}
-            @extend .u#{$name}-padd-btm#{$key}
+          .u-padd#{$key}#{$name}
+            @extend .u-padd-top#{$key}#{$name}
+            @extend .u-padd-lft#{$key}#{$name}
+            @extend .u-padd-rgt#{$key}#{$name}
+            @extend .u-padd-btm#{$key}#{$name}
+          .u-padd-horz#{$key}#{$name}
+            @extend .u-padd-lft#{$key}#{$name}
+            @extend .u-padd-rgt#{$key}#{$name}
+          .u-padd-vert#{$key}#{$name}
+            @extend .u-padd-top#{$key}#{$name}
+            @extend .u-padd-btm#{$key}#{$name}

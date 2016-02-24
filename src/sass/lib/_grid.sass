@@ -36,14 +36,15 @@
     // Get config
     $name:    map-get($config, "name")
     $cols:    map-get($config, "cols")
-    $gutter-lft:  ceil(map-get($config, "gutter") / 2)
-    $gutter-rgt:  floor(map-get($config, "gutter") / 2)
+    $gutter-lft:  map-get($config, "gutter") / 2
+    $gutter-rgt:  map-get($config, "gutter") / 2
 
     @if str-length($name) != 0
-      $name: "-#{$name}"
+      $name: "#{\@}#{$name}"
 
     // Base unit
-    $base: (100%/$cols)
+    @if $cols
+      $base: (100%/$cols)
 
     +mq(map-get($config, "bp"))
 
@@ -55,7 +56,7 @@
       // Clear
       @if map-get($config, "clear")
         @each $col in map-get($config, "clear")
-          .g#{$name}-clear-#{$col}
+          .g-clear-#{$col}#{$name}
             .g:nth-child(#{$col}n+1)
               clear: left
             .g:not(:nth-child(#{$col}n+1))
@@ -67,9 +68,10 @@
         padding-right: $gutter-rgt
 
       // Units
-      @for $i from 1 through $cols
-        .g#{$name}-#{$i}
-          width: $base * $i
+      @if $cols
+        @for $i from 1 through $cols
+          .g-#{$i}#{$name}
+            width: $base * $i
 
 
       // Helpers
@@ -86,10 +88,14 @@
   $cols: map-get($config, "cols")
   $base: (100%/$cols)
 
-  @if map-get($config, $type)
-    .g-#{$name}-#{$type}-0
-      #{$prop}: $val0
+  @if str-length($name) != 0
+    $name: "#{\@}#{$name}"
 
-    @for $i from 1 to $cols
-      .g-#{$name}-#{$type}-#{$i}
-        #{$prop}: $base * $i
+  @if $cols
+    @if map-get($config, $type)
+      .g-#{$type}-0#{$name}
+        #{$prop}: $val0
+
+      @for $i from 1 to $cols
+        .g-#{$type}-#{$i}#{$name}
+          #{$prop}: $base * $i
