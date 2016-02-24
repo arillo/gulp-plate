@@ -2,8 +2,11 @@
 // Respond
 //============================================
 
-=mq($breakpoint, $media: all)
-  @if $breakpoint
+=mq($breakpoint: false, $media: all)
+  @if $breakpoint == "print"
+    @media print
+      @content
+  @else if $breakpoint
     @media #{$media} and #{$breakpoint}
       @content
   @else

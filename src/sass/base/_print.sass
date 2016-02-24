@@ -1,0 +1,60 @@
+//============================================
+// Print
+//============================================
+
+// This is a general print stylesheet,
+// modules have their own print styles if required
+
+// @TODO maybe this should go where the original declarations are made? Just like modules
+
+// Links
+//============================================
+
++mq("print")
+  a[href]
+    border: 0 !important
+    text-decoration: underline !important
+    color: $color-text !important
+
+    &:after
+      content: " (" attr(href) ") " !important
+      position: static !important
+      margin: 0 !important
+      padding: 0 !important
+      font-size: 90% !important
+      text-transform: none !important
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after
+    content: ""
+
+
+// Images
+//============================================
+
++mq("print")
+  img
+    max-width: 50vw !important
+
+
+// Misc
+//============================================
+
++mq("print")
+  thead
+    display: table-header-group;
+
+  tr, img
+    page-break-inside: avoid;
+
+  p, h2, h3
+    orphans: 3
+    widows: 3
+
+  h2, h3
+    page-break-after: avoid
+
+  pre,
+  blockquote
+    border: 0.1rem solid #999
+    page-break-inside: avoid
