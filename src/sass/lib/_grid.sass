@@ -57,9 +57,9 @@
       @if map-get($config, "clear")
         @each $col in map-get($config, "clear")
           .g-clear-#{$col}#{$name}
-            .g:nth-child(#{$col}n+1)
+            > .g:nth-child(#{$col}n+1)
               clear: left
-            .g:not(:nth-child(#{$col}n+1))
+            > .g:not(:nth-child(#{$col}n+1))
               clear: none
 
       // Update unit
