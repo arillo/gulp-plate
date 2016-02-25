@@ -96,7 +96,18 @@ module.exports = {
         }
       },
       variables: {
-        cssPath: '../images/'
+        cssPath: '../images/',
+        // Value for positions and sizes on a 10px base.
+        rem: function() {
+          return function(pos, render) {
+            var num = parseInt(render(pos)) / 10;
+            if (num === 0) {
+              return '0';
+            } else {
+              return num + 'rem';
+            }
+          }
+        }
       }
     }
   },
