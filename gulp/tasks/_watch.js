@@ -28,7 +28,7 @@ gulp.task('watch', ['clean'], function() {
   });
 
   watch(config.sass.src, function(){
-    runSequence('sass');
+    runSequence('sasslint', 'sass');
   });
 
   watch(config.images.src, function(){

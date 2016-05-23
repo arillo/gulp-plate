@@ -19,17 +19,24 @@ form
 fieldset
   margin: 0
   padding: 0
-  border: none
+  border: 0
 
 label
   display: inline-block
 
-label[for]
-  cursor: pointer
+  &[for]
+    cursor: pointer
 
-button,
-input[type="submit"]
+input
+  &[type="submit"]
+    outline: 0
+
+button
   outline: 0
+  border: 0
+  padding: 0
+  background-color: transparent
+  line-height: inherit
 
 
 // Inputs
@@ -37,20 +44,8 @@ input[type="submit"]
 
 textarea,
 select,
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="email"],
-input[type="month"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="time"],
-input[type="url"],
-input[type="week"]
-  -webkit-appearance: none
+.formInput
+  transition: border-color 0.2s
   outline: 0
   width: 100%
   color: inherit
@@ -58,11 +53,11 @@ input[type="week"]
   font-size: inherit
   font-weight: inherit
   line-height: $lh
-  border: .1rem solid $gray-light
+  border: 0.1rem solid $gray-light
   border-radius: 0
-  background: white
+  background: $white
   padding: $space-quarter
-  transition: box-shadow .2s
+  -webkit-appearance: none
 
   &.disabled,
   &[disabled]
@@ -71,15 +66,15 @@ input[type="week"]
     color: $gray
 
   &:focus
-    box-shadow: 0 0 .5rem 0 rgba(black, .2)
+    border-color: $primary
 
 
 // Selects
 //============================================
 
-select[multiple]
-  height: auto
-  background-image: none
+select
+  &[multiple]
+    height: auto
 
 
 // Textareas
@@ -95,11 +90,12 @@ textarea
 // Checkboxes & Radiobuttons
 //============================================
 
-input[type="radio"],
-input[type="checkbox"]
-  margin: 0 $space-quarter 0 0
-  line-height: inherit
-  vertical-align: baseline
+input
+  &[type="radio"],
+  &[type="checkbox"]
+    margin: 0 $space-quarter 0 0
+    line-height: inherit
+    vertical-align: baseline
 
 
 
@@ -111,11 +107,11 @@ input[type="checkbox"]
 // Webkit
 @media screen and (-webkit-min-device-pixel-ratio: 0)
   select
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwIiB5PSIwIiB3aWR0aD0iMTkiIGhlaWdodD0iNSIgdmlld0JveD0iMCAwIDE5IDUiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDE5IDUiIHhtbDpzcGFjZT0icHJlc2VydmUiPiAgPHBvbHlnb24gZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIHBvaW50cz0iMCwwIDQuNSw1IDksMCAiLz48L3N2Zz4=)
+    background-image: url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' x='0' y='0' width='19' height='5' viewBox='0 0 19 5'><polygon points='0 0 4.5 5 9 0 '/></svg>")
     background-repeat: no-repeat
     background-position: right center
     padding-right: 2.6rem
 
-  select[multiple]
-    padding: 0
-    background-image: none
+    &[multiple]
+      padding: 0
+      background-image: none

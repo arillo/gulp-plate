@@ -3,12 +3,14 @@
 //============================================
 
 .browserWarning
-  position: absolute
-  +pos(0, top left, fixed)
   +size(100%)
+  position: fixed
+  top: 0
+  left: 0
   z-index: 1000000
-  background: black
-  color: white
+  background: $black
+  color: $white
+  font-size: 16px
 
 .browserWarning_inner
   +center(300px, 180px)

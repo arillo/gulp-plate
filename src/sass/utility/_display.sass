@@ -2,65 +2,76 @@
 // Display
 //============================================
 
-.u-hide,
-.u-blk\@sm,
-.u-blk\@md,
-.u-blk\@lg,
+.u-d-none,
+.u-d-blk\@sm,
+.u-d-blk\@md,
+.u-d-blk\@lg,
 
-.u-inl\@sm,
-.u-inl\@md,
-.u-inl\@lg,
+.u-d-inl\@sm,
+.u-d-inl\@md,
+.u-d-inl\@lg,
 
-.u-ibl\@sm,
-.u-ibl\@md,
-.u-ibl\@lg,
-  display: none
+.u-d-ibl\@sm,
+.u-d-ibl\@md,
+.u-d-ibl\@lg
+  display: none;
 
-.u-blk
-  display: block
-.u-inl
-  display: inline
-.u-ibl
-  display: inline-block
+.u-d-blk
+  display: block;
+
+.u-d-inl
+  display: inline;
+
+.u-d-ibl
+  display: inline-block;
 
 +mq($bp-sm)
-  .u-hide\@sm
+  .u-d-none\@sm
     display: none
-  .u-blk\@sm
+
+  .u-d-blk\@sm
     display: block
-  .u-inl\@sm
+
+  .u-d-inl\@sm
     display: inline
-  .u-ibl\@sm
+
+  .u-d-ibl\@sm
     display: inline-block
 
 +mq($bp-md)
-  .u-hide\@md
+  .u-d-none\@md
     display: none
-  .u-blk\@md
+
+  .u-d-blk\@md
     display: block
-  .u-inl\@md
+
+  .u-d-inl\@md
     display: inline
-  .u-ibl\@md
+
+  .u-d-ibl\@md
     display: inline-block
 
 +mq($bp-lg)
-  .u-hide\@lg
+  .u-d-none\@lg
     display: none
-  .u-blk\@lg
+
+  .u-d-blk\@lg
     display: block
-  .u-inl\@lg
+
+  .u-d-inl\@lg
     display: inline
-  .u-ibl\@lg
+
+  .u-d-ibl\@lg
     display: inline-block
 
 
 // Print
 //============================================
 
-.u-hide\@print
+.u-d-none\@print
   +mq("print")
     display: none
 
-.u-blk\@print
+.u-d-blk\@print
   +mq("print")
     display: block

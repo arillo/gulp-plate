@@ -1,0 +1,91 @@
+//============================================
+// Headings
+//============================================
+
+// @TODO document mixin usage & API
+
+// Default / Common
+//============================================
+
+// 1. Force word break when words in titles
+//    are too long to fin on the page.
+
+=h-common-styles
+  margin: 0 0 $space
+  font-family: inherit
+  font-weight: bold
+  overflow-wrap: break-word // 1.
+  word-wrap: break-word // 1.
+  -ms-word-break: break-all // 1.
+  word-break: break-word // 1.
+
+
+// H1
+//============================================
+
+=h1($common-styles: false)
+  @if $common-styles
+    +h-common-styles
+
+  font-size: $fs-h1
+  line-height: 1.1
+
+
+// H2
+//============================================
+
+=h2($common-styles: false)
+  @if $common-styles
+    +h-common-styles
+
+  margin-bottom: $space-quarter
+  font-size: $fs-h2
+  line-height: 1.1
+
+
+// H3
+//============================================
+
+=h3($common-styles: false)
+  @if $common-styles
+    +h-common-styles
+
+  margin-bottom: $space-quarter
+  font-size: $fs-h3
+  line-height: 1.2
+
+
+// H4
+//============================================
+
+=h4($common-styles: false)
+  @if $common-styles
+    +h-common-styles
+
+  margin-bottom: $space-quarter / 2
+  font-size: $fs-h4
+  line-height: 1.3
+
+
+// H5
+//============================================
+
+=h5($common-styles: false)
+  @if $common-styles
+    +h-common-styles
+
+  margin-bottom: $space-quarter
+  font-size: $fs-h5
+  line-height: 1.3
+
+
+// H6
+//============================================
+
+=h6($common-styles: false)
+  @if $common-styles
+    +h-common-styles
+
+  margin-bottom: $space-quarter
+  font-size: $fs-h6
+  line-height: $lh

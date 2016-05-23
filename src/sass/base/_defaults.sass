@@ -26,18 +26,23 @@
 // 1. Remove gray overlay on links for ios
 // 2. Reset font-size to 10px for more straight forward calculations
 // 3. If this base changes keep in mind to change the `rem` custom
-// function in the sprite configuration in the config.js file. !!
+//    function in the sprite configuration in the config.js file. !!
 
 html
-  -webkit-tap-highlight-color: rgba(0,0,0,0) // 1.
+  -webkit-tap-highlight-color: rgba($black, 0) // 1.
   font-size: 62.5% // 2., 3.
 
 
 // Body
 //============================================
 
+// 1. Separate properties rather than using the shorthand
+//    as IE 10 seems to have trouble interpreting it correctly.
+
 body
-  font: #{$fs}/#{$lh} $font
+  font-family: $font // 1.
+  font-size: $fs // 1.
+  line-height: $lh // 1.
   background: $color-bg
   color: $color-text
 
@@ -45,7 +50,7 @@ body
 // Vertical rhythm
 //============================================
 
-p, table, blockquote, address, pre, iframe, form
+p, table, blockquote, address, pre, iframe, form, figure
   margin: 0 0 $space
 
 
@@ -60,6 +65,35 @@ a
     text-decoration: none
 
 
+// Headings
+//============================================
+
+// To make them applicable to other elements
+// heading styles are outsourced to mixins.
+// See lib/mixins/_headings.sass
+
+h1, h2, h3, h4, h5, h6
+  +h-common-styles
+
+h1
+  +h1
+
+h2
+  +h2
+
+h3
+  +h3
+
+h4
+  +h4
+
+h5
+  +h5
+
+h6
+  +h6
+
+
 // Lists (enumeration)
 //============================================
 
@@ -69,11 +103,6 @@ ul, ol
 
   ul, ol
     margin-bottom: 0
-
-// helper class
-.list-reset, .list-unstyled
-  padding-left: 0
-  list-style: none
 
 
 // Lists (definition)
@@ -125,9 +154,9 @@ address
 
 hr
   display: block
-  height: .1rem
+  height: 0.1rem
   border: 0
-  border-top: .1rem solid rgba($gray-light, .5)
+  border-top: 0.1rem solid rgba($gray-light, 0.5)
   margin: $space 0
   padding: 0
   clear: both
@@ -153,7 +182,7 @@ pre
 
 blockquote
   padding-left: 1.5rem
-  border-left: .2rem solid $gray-light
+  border-left: 0.2rem solid $gray-light
 
 q
   quotes: "\201C" "\201D" "\2018" "\2019"

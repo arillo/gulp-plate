@@ -2,12 +2,15 @@
 
 var gulp      = require('gulp');
 var config    = require('../config').production;
-var minifyCSS = require('gulp-minify-css');
-var size      = require('gulp-filesize');
+var postcss   = require('gulp-postcss');
+var nano      = require('cssnano');
+
+var procesors = [
+  nano(config.cssCompressionOpts)
+];
 
 gulp.task('minifyCss', ['sass'], function() {
   return gulp.src(config.cssSrc)
-    .pipe(minifyCSS())
-    .pipe(gulp.dest(config.cssDest))
-    .pipe(size());
+    .pipe(postcss(procesors))
+    .pipe(gulp.dest(config.cssDest));
 });

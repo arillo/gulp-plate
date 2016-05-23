@@ -1,0 +1,71 @@
+//============================================
+// Buttons
+//============================================
+
+// Button styles are used in different places, this
+// includes third-party modules where a `.btn` class
+// can not be applied in the markup. Therefor `.btn`
+// classes are composed using mixins that can be reused
+// to attach `.btn` styles to elements that can not have
+// a `.btn` class in the markup.
+
+// This approach will create more css than using `@extend`
+// but is preferable in order to maintain source order
+// control & prevent unwanted side effects.
+
+// More info: http://csswizardry.com/2016/02/mixins-better-for-performance/
+
+// The `.btn` class definition is located at modules/_btn.sass
+
+
+// Main
+//============================================
+
+=btn
+  transition: background-color 0.2s, border-color 0.2s
+  padding: $space-quarter 2rem
+  border: 0.1rem solid $primary
+  background: $primary
+  font-size: inherit
+  font-weight: normal
+  font-family: inherit
+  border-radius: 0.3rem
+  width: auto
+  display: inline-block
+  color: $white
+  line-height: $lh
+  text-align: center
+  vertical-align: middle
+  white-space: nowrap
+  text-shadow: none
+  text-decoration: none
+  cursor: pointer
+
+  &:focus,
+  &:active,
+  &:hover
+    background-color: $primary
+    border-color: $primary
+    z-index: 1
+    outline: 0
+
+
+// Disabled state
+//============================================
+
+// 1. Overwrite pseudo state styles
+
+=btn-disabled
+  &[disabled],
+  &-disabled
+    background-color: $gray-light
+    border-color: $gray-light !important // 1.
+    color: $gray
+    cursor: not-allowed
+
+
+// Btn Truncate
+//============================================
+
+=btn-truncate
+  +truncate

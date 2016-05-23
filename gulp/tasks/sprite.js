@@ -4,9 +4,7 @@ var gulp      = require('gulp');
 var svgSprite = require('gulp-svg-sprite');
 var del       = require('del');
 var config    = require('../config').svgSprite;
-var replace   = require('gulp-replace');
 var plumber   = require('gulp-plumber');
-var gulpif    = require('gulp-if');
 
 
 // Clean
@@ -22,7 +20,6 @@ gulp.task('sprite', ['sprite:clean'], function (cb) {
       .pipe(plumber())
       .pipe(svgSprite(config.optionsInline))
       .on('error', function(error){ console.log(error); })
-      .pipe(gulpif(config.removeFills ,replace(/fill="#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})"/g, '')))
       .pipe(gulp.dest(config.dest));
   } else {
     return gulp.src(config.glob, {cwd: config.src})

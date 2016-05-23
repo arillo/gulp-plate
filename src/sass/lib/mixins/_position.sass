@@ -20,15 +20,18 @@
 
     // Populate the map with sides
     @if $sides == all and length($amounts) == 1
-      top: $amounts; left: $amounts; right: $amounts; bottom: $amounts
+      top: $amounts
+      left: $amounts
+      right: $amounts
+      bottom: $amounts
 
     @else if length($sides) == length($amounts)
       @for $i from 1 through length($sides)
-        $map: map-merge($map, (nth($sides, $i):nth($amounts, $i)))
+        $map: map-merge($map, (nth($sides, $i): nth($amounts, $i)))
 
     @else if length($amounts) == 1
       @for $i from 1 through length($sides)
-        $map: map-merge($map, (nth($sides, $i):$amounts))
+        $map: map-merge($map, (nth($sides, $i): $amounts))
 
     @else
       @warn "The number of $amounts has to match the $sides or be a single value"

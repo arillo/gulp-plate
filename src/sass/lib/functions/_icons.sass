@@ -55,24 +55,6 @@ $i-map: () !default
     @warn "Icon not defined"
     @return false
 
-=icon-position($name)
-  background-position: icon-position($name)
-
 // Alias
 @function ip($name)
   @return icon-position($name)
-
-=ip($name)
-  +icon-position($name)
-
-
-// Icon Size
-//============================================
-
-=icon-size ($name)
-  +size(icon-width($name), icon-height($name))
-
-// Alias
-=is($name)
-  +icon-size($name)
-

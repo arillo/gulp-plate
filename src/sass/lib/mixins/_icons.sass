@@ -1,0 +1,67 @@
+//============================================
+// Icons
+//============================================
+
+// Define default var to prevent a sass error
+$i-map: () !default
+
+
+// Icon Styles
+//============================================
+
+=i-styles
+  display: inline-block
+  vertical-align: middle
+  font-style: normal
+  position: relative
+  overflow: hidden
+  text-indent: 100%
+  color: transparent
+  speak: none
+
+
+// Icon Position
+//============================================
+
+=icon-position($name)
+  background-position: icon-position($name)
+
+// Alias
+=ip($name)
+  +icon-position($name)
+
+
+// Icon Size
+//============================================
+
+=icon-size ($name)
+  +size(icon-width($name), icon-height($name))
+
+// Alias
+=is($name)
+  +icon-size($name)
+
+
+// Scale Icon (Inline only)
+//============================================
+
+=scale-icon ($name, $width, $round: "round")
+  $w: $name + "-width"
+  $w: map-get($i-map, $w)
+  $h: $name + "-height"
+  $h: map-get($i-map, $h)
+
+  $height: ($width / $w) * $h
+
+  @if $round == "round"
+    $height: decimal-round($height, 1)
+  @if $round == "ceil"
+    $height: decimal-ceil($height, 1)
+  @if $round == "floor"
+    $height: decimal-floor($height, 1)
+
+  +size($width, $height)
+
+// Alias
+=iscale ($name, $width, $round: "round")
+  +scale-icon($name, $width, $round)

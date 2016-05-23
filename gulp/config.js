@@ -1,5 +1,7 @@
 'use strict';
 
+var convertToRem = require('./util/convertToRem');
+
 var dest = "./dist";
 var src = './src';
 
@@ -9,7 +11,6 @@ module.exports = {
   browserSync: {
     port: 9000,
     server: {
-      // Serve up our build folder
       baseDir: dest
     },
     notify: false,
@@ -19,21 +20,25 @@ module.exports = {
   sass: {
     src: src + '/sass/**/*.{sass,scss}',
     dest: dest + '/css',
+    settings: {
+      indentedSyntax: true, // Enable .sass syntax!
+      outputStyle: 'expanded'
+    },
     prefix: [
-      'ie >= 9',
+      'ie >= 10',
       'ie_mob >= 10',
       'ff >= 30',
       'chrome >= 34',
       'safari >= 7',
-      'opera >= 23',
-      'ios >= 7',
+      'opera >= 28',
+      'ios >= 8',
+      'edge >= 13',
       'android >= 4.4',
       'bb >= 10'
     ],
-    settings: {
-      indentedSyntax: true, // Enable .sass syntax!
-      imagePath: 'images' // Used by the image-url helper
-    }
+    // Css Selectors that should be removed from your css.
+    // useful to remove unneeded thirdparty styles.
+    remove: []
   },
 
   images: {
@@ -54,11 +59,27 @@ module.exports = {
   },
 
   production: {
+    dest: dest,
+
     cssSrc: dest + '/css/*.css',
     jsSrc: dest + '/js/*.js',
-    dest: dest,
+
     cssDest: dest + '/css',
-    jsDest: dest + '/js'
+    jsDest: dest + '/js',
+
+    cssCompressionOpts: {
+      safe: true,
+      mergeLonghand: false,
+      discardComments: {
+        removeAll: true
+      }
+    },
+
+    reportSrc: [
+      dest + '/css/*.css',
+      dest + '/js/*.js',
+      dest + '/images/**/*'
+    ],
   },
 
   svgSprite: {
@@ -66,7 +87,6 @@ module.exports = {
     src: src + '/icons',
     glob: '**/*.svg',
     dest: dest + '/images',
-    removeFills: true,
     optionsInline: {
       mode: {
         symbol: {
@@ -75,7 +95,7 @@ module.exports = {
           render: {
             scss: {
               template: 'gulp/tpl/_sprite-inline.scss',
-              dest: '../../src/sass/_sprite.scss'
+              dest: '../../src/sass/base/_sprite.scss'
             }
           }
         }
@@ -90,24 +110,14 @@ module.exports = {
           render: {
             scss: {
               template: 'gulp/tpl/_sprite-background.scss',
-              dest: '../../src/sass/_sprite.scss'
+              dest: '../../src/sass/base/_sprite.scss'
             }
           }
         }
       },
       variables: {
         cssPath: '../images/',
-        // Value for positions and sizes on a 10px base.
-        rem: function() {
-          return function(pos, render) {
-            var num = parseInt(render(pos)) / 10;
-            if (num === 0) {
-              return '0';
-            } else {
-              return num + 'rem';
-            }
-          }
-        }
+        rem: convertToRem
       }
     }
   },
@@ -121,8 +131,7 @@ module.exports = {
         entries: src + '/js/main.coffee',
         dest: dest + '/js',
         outputName: 'main.js',
-        extensions: ['.coffee'],
-        require: ['jquery']
+        extensions: ['.coffee']
       }
     ]
   }

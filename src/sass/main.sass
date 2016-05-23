@@ -7,23 +7,26 @@
 //============================================
 
 @import "lib/lib"
+@import "lib/vars"
 
 
-// Sprite
+// Base 1
 //============================================
 
-@import "sprite"
+@import "base/sprite"
+
+
+// Thirdparty
+//============================================
+
+@import "thirdparty/normalize"
 
 
 // Base
 //============================================
 
-@import "base/normalize"
-@import "base/vars"
 @import "base/defaults"
-@import "base/headings"
-@import "base/forms"
-@import "base/print"
+@import "base/defaults-forms"
 
 
 // Layout
@@ -31,18 +34,17 @@
 
 @import "layout/grid"
 @import "layout/layout"
-@import "layout/media"
 
 
 // Module
 //============================================
 
-@import "module/icon"
+@import "module/btn"
+@import "module/i"
+@import "module/embed"
 @import "module/browserWarning"
 @import "module/header"
 @import "module/footer"
-@import "module/embed"
-@import "module/btn"
 
 
 // Utilities
@@ -53,7 +55,14 @@
 @import "utility/dimensions"
 @import "utility/display"
 @import "utility/float"
+@import "utility/headings"
 @import "utility/images"
 @import "utility/overflow"
 @import "utility/screenreader"
 @import "utility/text"
+
+
+// Shame
+//============================================
+
+@import "shame"

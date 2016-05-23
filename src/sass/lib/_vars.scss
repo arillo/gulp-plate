@@ -6,15 +6,21 @@
 // Colors
 //============================================
 
+// 1. To prevent linting errors these values are stored.
+//    in variables. Be careful when changing (better don't).
+
+$black:       #000; // 1.
+$white:       #fff; // 1.
+
 $primary:     #00f;
-$black:       #111;
 
 $gray:        #ddd;
 $gray-light:  #f7f7f7;
-$gray-dark:   #767676;
+$gray-mid:    #767676;
+$gray-dark:   #111;
 
-$color-text:  $black;
-$color-bg:    white;
+$color-text:  $gray-dark;
+$color-bg:    $white;
 
 
 // Dimensions
@@ -22,6 +28,7 @@ $color-bg:    white;
 
 $space:              2.4rem; // 24px
 $space-quarter:      $space * 0.25;
+$space-third:        round($space / 3);
 $space-half:         $space * 0.5;
 $space-threeQuarter: round($space * 0.75);
 $space-oneAndHalf:   $space * 1.5;
@@ -47,53 +54,52 @@ $fs-h6: 1.6rem;
 // Layout
 //============================================
 
-// 1. Breakpoints are defined in em's, they are not affected by the
-// reset on the html element. They use 16px (browser default)
-// as a base for calculations. Keep in mind when creating new breakpoints.
-
-// 2. Substract 1px (1 / 16 = 0.0625em) to make the max-width query.
-
 // XS
 $layout-gutter-xs: 1.6rem;
-$layout-width-xs:  36.8rem;
-
-$layout-width-xs-mq: 25em; // 1. == 400px
-$layout-width-xs-mq-down: $layout-width-xs-mq - 0.0625em; // 2.
+$layout-width-xs:  41.6rem;
 
 // SM
-$layout-gutter-sm: 1.8rem;
-$layout-width-sm:  56rem;
-
-$layout-width-sm-mq: 37.25em; // 1. == 596px
-$layout-width-sm-mq-down: $layout-width-sm-mq - 0.0625em; // 2.
+$layout-gutter-sm: 2rem;
+$layout-width-sm:  72.8rem;
 
 // MD
-$layout-gutter-md: 1.8rem;
-$layout-width-md:  72.4rem;
-
-$layout-width-md-mq: 47.5em; // 1. == 760px
-$layout-width-md-mq-down: $layout-width-md-mq - 0.0625em; // 2.
+$layout-gutter-md: 2.2rem;
+$layout-width-md:  96.6rem;
 
 // LG
-$layout-gutter-lg: 1.8rem;
-$layout-width-lg:  98.8rem;
-
-$layout-width-lg-mq: 64em; // 1. == 1024px
-$layout-width-lg-mq-down: $layout-width-lg-mq - 0.0625em; // 2.
+$layout-gutter-lg: 3rem;
+$layout-width-lg:  129rem;
 
 
 // Breakpoints
 //============================================
 
-$bp-xs:       "(min-width: #{$layout-width-xs-mq})";
-$bp-sm:       "(min-width: #{$layout-width-sm-mq})";
-$bp-md:       "(min-width: #{$layout-width-md-mq})";
-$bp-lg:       "(min-width: #{$layout-width-lg-mq})";
+// 1. Breakpoints are defined in em's, they are not affected by the
+//    reset on the html element. They use 16px (browser default)
+//    as a base for calculations. Keep in mind when creating new breakpoints.
 
-$bp-xs-down:  "(max-width: #{$layout-width-xs-mq-down})";
-$bp-sm-down:  "(max-width: #{$layout-width-sm-mq-down})";
-$bp-md-down:  "(max-width: #{$layout-width-md-mq-down})";
-$bp-lg-down:  "(max-width: #{$layout-width-lg-mq-down})";
+// 2. 1px in em (1 / 16 = 0.0625em) to create max-width queries.
+
+// 3. Full media query expresions for use in modules.
+
+$breakpoints: ( // 1.
+  "xs":     26em, // == 416px
+  "sm":   45.5em, // == 728px
+  "md": 60.375em, // == 966px
+  "lg": 80.625em, // == 1290px
+);
+
+$px-in-em: 0.0625em; // 2.
+
+$bp-xs:       "(min-width: #{map-get($breakpoints, 'xs')})"; // 3.
+$bp-sm:       "(min-width: #{map-get($breakpoints, 'sm')})"; // 3.
+$bp-md:       "(min-width: #{map-get($breakpoints, 'md')})"; // 3.
+$bp-lg:       "(min-width: #{map-get($breakpoints, 'lg')})"; // 3.
+
+$bp-xs-down:  "(max-width: #{map-get($breakpoints, 'xs') - $px-in-em})"; // 3.
+$bp-sm-down:  "(max-width: #{map-get($breakpoints, 'sm') - $px-in-em})"; // 3.
+$bp-md-down:  "(max-width: #{map-get($breakpoints, 'md') - $px-in-em})"; // 3.
+$bp-lg-down:  "(max-width: #{map-get($breakpoints, 'lg') - $px-in-em})"; // 3.
 
 
 // Grid

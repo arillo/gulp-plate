@@ -6,22 +6,33 @@
 // Container
 //============================================
 
+// 1. Make text truncation work inside containers.
+// 2. Declare side specific margins & paddings
+//    to avoid conflicts when weaker styles try
+//    to apply top & bottom margins or paddings.
+
 .l-container
+  width: 100% // 1.
   max-width: $layout-width-xs
-  padding: 0 $layout-gutter-xs
-  margin: 0 auto
+  padding-left: $layout-gutter-xs // 2.
+  padding-right: $layout-gutter-xs // 2.
+  margin-left: auto // 2.
+  margin-right: auto // 2.
 
 +mq($bp-sm)
   .l-container
     max-width: $layout-width-sm
-    padding: 0 $layout-gutter-sm
+    padding-left: $layout-gutter-sm
+    padding-right: $layout-gutter-sm
 
 +mq($bp-md)
   .l-container
     max-width: $layout-width-md
-    padding: 0 $layout-gutter-md
+    padding-left: $layout-gutter-md
+    padding-right: $layout-gutter-md
 
 +mq($bp-lg)
   .l-container
     max-width: $layout-width-lg
-    padding: 0 $layout-gutter-lg
+    padding-left: $layout-gutter-lg
+    padding-right: $layout-gutter-lg
