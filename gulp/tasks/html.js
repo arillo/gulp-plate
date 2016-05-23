@@ -5,7 +5,6 @@ var browserSync  = require('browser-sync')
 var data         = require('gulp-data')
 var gulp         = require('gulp')
 var handleErrors = require('../util/handleErrors');
-var htmlmin      = require('gulp-htmlmin')
 var path         = require('path')
 var render       = require('gulp-nunjucks-render')
 var fs           = require('fs')
@@ -29,7 +28,6 @@ gulp.task('html', function() {
       }
     }))
     .on('error', handleErrors)
-    // .pipe(htmlmin(config.htmlmin))
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.reload({stream:true}));
 });

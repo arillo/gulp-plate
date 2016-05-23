@@ -51,9 +51,6 @@ module.exports = {
     dest: dest + '/',
     glob: '**/*.{html,json}',
     data: src + '/html/data/global.json',
-    htmlmin: {
-      'collapseWhitespace': true
-    },
     extensions: ['html', 'json'],
     excludeFolders: ['layouts', 'shared', 'macros', 'data']
   },
@@ -68,9 +65,15 @@ module.exports = {
 
     cssSrc: dest + '/css/*.css',
     jsSrc: dest + '/js/*.js',
+    htmlSrc: dest + '/**/*.html',
 
     cssDest: dest + '/css',
     jsDest: dest + '/js',
+    htmlDest: dest,
+
+    htmlminOpts: {
+      'collapseWhitespace': true
+    },
 
     cssCompressionOpts: {
       safe: true,
