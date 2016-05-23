@@ -35,8 +35,8 @@ gulp.task('watch', ['clean'], function() {
     runSequence('images', browserSync.reload);
   });
 
-  watch([config.markup.src, config.markup.partialsSrc + config.markup.partialsGlob], function(){
-    runSequence('markup', browserSync.reload);
+  watch(config.html.src, function(){
+    runSequence('html', browserSync.reload);
   });
   // Watchify will watch and recompile our JS, so no need to gulp.watch it
 });

@@ -2,7 +2,7 @@
 
 var convertToRem = require('./util/convertToRem');
 
-var dest = "./dist";
+var dest = './dist';
 var src = './src';
 
 module.exports = {
@@ -46,11 +46,16 @@ module.exports = {
     dest: dest + '/images'
   },
 
-  markup: {
-    partialsGlob: '**/*.html',
-    partialsSrc: src + '/html/partials/',
-    src: src + '/html/*.tpl.html',
-    dest: dest + '/'
+  html: {
+    src: src + '/html',
+    dest: dest + '/',
+    glob: '**/*.{html,json}',
+    data: src + '/html/data/global.json',
+    htmlmin: {
+      'collapseWhitespace': true
+    },
+    extensions: ['html', 'json'],
+    excludeFolders: ['layouts', 'shared', 'macros', 'data']
   },
 
   jslint: {

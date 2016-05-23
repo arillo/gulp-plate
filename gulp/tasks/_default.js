@@ -4,5 +4,5 @@ var gulp = require('gulp');
 var runSequence = require('run-sequence');
 
 gulp.task('default', ['clean'], function(cb){
-  runSequence('sprite', ['jshint', 'jscs', 'coffeelint'], ['sasslint', 'sass', 'markup', 'browserify'], 'images', cb);
+  runSequence('sprite', ['jshint', 'jscs', 'coffeelint'], ['sasslint', 'sass', 'html', 'browserify'], 'images', cb);
 });
