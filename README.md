@@ -1,6 +1,4 @@
-**N.B.** We are working on a in-depth Gulp Plate Documentation. You can look at the [preview](http://arillo.github.io/gulp-plate-docs/) or follow the basic introcution here below. Watch this repository to get notified when the docs will be ready. Enjoy your meal!
-
-![Gulp Plate](http://turbo.aminalhazwani.com.s3.amazonaws.com/github/gulp-plate.png)
+# Gulp -plate
 
 [Gulp](http://gulpjs.com/) boilerplate & build system.
 
@@ -12,11 +10,12 @@ Includes the following tools, tasks, and workflows:
 - [CoffeeScript](http://coffeescript.org/) (with source maps!)
 - [BrowserSync](http://browsersync.io) for live reloading and a static server
 - [Image optimization](https://www.npmjs.com/package/gulp-imagemin)
+- [Sass linting](https://github.com/sasstools/sass-lint)
 - [Javascript linting](http://jshint.com/)
 - [Coffeescript linting](http://www.coffeelint.org/)
 - Error handling in the console [and in Notification Center](https://github.com/mikaelbr/gulp-notify)
 - Shimming non common-js vendor code with other dependencies (like a jQuery plugin)
-- Svg icon sprite generation using [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite)
+- Svg icon sprite generation using [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) inline or as background image.
 
 ## Dependencies / Installation
 
@@ -242,8 +241,6 @@ __In your `gulp/config.js`__
 
 ## Known issues
 
-- Sass sourcemaps are not working properly, the handling of Sass indented syntax seems a little buggy.
-- No great sass & scss linter is available at the time of writing. https://github.com/sasstools/sass-lint looks promising but does not seem finished yet.
 - `.coffeeelintignore` seems not to be working, be aware when changing the path to watch more than your `./src/js` directory.
 - The Sass files to be rendered as `.css` files need to have the extension `.sass` otherwise the compiler fails. Partials can be both `.sass` and `.scss`.
 
