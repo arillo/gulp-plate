@@ -1,4 +1,4 @@
-# Gulp -plate
+# Gulp-plate
 
 [Gulp](http://gulpjs.com/) boilerplate & build system.
 
@@ -106,7 +106,7 @@ svgSprite: {
 
 ## HTML Templates
 
-HTML Templates need to have a `*.tmpl.html` extension to be transformed and moved properly. All partials should go in the partials folder and can be included in the templates using the [`gulp-file-include`](https://www.npmjs.com/package/gulp-file-include) plugin.
+Templates use [Nunjucks](https://github.com/mozilla/nunjucks). See the [docs](http://mozilla.github.io/nunjucks/) for more information on how to use them.
 
 ## Include external vendor css files
 
