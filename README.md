@@ -122,12 +122,17 @@ If you want to include external css files from npm or bower (bower is not setup 
 
 __Note:__
 
-This does not work if the `@import` is scoped inside a class like this:
+Scoping imports to a class will just be ignored:
 
 ```sass
-// This will output a regular import!!!
 .myClass
   @import "../../node_modules/normalize.css/normalize.css"
+
+// will output:
+
+// normalize stuff ...
+
+.myClass {}
 ```
 
 ## Shim a jQuery plugin to work with browserify
