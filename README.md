@@ -67,10 +67,6 @@ __Important:__
 
 Every time you run one of the commands the generated theme will be deleted! Don't make any changes in that directory.
 
-## Configuration
-
-All paths and plugin settings have been abstracted into a centralized config object in `gulp/config.js`. Adapt the paths and settings to the structure and needs of your project.
-
 ## Folder structure
 
 ```bash
@@ -82,10 +78,17 @@ myTheme_source/
     js/         # js code, can be coffeescript or plain js (mix is possible)
     sass/       # Sass code, scss and sass syntax possible
     html/       # html templates
-      partials/ # html partials
+      data/     # data in json format
+      layouts/  # reusable layout templates
+      macros/   # Nunjucks macros
+      shared/   # reusable snippets
 ```
 
 Any additional folder to be moved to the production theme needs a new dedicated task e.g. `"moveFonts"` if you would need to move a `fonts/` folder.
+
+## Configuration
+
+All paths and plugin settings have been abstracted into a centralized config object in `gulp/config.js`. Adapt the paths and settings to the structure and needs of your project.
 
 __Sprite config__
 
@@ -103,6 +106,21 @@ svgSprite: {
 
 - __`'background'`__ creates a svg sprite that can be used as a background image in css.
 - __`'inline'`__ creates a svg image that can be used to reference icons with a `<use>` tag.
+
+__Generic move task__
+
+There is a generic task to move assets from the source directory without transformations, e.g. font files. To use is add the paths to the `move` array in the config file:
+
+```javascript
+...
+move: {
+  {
+    src: "path/to/files"
+    dest: "path to destination"
+  }
+}
+...
+```
 
 ## HTML Templates
 
