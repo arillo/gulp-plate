@@ -5,11 +5,11 @@
    - watchers are made using `gulp-watch` so new files are automatically watched
 */
 
-var gulp     = require('gulp');
-var config   = require('../config');
+var gulp          = require('gulp');
+var config        = require('../config');
 var browserSync   = require('browser-sync');
-var runSequence = require('run-sequence');
-var watch = require('gulp-watch');
+var runSequence   = require('run-sequence');
+var watch         = require('gulp-watch');
 
 
 gulp.task('watch', ['clean'], function() {

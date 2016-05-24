@@ -1,6 +1,6 @@
 'use strict';
 
-// Helper to convert pixel values to rem.
+// Template helper to convert pixel values to rem.
 
 // Very specific to this project,
 // it asumes that the rem base is 10.

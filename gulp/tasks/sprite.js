@@ -9,7 +9,9 @@ var plumber   = require('gulp-plumber');
 
 // Clean
 gulp.task('sprite:clean', function(cb){
-  del([config.dest + '/images/sprite-*.svg'], {dot: true}, cb);
+  del([config.dest + '/images/sprite-*.svg'], {dot: true}).then(paths => {
+    cb();
+  });
 });
 
 

@@ -1,7 +1,7 @@
 'use strict';
 
-// Utility to remove certain css classes
-// that come from third party css imports
+// Post CSS utility to remove css classes
+// that come from third party imports.
 
 module.exports = function(classes) {
 

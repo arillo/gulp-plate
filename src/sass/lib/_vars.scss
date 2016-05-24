@@ -9,18 +9,20 @@
 // 1. To prevent linting errors these values are stored.
 //    in variables. Be careful when changing (better don't).
 
-$black:       #000; // 1.
-$white:       #fff; // 1.
+$black:         #000; // 1.
+$white:         #fff; // 1.
 
-$primary:     #00f;
+$primary:       #00f;
 
-$gray:        #ddd;
-$gray-light:  #f7f7f7;
-$gray-mid:    #767676;
-$gray-dark:   #111;
+$gray:          #ddd;
+$gray-light:    #f7f7f7;
+$gray-mid:      #767676;
+$gray-dark:     #111;
 
-$color-text:  $gray-dark;
-$color-bg:    $white;
+$color-text:    $gray-dark;
+$color-bg:      $white;
+$color-error:   #ed331a;
+$color-success: #2fa714;
 
 
 // Dimensions
