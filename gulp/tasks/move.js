@@ -5,7 +5,7 @@ var config        = require('../config').move;
 
 gulp.task('move', function(cb) {
   if (config.length <= 0) {
-    return;
+    return cb();
   }
 
   config.forEach( function(entry){
