@@ -2,9 +2,10 @@
   "site": {
     "title": "lab:bz",
     "description": {
-      "de": "ein offenes Stadtlabor für unsere Stadt",
-      "it": "ein offenes Stadtlabor für unsere Stadt"
-    }
+      "de": "Ein offenes Stadtlabor für unsere Stadt",
+      "it": "Un laboratorio aperto per la nostra città"
+    },
+    "credits": "lab:bz c/o Südtiroler Bildungszentrum Mustergasse 10, 39100 Bozen-Bolzano | P.Iva 00392090213 Kontakt: info<at>labbz.it"
   },
   "group": {
     "de": "unsere Stadt",
@@ -12,9 +13,13 @@
   },
   "event": {
     "title": "lab:café",
-    "location": "Mercati Gnerali, Bozen-Bolzano",
-    "date": "27/07/2016",
-    "link": "https://www.facebook.com/Love-BZ-not-BENKO-570889893069823/"
+    "location": "Mercati Generali, Bozen-Bolzano",
+    "date": "27.07.2016",
+    "link": "http://www.kultur.bz.it/index.php?root=cal&mode=event&evtID=65111"
+  },
+  "description": {
+    "de": "Die Initiative “Unsere Stadt” erfindet sich neu als lab:bz – einem offenen Stadtlabor für unsere Stadt. Gestalte das Stadtlabor mit, steuere Deine Ideen bei und erweitere das Netzwerk für Stadtentwicklung, denn nur gemeinsam können wir eine offene, gesunde und schöne Stadt gestalten. Komme zum lab:cafe am 27.7.2016, Grossmarkthalle Bozen - Mercati Generali, Schlachthofstraße 29, Bolzano-Bozen.",
+    "it": "L’iniziativa “Città nostra” si trasforma in  lab:bz, un laboratorio urbano aperto per la nostra città. Partecipi a formare il laboratorio urbano, contribuisci con le tue idee e agiungiati alla rete per lo sviluppo della città, vogliamo contribuire insieme che diventi una città più vivibile, sana e più bella. Vieni al lab:cafe il 27.7.2016, Mercati Generali, via Macello 29, Bolzano-Bozen."
   },
   "vision": {
     "de": "Wir wecken das Interesse für den öffentlichen Raum in der Bevölkerung, indem wir kritische Analysen, Konzepte und kreative Vorschläge erarbeiten und damit alle Beteiligten zur Debatte und Gestaltung motivieren. Wir wollen als Sprachrohr des öffentlichen Interesses fungieren und als kompetente Ansprechpartner*innen für Entscheidungsträger*innen. Wir gestalten die urbane Lebensqualität gemeinsam.",
