@@ -4,25 +4,67 @@
     "description": {
       "de": "Ein offenes Stadtlabor für unsere Stadt",
       "it": "Un laboratorio aperto per la nostra città"
-    },
-    "credits": "lab:bz c/o Südtiroler Bildungszentrum Mustergasse 10, 39100 Bozen-Bolzano | P.Iva 00392090213 Kontakt: info<at>labbz.it"
+    }
+  },
+  "social": {
+    "facebookpageurl": "https://www.facebook.com/Lab-BZ-570889893069823/",
+    "facebookmessage": "Like us!"
   },
   "group": {
     "de": "unsere Stadt",
     "it": "città nostra"
   },
+
   "event": {
     "title": "lab:café",
     "location": "Mercati Generali, Bozen-Bolzano",
     "date": "27.07.2016",
     "link": "http://www.kultur.bz.it/index.php?root=cal&mode=event&evtID=65111"
   },
+
+  "headline": {
+    "de": "Die Initiative “Unsere Stadt” erfindet sich neu als lab:bz",
+    "it": "L’iniziativa “Città nostra” si trasforma in lab:bz"
+  },
   "description": {
-    "de": "Die Initiative “Unsere Stadt” erfindet sich neu als lab:bz – einem offenen Stadtlabor für unsere Stadt. Gestalte das Stadtlabor mit, steuere Deine Ideen bei und erweitere das Netzwerk für Stadtentwicklung, denn nur gemeinsam können wir eine offene, gesunde und schöne Stadt gestalten. Komme zum lab:cafe am 27.7.2016, Grossmarkthalle Bozen - Mercati Generali, Schlachthofstraße 29, Bolzano-Bozen.",
-    "it": "L’iniziativa “Città nostra” si trasforma in  lab:bz, un laboratorio urbano aperto per la nostra città. Partecipi a formare il laboratorio urbano, contribuisci con le tue idee e agiungiati alla rete per lo sviluppo della città, vogliamo contribuire insieme che diventi una città più vivibile, sana e più bella. Vieni al lab:cafe il 27.7.2016, Mercati Generali, via Macello 29, Bolzano-Bozen."
+    "de": "Wir laden dazu ein gemeinsam das offene Stadtlabor für unsere Stadt gestalten. Steuere Deine Ideen bei und erweitere das Netzwerk für Stadtentwicklung, denn nur gemeinsam können wir eine offene, gesunde und schöne Stadt gestalten. Komme zum lab:cafe am 27.7.2016, Grossmarkthalle Bozen - Mercati Generali, Schlachthofstraße 29, Bolzano-Bozen.",
+    "it": "Un laboratorio urbano aperto per la nostra città. Partecipi a formare il laboratorio urbano, contribuisci con le tue idee e agiungiati alla rete per lo sviluppo della città, vogliamo contribuire insieme che diventi una città più vivibile, sana e più bella. Vieni al lab:cafe il 27.7.2016, Mercati Generali, via Macello 29, Bolzano-Bozen."
+  },
+  "link": {
+    "de": "Mehr info >",
+    "it": "Più info >"
   },
   "vision": {
     "de": "Wir wecken das Interesse für den öffentlichen Raum in der Bevölkerung, indem wir kritische Analysen, Konzepte und kreative Vorschläge erarbeiten und damit alle Beteiligten zur Debatte und Gestaltung motivieren. Wir wollen als Sprachrohr des öffentlichen Interesses fungieren und als kompetente Ansprechpartner*innen für Entscheidungsträger*innen. Wir gestalten die urbane Lebensqualität gemeinsam.",
     "it": "Svegliamo l’interesse dei cittadino nello spazio pubblico, elaborando concetti, analisi critiche e proposte creative e motivando la popolazione al dibattito ed alla partecipazione nello sviluppo del prorpio territorio. Vogliamo fungere come portavoce dell’interesse pubblico e come gruppo competente di riferimento per le strutture decisionali. Vogliamo formare la qualità di vita urbana in processi partecipati."
+  },
+
+  "info": {
+    "title": "Mehr Informationen / Informazioni ulteriori"
+  },
+  "items": [
+    {
+      "title": "Brochure Città nostra",
+      "link": "http://www.sbz.it/wp-content/uploads/2016/02/Brochure_Citta_nostra_2016.pdf"
+    }, 
+    {
+      "title": "Broschüre Unsere Stadt",
+      "link": "http://www.sbz.it/wp-content/uploads/2016/02/Broschuere_UnsereStadt_2016.pdf"
+    },
+    {
+      "title": "lab:bz @ salto.bz",
+      "link": "http://salto.bz/groups/labbz"
+    },
+    {
+      "title": "lab:bz @ facebook",
+      "link": "https://www.facebook.com/Lab-BZ-570889893069823/"
+    }
+  ],
+
+  "company": {
+    "name": "lab:bz c/o Südtiroler Bildungszentrum",
+    "address": "Mustergasse 10, 39100 Bolzano-Bozen",
+    "vat": "P.Iva: 00392090213",
+    "mail": "E-mail: info(at)labbz.it"
   }
 }

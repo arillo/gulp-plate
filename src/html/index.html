@@ -7,48 +7,65 @@
 {% extends 'layouts/application.html' %}
 
 {% block content %}
-  <section class="u-bg-primary u-c-white announcement">
-    <div class="l-container u-padd-vert-half">
-      <p class="u-push-btm-none u-ff-sans u-ta-center">
-        <span class="u-fw-bold">{{ event.title }}</span>
-        <span> | </span>
-        <span>{{ event.date }}</span>
-        <span> | </span>
-        <span>{{ event.location }}</span>
-      </p>
-    </div>
-  </section>
-  <header class="u-padd u-bg-image u-bg-map u-c-white u-ff-sans u-ta-center header">
-    <div class="l-container">
-      <h3 class="u-push-btm-none">{{ group.de }}<br>{{ group.it }}</h3>
-      <span>↓</span>
-      <h2 class="u-push-btm-half u-fw-bold">{{ site.title }}</h2>
-      <p class="u-push-btm-quarter">{{ site.description.de }}</p>
-      <p class="u-push-btm-none">{{ site.description.it }}</p>
+  <header class="u-padd-vert u-bg-image u-bg-map u-c-white u-ff-sans header">
+    <div class="header_inner">
+      <div class="l-container">
+        <div class="header_headlineWrapper">
+          <h2 class="header_headline">{{ group.de }}<br>{{ group.it }}</h2>
+          <i class="i i-arrow header_arrow"></i>
+          <h2 class=header_headline>{{ site.title }}</h2>
+        </div>
+        <div class="header_description">
+          <p class="u-push-btm-none">{{ site.description.de }}</p>
+          <p class="u-push-btm">{{ site.description.it }}</p>
+          <a href="{{ social.facebookpageurl }}">
+            <i class="i i-facebook u-push-rgt-half"></i><span class="u-push-top-2 u-fw-bold">{{ social.facebookmessage }}</span>
+          </a>
+        </div>
+      </div>
     </div>
   </header>
   <main>
-    <section>
-      <div class="l-container u-padd-vert">
-        <p class="u-push-btm-none">{{ description.de }}</p>
-        <a class="u-d-blk u-push-btm" href="{{ event.link }}">Mehr</a>
+    <section class="u-bg-primary u-c-white announcement">
+      <a href="#highlight">
+        <div class="l-container u-padd-vert-half">
+          <p class="u-push-btm-none u-ff-sans">
+            <span class="u-fw-bold">{{ event.title }}</span>
+            <span> | </span>
+            <span>{{ event.date }}</span>
+            <span> | </span>
+            <span>{{ event.location }}</span>
+          </p>
+        </div>
+      </a>
+    </section>
+    <section id="highlight">
+      <div class="l-container u-padd-top-double">
+        <h3 class="u-push-btm-4 u-ff-sans">{{ headline.de }}</h3>
+        <p class="u-push-btm-quarter">{{ description.de }}</p>
+        <a class="u-d-blk u-push-btm-half u-ff-sans u-fw-bold u-c-primary u-tt-uppercase" href="{{ event.link }}">{{ link.de }}</a>
         <p>{{ vision.de }}</p>
-        <p class="u-push-btm-none">{{ description.it }}</p>
-        <a class="u-d-blk u-push-btm" href="{{ event.link }}">Altro</a>
+      </div>
+    </section>
+    <section>
+      <div class="l-container u-padd-top">
+        <h3 class="u-push-btm-4 u-ff-sans">{{ headline.it }}</h3>
+        <p class="u-push-btm-quarter">{{ description.it }}</p>
+        <a class="u-d-blk u-push-btm-half u-ff-sans u-fw-bold u-c-primary u-tt-uppercase" href="{{ event.link }}">{{ link.it }}</a>
         <p>{{ vision.it }}</p>
       </div>
     </section>
-    <!-- 
     <section>
-      <div class="l-container">
-        Articles from salto
+      <div class="l-container u-padd-top">
+        <h4 class="u-push-btm-4 u-ff-sans">{{ info.title }}</h4>
+        <div class="typography">
+          <ul>
+            {% for item in items %}
+              <li><a class="u-td-underline" href="{{ item.link }}">{{ item.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
     </section>
-    <section>
-      <div class="l-container">
-        Feed from kultur.bz
-      </div>
-    </section>
-    -->
   </main>
 {% endblock %}
