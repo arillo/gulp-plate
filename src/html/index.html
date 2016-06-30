@@ -7,5 +7,29 @@
 {% extends 'layouts/application.html' %}
 
 {% block content %}
-  <h1>Hello World! {{title}}</h1>
+  <header>
+    <div class="l-container">
+      <p>{{ group.de }} {{ group.it }}</p>
+      <span>↓</span>
+      <p>{{ site.title }}</p>
+    </div>
+  </header>
+  <main>
+    <div class="l-container">
+      <section>
+        <p>
+          <span>{{ event.title }}</span>
+          <span>{{ event.date }}</span>
+          <span>{{ event.location }}</span>
+        </p>
+      </section>
+      <section>
+        <p>{{ vision.de }}</p>
+        <p>{{ vision.it }}</p>
+      </section>
+      <section>
+        Articles from salto
+      </section>
+    </div>
+  </main>
 {% endblock %}

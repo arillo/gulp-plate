@@ -1,3 +1,23 @@
 {
-  "title": "New Project"
+  "site": {
+    "title": "lab:bz",
+    "description": {
+      "de": "ein offenes Stadtlabor für unsere Stadt",
+      "it": "ein offenes Stadtlabor für unsere Stadt"
+    }
+  },
+  "group": {
+    "de": "unsere Stadt",
+    "it": "città nostra"
+  },
+  "event": {
+    "title": "lab:café",
+    "location": "Mercati Gnerali, Bozen-Bolzano",
+    "date": "27/07/2016",
+    "link": "https://www.facebook.com/Love-BZ-not-BENKO-570889893069823/"
+  },
+  "vision": {
+    "de": "Wir wecken das Interesse für den öffentlichen Raum in der Bevölkerung, indem wir kritische Analysen, Konzepte und kreative Vorschläge erarbeiten und damit alle Beteiligten zur Debatte und Gestaltung motivieren. Wir wollen als Sprachrohr des öffentlichen Interesses fungieren und als kompetente Ansprechpartner*innen für Entscheidungsträger*innen. Wir gestalten die urbane Lebensqualität gemeinsam.",
+    "it": "Svegliamo l’interesse dei cittadino nello spazio pubblico, elaborando concetti, analisi critiche e proposte creative e motivando la popolazione al dibattito ed alla partecipazione nello sviluppo del prorpio territorio. Vogliamo fungere come portavoce dell’interesse pubblico e come gruppo competente di riferimento per le strutture decisionali. Vogliamo formare la qualità di vita urbana in processi partecipati."
+  }
 }
