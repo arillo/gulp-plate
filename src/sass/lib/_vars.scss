@@ -12,7 +12,7 @@
 $black:         #000; // 1.
 $white:         #fff; // 1.
 
-$primary:       #00f;
+$primary:       #ff0000;
 
 $gray:          #ddd;
 $gray-light:    #f7f7f7;
@@ -28,13 +28,16 @@ $color-success: #2fa714;
 // Dimensions
 //============================================
 
-$space:              2.4rem; // 24px
+$space:              2.5rem; // 25px
 $space-quarter:      $space * 0.25;
 $space-third:        round($space / 3);
 $space-half:         $space * 0.5;
 $space-threeQuarter: round($space * 0.75);
 $space-oneAndHalf:   $space * 1.5;
 $space-double:       $space * 2;
+
+$announcement-height:    75px;
+$announcement-height-sm: 50px;
 
 
 // Typography
@@ -43,7 +46,7 @@ $space-double:       $space * 2;
 $font:      Georgia, Times, serif;
 $font-sans: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-mono: monospace, monospace;
-$fs:        1.6rem;
+$fs:        1.8rem;
 $lh:        ($space / $fs);
 
 $fs-h1: 4.8rem;
