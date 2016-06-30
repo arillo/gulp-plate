@@ -40,7 +40,8 @@ $space-double:       $space * 2;
 // Typography
 //============================================
 
-$font:      "Helvetica Neue", Arial, sans-serif;
+$font:      Georgia, Times, serif;
+$font-sans: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-mono: monospace, monospace;
 $fs:        1.6rem;
 $lh:        ($space / $fs);
