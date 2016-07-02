@@ -32,14 +32,21 @@
 
 .header_headline:last-child
   +mq($bp-sm)
-    padding-top: $space
+    padding-top: $space-half
+
+.header_headline-small
+  +h3
+  margin-bottom: 0
+  +mq($bp-sm)
+    +h2
+    margin-bottom: 0
 
 .header_arrow
   transform: scale(0.5)
   +mq($bp-sm)
     transform: rotate(-90deg)
     margin-right: $space
-    margin-top: $space
+    margin-top: $space-half
 
 .header_description
   text-align: center
