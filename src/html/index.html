@@ -42,17 +42,17 @@
     <section id="highlight">
       <div class="l-container u-padd-top-double">
         <h3 class="u-push-btm-4 u-ff-sans">{{ headline.de }}</h3>
-        <p class="u-push-btm-quarter">{{ description.de }}</p>
+        <p class="u-push-btm-quarter">{{ description.de | safe }}</p>
         <a class="u-d-blk u-push-btm-half u-ff-sans u-fw-bold u-c-primary u-tt-uppercase" href="{{ event.link }}">{{ link.de }}</a>
-        <p>{{ vision.de }}</p>
+        <p>{{ vision.de | safe }}</p>
       </div>
     </section>
     <section>
       <div class="l-container u-padd-top">
         <h3 class="u-push-btm-4 u-ff-sans">{{ headline.it }}</h3>
-        <p class="u-push-btm-quarter">{{ description.it }}</p>
+        <p class="u-push-btm-quarter">{{ description.it | safe }}</p>
         <a class="u-d-blk u-push-btm-half u-ff-sans u-fw-bold u-c-primary u-tt-uppercase" href="{{ event.link }}">{{ link.it }}</a>
-        <p>{{ vision.it }}</p>
+        <p>{{ vision.it | safe }}</p>
       </div>
     </section>
     <section>
