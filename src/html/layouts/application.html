@@ -3,16 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>{% block title %}{{ site.title }}{% endblock %}</title>
+    <meta name="description" content="{{ site.description.de }} | {{ site.description.it }}">
     <link rel="stylesheet" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% include "shared/app-icons.html" %}
+    <meta property="og:url" content="{{ site.url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ site.title }}">
+    <meta property="og:image" content="{{ site.ogimage }}">
+    <meta property="og:description" content="{{ site.description.de }} | {{ site.description.it }}">
+    <meta property="og:site_name" content="{{ site.title }}">
     {% block head %}{% endblock %}
   </head>
   <body>
     {% block content %}{% endblock %}
     {% include "shared/footer.html" %}
-    {% block javascript %}
-      <script src="js/main.js"></script>
-    {% endblock %}
   </body>
 </html>

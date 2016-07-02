@@ -4,7 +4,9 @@
     "description": {
       "de": "Ein offenes Stadtlabor für unsere Stadt",
       "it": "Un laboratorio aperto per la nostra città"
-    }
+    },
+    "url": "http://www.labbz.it/",
+    "ogimage": "#"
   },
   "social": {
     "facebookpageurl": "https://www.facebook.com/Lab-BZ-570889893069823/",
