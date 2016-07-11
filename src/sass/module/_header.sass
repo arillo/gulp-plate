@@ -1,3 +1,54 @@
 //============================================
 // Header
 //============================================
+
+.header
+  margin-top: $announcement-height
+  +mq($bp-sm)
+    position: relative
+    margin-top: $announcement-height-sm
+    min-height: 36rem
+
+.header_inner
+  +mq($bp-sm)
+    +pos(50% 0, top left)
+    +size(100%, auto)
+    transform: translateY(-50%)
+
+.header_headlineWrapper
+  margin-bottom: $space-half
+  text-align: center
+  +mq($bp-sm)
+    display: flex
+    align-content: center
+    text-align: left
+
+.header_headline
+  margin-bottom: 0
+  +mq($bp-sm)
+    +h1
+    margin-bottom: 0
+    margin-right: $space
+
+.header_headline:last-child
+  +mq($bp-sm)
+    padding-top: $space-half
+
+.header_headline-small
+  +h3
+  margin-bottom: 0
+  +mq($bp-sm)
+    +h2
+    margin-bottom: 0
+
+.header_arrow
+  transform: scale(0.5)
+  +mq($bp-sm)
+    transform: rotate(-90deg)
+    margin-right: $space
+    margin-top: $space-half
+
+.header_description
+  text-align: center
+  +mq($bp-sm)
+    text-align: left

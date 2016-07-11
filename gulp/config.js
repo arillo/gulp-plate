@@ -46,10 +46,10 @@ module.exports = {
   // these files will not be watched and are only
   // moved when the default task is executed.
   move: [
-    // {
-    //   src: src + '/fonts/**',
-    //   dest: dest + '/fonts'
-    // }
+    {
+      src: src + '/fonts/**',
+      dest: dest + '/fonts'
+    }
   ],
 
   images: {

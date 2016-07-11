@@ -7,5 +7,65 @@
 {% extends 'layouts/application.html' %}
 
 {% block content %}
-  <h1>Hello World! {{title}}</h1>
+  <header class="u-padd-vert u-bg-image u-bg-map u-c-white u-ff-sans header">
+    <div class="header_inner">
+      <div class="l-container">
+        <div class="header_headlineWrapper">
+          <h3 class="header_headline header_headline-small">{{ group.de }}<br>{{ group.it }}</h3>
+          <i class="i i-arrow header_arrow"></i>
+          <h2 class=header_headline>{{ site.title }}</h2>
+        </div>
+        <div class="header_description">
+          <p class="u-push-btm-none">{{ site.description.de }}</p>
+          <p class="u-push-btm">{{ site.description.it }}</p>
+          <a href="{{ social.facebookpageurl }}">
+            <i class="i i-facebook u-push-rgt-half"></i><span class="u-push-top-2 u-fw-bold">{{ social.facebookmessage }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="u-bg-primary u-c-white announcement">
+      <a href="#highlight">
+        <div class="l-container u-padd-vert-half">
+          <p class="u-push-btm-none u-ff-sans">
+            <span class="u-fw-bold">{{ event.title }}</span>
+            <span> | </span>
+            <span>{{ event.date }}</span>
+            <span> | </span>
+            <span>{{ event.location }}</span>
+          </p>
+        </div>
+      </a>
+    </section>
+    <section id="highlight">
+      <div class="l-container u-padd-top-double">
+        <h3 class="u-push-btm-4 u-ff-sans">{{ headline.de }}</h3>
+        <p class="u-push-btm-quarter">{{ description.de | safe }}</p>
+        <a class="u-d-blk u-push-btm-half u-ff-sans u-fw-bold u-c-primary u-tt-uppercase" href="{{ event.link }}">{{ link.de }}</a>
+        <p>{{ vision.de | safe }}</p>
+      </div>
+    </section>
+    <section>
+      <div class="l-container u-padd-top">
+        <h3 class="u-push-btm-4 u-ff-sans">{{ headline.it }}</h3>
+        <p class="u-push-btm-quarter">{{ description.it | safe }}</p>
+        <a class="u-d-blk u-push-btm-half u-ff-sans u-fw-bold u-c-primary u-tt-uppercase" href="{{ event.link }}">{{ link.it }}</a>
+        <p>{{ vision.it | safe }}</p>
+      </div>
+    </section>
+    <section>
+      <div class="l-container u-padd-top">
+        <h4 class="u-push-btm-4 u-ff-sans">{{ info.title }}</h4>
+        <div class="typography">
+          <ul>
+            {% for item in items %}
+              <li><a class="u-td-underline" href="{{ item.link }}">{{ item.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
 {% endblock %}

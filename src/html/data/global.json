@@ -1,3 +1,72 @@
 {
-  "title": "New Project"
+  "site": {
+    "title": "lab:bz",
+    "description": {
+      "de": "Ein offenes Stadtlabor für unsere Stadt",
+      "it": "Un laboratorio aperto per la nostra città"
+    },
+    "url": "http://www.labbz.it/",
+    "ogimage": "#"
+  },
+  "social": {
+    "facebookpageurl": "https://www.facebook.com/Lab-BZ-570889893069823/",
+    "facebookmessage": "Like us!"
+  },
+  "group": {
+    "de": "unsere Stadt",
+    "it": "città nostra"
+  },
+
+  "event": {
+    "title": "lab:café",
+    "location": "Mehrzwecksaal Ortler | sala polifunzionale Ortles, piazza Anne Frank Platz 21, Bozen-Bolzano",
+    "date": "27.7.2016",
+    "link": "http://kultur.bz.it/index.php?root=cal&mode=event&evtID=65111"
+  },
+
+  "headline": {
+    "de": "Die Initiative “Unsere Stadt” erfindet sich neu als lab:bz",
+    "it": "L’iniziativa “Città nostra” si trasforma e si dà una nuova veste in lab:bz"
+  },
+  "description": {
+    "de": "Wir laden ein, gemeinsam das <strong>offene Stadtlabor</strong> für unsere Stadt zu gestalten. Steuere Deine Ideen bei und erweitere das Netzwerk für Stadtentwicklung, denn nur gemeinsam können wir eine <strong>offene, gesunde und schöne Stadt gestalten</strong>. Komme zum <strong>lab:cafe am 27.7.2016</strong>, Mehrzwecksaal Ortler, Anne Frank Platz 21, Bozen. Mehr dazu in Bälde.",
+    "it": "Invitiamo i cittadini interessati a partecipare alla formazione di un <strong>laboratorio urbano aperto</strong> per la nostra città. Sarebbe oltremodo importante raccogliere le tue idee e aggiungerti alla nostra rete per <strong>creare insieme una una città più vivibile, sana e più bella</strong>. Ti aspettiamo <strong>mercoledi, 27.07. 2016 al lab:cafe</strong> a Bolzano , sala polifunzionale Ortles, piazza Anne Frank 21."
+  },
+  "link": {
+    "de": "",
+    "it": ""
+  },
+  "vision": {
+    "de": "<strong>lab:bz</strong> will das Interesse für den öffentlichen Raum in der Bevölkerung wecken – durch kritische Analysen, Konzepte und kreative Vorschläge. lab:bz will Debatten anregen, zukunftsfähige Gestaltung initiieren und das Stadtleben bereichern. lab:bz soll als Sprachrohr des öffentlichen Interesses fungieren. lab:bz möchte kompetenter Ansprechpartner sein, auch für Entscheidungsträger. <strong>Wir gestalten die urbane Lebensqualität gemeinsam.</strong>",
+    "it": "Vogliamo porre nel centro dell'interesse dei cittadini la <strong>riscoperta dello spazio pubblico</strong> come ricchezza collettiva, elaborando al riguardo concetti, analisi, critiche e proposte creative. Come? Scoprendo insieme <strong>nuovi strumenti di partecipazione</strong> nella formazione di una vera qualità di vita urbana e chiamando la popolazione al dibattito sullo sviluppo del proprio territorio (quartiere) e della propria “Casa”. Intendiamo <strong>fungere cosi come portavoce dell’interesse pubblico</strong> e inserirci con competenza e <strong>con una nuova valenza democratica nei processi decisionali.<strong>"
+  },
+
+  "info": {
+    "title": "Mehr Informationen / Informazioni ulteriori"
+  },
+  "items": [
+    {
+      "title": "Brochure Città nostra",
+      "link": "http://www.sbz.it/wp-content/uploads/2016/02/Brochure_Citta_nostra_2016.pdf"
+    }, 
+    {
+      "title": "Broschüre Unsere Stadt",
+      "link": "http://www.sbz.it/wp-content/uploads/2016/02/Broschuere_UnsereStadt_2016.pdf"
+    },
+    {
+      "title": "lab:bz @ salto.bz",
+      "link": "http://salto.bz/groups/labbz"
+    },
+    {
+      "title": "lab:bz @ facebook",
+      "link": "https://www.facebook.com/Lab-BZ-570889893069823/"
+    }
+  ],
+
+  "company": {
+    "name": "lab:bz c/o Südtiroler Bildungszentrum",
+    "address": "Mustergasse 10, 39100 Bolzano-Bozen",
+    "vat": "P.Iva: 00392090213",
+    "mail": "E-mail: info(at)labbz.it"
+  }
 }

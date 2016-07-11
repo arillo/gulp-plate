@@ -13,17 +13,17 @@
 //===========================================
 
 $i-map: (
-  path: url("../images/sprite-d617d39a.svg"),
-  width: 6.4rem,
-  height: 3.2rem,
+  path: url("../images/sprite-58f6f921.svg"),
+  width: 7.2rem,
+  height: 5.6rem,
+
+  arrow-width: 3.9rem,
+  arrow-height: 5.6rem,
+  arrow-position: 0 0,
 
   facebook-width: 3.2rem,
   facebook-height: 3.2rem,
-  facebook-position: 0 0,
-
-  twitter-width: 3.2rem,
-  twitter-height: 3.2rem,
-  twitter-position: -3.2rem 0
+  facebook-position: -4rem 0
 );
 
 
@@ -31,8 +31,8 @@ $i-map: (
 //===========================================
 
 %i {
-  background-image: url("../images/sprite-d617d39a.svg");
-  background-size: 6.4rem 3.2rem;
+  background-image: url("../images/sprite-58f6f921.svg");
+  background-size: 7.2rem 5.6rem;
 }
 
 @mixin extend-i-url($extend: true) {
@@ -52,26 +52,26 @@ $i-map: (
 // Mixins & classes
 //===========================================
 
-@mixin i-facebook($add-url: true) {
+@mixin i-arrow($add-url: true) {
   @include extend-i-url($add-url);
   background-position: 0 0;
+  width: 3.9rem;
+  height: 5.6rem;
+}
+
+.i-arrow {
+  @include i-arrow(false);
+}
+
+@mixin i-facebook($add-url: true) {
+  @include extend-i-url($add-url);
+  background-position: -4rem 0;
   width: 3.2rem;
   height: 3.2rem;
 }
 
 .i-facebook {
   @include i-facebook(false);
-}
-
-@mixin i-twitter($add-url: true) {
-  @include extend-i-url($add-url);
-  background-position: -3.2rem 0;
-  width: 3.2rem;
-  height: 3.2rem;
-}
-
-.i-twitter {
-  @include i-twitter(false);
 }
 
 
