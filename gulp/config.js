@@ -118,6 +118,10 @@ module.exports = {
             }
           }
         }
+      },
+      variables: {
+        cssPath: '../images/',
+        rem: convertToRem
       }
     },
     optionsBackground: {
