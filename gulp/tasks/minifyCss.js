@@ -9,7 +9,7 @@ var procesors = [
   nano(config.cssCompressionOpts)
 ];
 
-gulp.task('minifyCss', ['sass'], function() {
+gulp.task('minifyCss', function() {
   return gulp.src(config.cssSrc)
     .pipe(postcss(procesors))
     .pipe(gulp.dest(config.cssDest));
