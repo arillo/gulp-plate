@@ -3,7 +3,7 @@
 //============================================
 
 
-// Wraper
+// Wrapper
 //============================================
 
 .embed
@@ -11,6 +11,7 @@
   overflow: hidden
   height: 0
   display: block
+  padding-bottom: 100%
 
 .embed-16\:9
   padding-bottom: (9 / 16) * 100%
@@ -24,15 +25,18 @@
 .embed-2\:1
   padding-bottom: 50%
 
+
+// Embedded media
+//============================================
+
 .embed object,
 .embed iframe,
 .embed embed,
 .embed video,
-.embed_media-img,
+.embed_img,
 .embed_media
   +pos(0, top left)
   +size(100%)
-  display: block
 
-.embed_media-img
-  +size(100%, auto)
+.embed_img
+  height: auto
