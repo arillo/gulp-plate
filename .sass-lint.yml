@@ -18,6 +18,7 @@ rules:
   no-empty-rulesets: 0
   force-pseudo-nesting: 0
   no-qualifying-elements: 0
+  no-url-protocols: 0
   no-warn: 0
 
   nesting-depth:
@@ -28,7 +29,7 @@ rules:
   mixins-before-declarations:
     - 1
     -
-      exclude: ['mq', 'theme', 'theme-dark', 'theme-darker', 'theme-light', 'theme-lighter']
+      exclude: ['mq']
 
   leading-zero:
     - 1
@@ -52,6 +53,13 @@ rules:
     - 1
     -
       style: double
+
+
+  no-duplicate-properties:
+    - 1
+    -
+      exclude:
+        - src
 
 
   # @TODO update this rules with a appropriate
