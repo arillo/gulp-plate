@@ -78,4 +78,3 @@ rules:
   # if uncommented temporally.
   no-mergeable-selectors: 0
   placeholder-in-extend: 0
-
