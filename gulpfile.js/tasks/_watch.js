@@ -19,12 +19,8 @@ gulp.task('watch', ['clean'], function() {
     runSequence('sprite', browserSync.reload);
   });
 
-  watch(config.jslint.srcJs, function(){
-    runSequence('jshint', 'jscs');
-  });
-
-  watch(config.jslint.srcCoffee, function(){
-    runSequence('coffeelint');
+  watch(config.eslint.src, function(){
+    runSequence('eslint');
   });
 
   watch(config.sass.src, function(){
@@ -38,5 +34,4 @@ gulp.task('watch', ['clean'], function() {
   watch(config.html.src + '/' + config.html.glob, function(){
     runSequence('html', browserSync.reload);
   });
-  // Watchify will watch and recompile our JS, so no need to gulp.watch it
 });

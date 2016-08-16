@@ -13,68 +13,21 @@
 //===========================================
 
 $i-map: (
-  path: url("../images/sprite-d617d39a.svg"),
-  width: 6.4rem,
-  height: 3.2rem,
-
   facebook-width: 3.2rem,
   facebook-height: 3.2rem,
-  facebook-position: 0 0,
 
   twitter-width: 3.2rem,
-  twitter-height: 3.2rem,
-  twitter-position: -3.2rem 0
+  twitter-height: 3.2rem
+
 );
 
-
-// Icon Mixin
-//===========================================
-
-%i {
-  background-image: url("../images/sprite-d617d39a.svg");
-  background-size: 6.4rem 3.2rem;
-}
-
-@mixin extend-i-url($extend: true) {
-  @if $extend {
-    @extend %i
-  }
-}
-
-// Common Styles
-//===========================================
-
-.i {
-  @include extend-i-url(true);
-}
-
-
-// Mixins & classes
-//===========================================
-
-@mixin i-facebook($add-url: true) {
-  @include extend-i-url($add-url);
-  background-position: 0 0;
-  width: 3.2rem;
-  height: 3.2rem;
-}
-
 .i-facebook {
-  @include i-facebook(false);
-}
-
-@mixin i-twitter($add-url: true) {
-  @include extend-i-url($add-url);
-  background-position: -3.2rem 0;
   width: 3.2rem;
   height: 3.2rem;
 }
 
 .i-twitter {
-  @include i-twitter(false);
+  width: 3.2rem;
+  height: 3.2rem;
 }
-
-
-
-
 

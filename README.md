@@ -4,18 +4,17 @@
 
 Includes the following tools, tasks, and workflows:
 
-- [Browserify](http://browserify.org/) (with [browserify-shim](https://github.com/thlorenz/browserify-shim))
+- [Browserify](http://browserify.org/) as JavaScript module bundler
 - [Watchify](https://github.com/substack/watchify) (caching version of browserify for super fast rebuilds)
+- [ES2015](http://www.ecma-international.org/ecma-262/6.0/) syntax transpiled with [Babel](https://babeljs.io/) using [Babelify](https://github.com/babel/babelify) (with source maps!)
+- JavaScript linting using [ESLint](http://eslint.org/)
+- Shimming non common-js vendor code with other dependencies (like a jQuery plugin) with [browserify-shim](https://github.com/thlorenz/browserify-shim))
 - [SASS](http://sass-lang.com/) (super fast libsass with [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), and [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
-- [CoffeeScript](http://coffeescript.org/) (with source maps!)
+- [Sass linting](https://github.com/sasstools/sass-lint)
 - [BrowserSync](http://browsersync.io) for live reloading and a static server
 - [Image optimization](https://www.npmjs.com/package/gulp-imagemin)
-- [Sass linting](https://github.com/sasstools/sass-lint)
-- [Javascript linting](http://jshint.com/)
-- [Coffeescript linting](http://www.coffeelint.org/)
+- Svg icon sprite generation using [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite), with `<symbol>` and `<use>` tags or as CSS Background image
 - Error handling in the console [and in Notification Center](https://github.com/mikaelbr/gulp-notify)
-- Shimming non common-js vendor code with other dependencies (like a jQuery plugin)
-- Svg icon sprite generation using [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) inline or as background image.
 
 ## Dependencies / Installation
 
@@ -44,24 +43,32 @@ This runs through all dependencies listed in `package.json` and downloads them t
 
 ## `gulp` commands
 
-```
-$ gulp
-```
-
-Will generate a dev version of the theme in the `dist` folder
-
+Use `npm` to use the locally installed version of gulp in `./node_modules/bin` instead of the global version.
 
 ```
-$ gulp watch
+$ npm run gulp
+```
+
+Will generate a dev version of the site in the `dist` folder
+
+
+```
+$ npm run watch
 ```
 
 Will run the default task once, start a server and watch for file changes.
 
 ```
-$ gulp production
+$ npm run prod
 ```
 
-Will generate a production version of the theme by running the tests and compressing js & css. This is the folder that should go on the server.
+Will generate a production version of the site by compressing js & css & html. This is the folder that should go on the server.
+
+If you want to run any other gulp task just append the task name to the gulp command:
+
+```
+$ npm run gulp sprite
+```
 
 __Important:__
 
@@ -70,13 +77,13 @@ Every time you run one of the commands the generated theme will be deleted! Don'
 ## Folder structure
 
 ```bash
-myTheme_source/
-  gulp/         # all gulp tasks
-  src/          # all source files
-    icons/      # svg to be combined as a sprite
+myProject/
+  gulpfile.js/  # gulp tasks
+  src/          
+    icons/      # SVG files to be included in he the sprite
     images/     # other images
-    js/         # js code, can be coffeescript or plain js (mix is possible)
-    sass/       # Sass code, scss and sass syntax possible
+    js/         # js code
+    sass/       # Sass code, SCSS and Sass indented syntax possible
     html/       # html templates
       data/     # data in json format
       layouts/  # reusable layout templates
@@ -84,28 +91,26 @@ myTheme_source/
       shared/   # reusable snippets
 ```
 
-Any additional folder to be moved to the production theme needs a new dedicated task e.g. `"moveFonts"` if you would need to move a `fonts/` folder.
-
 ## Configuration
 
 All paths and plugin settings have been abstracted into a centralized config object in `gulp/config.js`. Adapt the paths and settings to the structure and needs of your project.
 
 __Sprite config__
 
-Set what type of sprite generation you want to use:
+Set what type of sprite generation you want to use: (`symbol` is the default)
 
 ```javascript
 ...
 svgSprite: {
-  type: 'background' // set to 'inline' or 'background' (default)
+  type: 'symbol' // set to 'symbol' or 'css'
   ...
 }
 ...
 
 ```
 
-- __`'background'`__ creates a svg sprite that can be used as a background image in css.
-- __`'inline'`__ creates a svg image that can be used to reference icons with a `<use>` tag.
+- __`'symbol'`__ creates a SVG image that can be used to reference icons with the `<use>` tag.
+- __`'css'`__ creates a SVG sprite that can be used as a background image in css.
 
 __Generic move task__
 
@@ -115,8 +120,8 @@ There is a generic task to move assets from the source directory without transfo
 ...
 move: {
   {
-    src: "path/to/files"
-    dest: "path to destination"
+    src: "path/to/source-files"
+    dest: "path/to/destination"
   }
 }
 ...
@@ -152,6 +157,8 @@ Scoping imports to a class will just be ignored:
 
 .myClass {}
 ```
+
+Code imported this way will be at the top of the generated CSS file as sass moves all includes to the top of the file and the inlining has to happen after Sass compilation. There are no known issues with this at the time of writing.
 
 ## Shim a jQuery plugin to work with browserify
 
@@ -225,7 +232,7 @@ __In your `package.json`__
 }
 ```
 
-__In your `gulp/config.js`__
+__In your `gulpfile.js/config.js`__
 
 ```js
 {
@@ -234,10 +241,9 @@ __In your `gulp/config.js`__
     bundleConfigs: [
       // This is the main bundle that contains the libraries
       {
-        entries: src + '/js/main.coffee',
+        entries: src + '/js/main.js',
         dest: dest + '/js',
         outputName: 'main.js',
-        extensions: ['.coffee'],
         // This will include `jquery` in the main bundle weather it is uses
         //`require('jquery')` itself or not, and make it available to the
         // other bundles
@@ -247,10 +253,9 @@ __In your `gulp/config.js`__
       // This is another bundle that will be generated
       // it uses `jquery` but does not include it itself
       {
-        entries: src + '/js/other-bundle.coffee',
+        entries: src + '/js/other-bundle.js',
         dest: dest + '/js',
         outputName: 'other-bundle.js',
-        extensions: ['.coffee'],
         // This bit lets the bundle know that it has to get 
         // jquery from somewhere else
         external: ['jquery']
@@ -264,7 +269,6 @@ __In your `gulp/config.js`__
 
 ## Known issues
 
-- `.coffeeelintignore` seems not to be working, be aware when changing the path to watch more than your `./src/js` directory.
 - The Sass files to be rendered as `.css` files need to have the extension `.sass` otherwise the compiler fails. Partials can be both `.sass` and `.scss`.
 
 ## Credits

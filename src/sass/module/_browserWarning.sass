@@ -2,19 +2,26 @@
 // Browser
 //============================================
 
+// 1. Over specify to 'activate' fixed positioning
+//    on browsers that support it.
+// 2. Lengths are in pixels to support old browsers.
+
+body .browserWarning // 1.
+  position: fixed
+
 .browserWarning
   +size(100%)
-  position: fixed
+  position: absolute
   top: 0
   left: 0
   z-index: 1000000
   background: $black
   color: $white
-  font-size: 16px
+  font-size: 16px // 2.
 
 .browserWarning_inner
-  +center(300px, 180px)
+  +center(300px, 180px) // 2.
 
 .browserWarning_inner a
-  color: $gray
-  border-bottom: 1px solid shade($gray, 40%)
+  color: $gray-dust
+  border-bottom: 1px solid shade($gray-powder, 40%) // 2.
