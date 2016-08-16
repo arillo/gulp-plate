@@ -16,6 +16,8 @@ Includes the following tools, tasks, and workflows:
 - Svg icon sprite generation using [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite), with `<symbol>` and `<use>` tags or as CSS Background image
 - Error handling in the console [and in Notification Center](https://github.com/mikaelbr/gulp-notify)
 
+Looking for the SilverStripe version? Go [here](https://github.com/arillo/silverstripe-gulp-plate).
+
 ## Dependencies / Installation
 
 Install Node. If you use homebrew, do:
