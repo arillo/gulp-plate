@@ -89,7 +89,7 @@ myProject/
     html/       # html templates
       data/     # data in json format
       layouts/  # reusable layout templates
-      macros/   # Nunjucks macros
+      macros/   # Twig.js macros
       shared/   # reusable snippets
 ```
 
@@ -131,7 +131,7 @@ move: {
 
 ## HTML Templates
 
-Templates use [Nunjucks](https://github.com/mozilla/nunjucks). See the [docs](http://mozilla.github.io/nunjucks/) for more information on how to use them.
+Templates use [Twig.js](https://github.com/twigjs/twig.js). See the [docs](https://github.com/twigjs/twig.js/wiki) for more information on how to use them.
 
 ## Include external vendor css files
 
