@@ -61,7 +61,7 @@ module.exports = {
     src: src + '/html',
     dest: dest + '/',
     glob: '**/*.{html,json}',
-    data: src + '/html/data/global.json',
+    data: [src + '/html/data/global.json'],
     extensions: ['html', 'json'],
     excludeFolders: ['layouts', 'shared', 'macros', 'data']
   },
