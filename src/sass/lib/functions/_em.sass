@@ -1,0 +1,19 @@
+//============================================
+// EM's calculation
+//============================================
+
+@function em($values, $context: $fs)
+
+  @if type-of($values) == list
+    $max: length($values)
+    $result: ()
+
+    @for $i from 1 through $max
+      $value: nth($values, $i)
+      $result: append($result, if(unitless($value), $value, ($value / $context) * 1em))
+
+    @return $result
+
+  @else
+    $result: if(unitless($values), $values * 1em, ($values / $context) * 1em)
+    @return $result

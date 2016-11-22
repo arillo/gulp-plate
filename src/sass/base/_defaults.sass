@@ -23,7 +23,7 @@
 // Root
 //============================================
 
-// 1. Remove gray overlay on links for ios
+// 1. Remove gray overlay on links for iOS
 // 2. Reset font-size to 10px for more straight forward calculations
 // 3. If this base changes keep in mind to change the `rem` custom
 //    function in the sprite configuration in the config.js file. !!
@@ -94,9 +94,9 @@ h6
 // Lists (enumeration)
 //============================================
 
-// Lists are reset by default as their are often
-// used structural elements. "text-list" styles
-// are loaceted at `module/_typography.sass`
+// Lists are reset by default as they are often
+// used as structural elements. "text-list" styles
+// are located in `module/_typography.sass`
 
 ul, ol
   margin: 0
@@ -192,3 +192,41 @@ q
 
 cite
   font-style: normal
+
+
+// Forms
+//============================================
+
+input,
+optgroup,
+select,
+textarea
+  vertical-align: middle
+
+fieldset
+  margin: 0
+  padding: 0
+  border: 0
+  min-width: 0
+
+label
+  display: inline-block
+
+  &[for]
+    cursor: pointer
+
+
+// Buttons
+//============================================
+
+// Reset completely to facilitate styling.
+
+button
+  outline: 0
+  border: 0
+  padding: 0
+  background-color: transparent
+  line-height: inherit
+  vertical-align: baseline
+  color: inherit
+  cursor: pointer
