@@ -21,8 +21,10 @@ module.exports = {
     src: src + '/sass/**/*.{sass,scss}',
     dest: dest + '/css',
     settings: {
-      indentedSyntax: true, // Enable .sass syntax!
       outputStyle: 'expanded',
+      // Enable .sass syntax!
+      indentedSyntax: true,
+      // Include paths to thirdparty styles
       includePaths: [
         './node_modules/normalize.css'
       ]
