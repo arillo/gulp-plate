@@ -28,13 +28,19 @@ $color-success:   #2fa714;
 // Dimensions
 //============================================
 
-$space:              2.4rem; // 24px
-$space-quarter:      $space * 0.25;
-$space-third:        decimal-round($space / 3, 1);
-$space-half:         $space * 0.5;
-$space-threeQuarter: decimal-round($space * 0.75, 1);
-$space-oneAndHalf:   $space * 1.5;
-$space-double:       $space * 2;
+$space:                     2.4rem; // 24px
+$space-quarter:             $space * 0.25;
+$space-third:               decimal-round($space / 3, 1);
+$space-half:                $space * 0.5;
+$space-twoThird:            decimal-round(($space / 3) * 2, 1);
+$space-threeQuarter:        decimal-round($space * 0.75, 1);
+$space-plusQuarter:         $space + $space-quarter;
+$space-plusThird:           $space + $space-third;
+$space-plusHalf:            $space + $space-half;
+$space-plusTwoThird:        $space + $space-twoThird;
+$space-plusThreeQuarter:    $space + $space-threeQuarter;
+$space-double:              $space * 2;
+$space-triple:              $space * 3;
 
 
 // Typography
@@ -177,16 +183,24 @@ $grid-config-print: (
 //============================================
 
 $dimension-utility-sizes: (
-  "1": 0.1rem,
-  "2": 0.2rem,
-  "3": 0.3rem,
-  "4": 0.4rem,
-  "quarter": $space-quarter,
-  "half": $space-half,
-  "threeQuarter": $space-threeQuarter,
-  "": $space,
-  "double": $space * 2,
-  "none": 0
+  "1":                  0.1rem,
+  "2":                  0.2rem,
+  "3":                  0.3rem,
+  "4":                  0.4rem,
+  "":                   $space,
+  "quarter":            $space-quarter,
+  "third":              $space-third,
+  "half":               $space-half,
+  "twoThird":           $space-twoThird,
+  "threeQuarter":       $space-threeQuarter,
+  "plusQuarter":        $space-plusQuarter,
+  "plusThird":          $space-plusThird,
+  "plusHalf":           $space-plusHalf,
+  "plusTwoThird":       $space-plusTwoThird,
+  "plusThreeQuarter":   $space-plusThreeQuarter,
+  "double":             $space-double,
+  "triple":             $space-triple,
+  "none": 0,
 );
 
 $dimension-utility-config-xs: (
