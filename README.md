@@ -118,7 +118,7 @@ __Generic move task__
 
 There is a generic task to move assets from the source directory without transformations, e.g. font files. To use is add the paths to the `move` array in the config file:
 
-```javascript
+```js
 ...
 move: {
   {
@@ -135,32 +135,40 @@ Templates use [Nunjucks](https://github.com/mozilla/nunjucks). See the [docs](ht
 
 ## Include external vendor css files
 
-If you want to include external css files from npm or bower (bower is not setup by default but feel free to include it) you can just import them in your sass files as css imports. The gulp `sass` task will take care of pulling the file content into the generated css file.
+To include third-party styles in your css use the `includePaths` array in the `config.js` file:
 
-```sass
-// main.sass
+```js
+// gulpfile.js/config.js
 
-@import "my-sass-module"
-// will be inlined in the main file:
-@import "../../node_modules/normalize.css/normalize.css"
+{
+  //...
+  sass: {
+    settings: {
+      includePaths: [
+        './node_modules/normalize.css',
+        // put other paths here..
+      ]
+    }
+  },
+  //...
+}
 ```
 
-__Note:__
-
-Scoping imports to a class will just be ignored:
+Include it using a regular `@import`:
 
 ```sass
-.myClass
-  @import "../../node_modules/normalize.css/normalize.css"
-
-// will output:
-
-// normalize stuff ...
-
-.myClass {}
+@import "normalize"
 ```
 
-Code imported this way will be at the top of the generated CSS file as sass moves all includes to the top of the file and the inlining has to happen after Sass compilation. There are no known issues with this at the time of writing.
+The Sass compiler will look for files with `.sass`, `.scss` and `.css` extension and include its contents in the generated file.
+
+If there happen to be multiple files with the same name but different extensions (e.g. `slick.css` and `slick.scss`) the compiler will throw an error. To circumvent this problem include the file extension in the `@import`:
+
+```sass
+@import "slick.scss"
+```
+
+Sass will always prefer Sass files (`.sass` or `.scss`) over css files, so when you hit this problem you have to import the Sass file over the css file.
 
 ## Shim a jQuery plugin to work with browserify
 
