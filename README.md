@@ -194,7 +194,7 @@ Sass will always prefer Sass files (`.sass` or `.scss`) over css files, so when 
 }
 
 // use in main.js
-var plugin = require('plugin');
+import plugin from 'plugin';
 
 plugin();
 
@@ -217,9 +217,9 @@ If you have to require one of your own files a lot you can add it as an alias to
 }
 
 // use in main.js
-var myScript = require('myScript');
+import myScript from 'myScript';
 // instead of
-var myScript = require('./ui/myScript');
+import myScript from './ui/myScript';
 
 ```
 
