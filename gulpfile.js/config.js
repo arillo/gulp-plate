@@ -22,7 +22,10 @@ module.exports = {
     dest: dest + '/css',
     settings: {
       indentedSyntax: true, // Enable .sass syntax!
-      outputStyle: 'expanded'
+      outputStyle: 'expanded',
+      includePaths: [
+        './node_modules/normalize.css'
+      ]
     },
     prefix: [
       'ie >= 10',

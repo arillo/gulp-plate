@@ -8,11 +8,9 @@ var handleErrors  = require('../util/handleErrors');
 var config        = require('../config').sass;
 var postcss       = require('gulp-postcss');
 var autoprefixer  = require('autoprefixer');
-var importUrls    = require('postcss-import');
 var removeClasses = require('../util/removeCssClasses')(config.remove);
 
 var procesors = [
-  importUrls(),
   removeClasses,
   autoprefixer({ browsers: config.prefix })
 ];

@@ -63,7 +63,6 @@
     "gulp-watch": "^4.3.6",
     "lodash": "^4.11.2",
     "merge-stream": "^1.0.0",
-    "postcss-import": "^8.1.2",
     "pretty-hrtime": "^1.0.2",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.1",

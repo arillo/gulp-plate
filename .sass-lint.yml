@@ -54,6 +54,8 @@ rules:
     -
       style: double
 
+  indentation:
+    size: 2
 
   no-duplicate-properties:
     - 1
@@ -61,17 +63,20 @@ rules:
       exclude:
         - src
 
+  # Allow file extensions when importing files.
+  # Reason: when using the `includePaths` option
+  # for Sass and retrieving files from a dir that contains
+  # both .scss & .css files with the same name, the Sass
+  # compiler does not know what file to use (even though he
+  # can't process .css files) and needs the extension to
+  # know what file to use.
+  clean-import-paths:
+    filename-extension: true
 
   # @TODO update this rules with a appropriate
-  # regex to enforce naming style.
+  # regex to enforce class naming style.
   class-name-format: 0
   variable-name-format: 0
-
-  # This is still buggy, see:
-  # https://github.com/sasstools/sass-lint/issues/611
-  # The compiler will most probably fail
-  # anyway if indentation is really wrong.
-  indentation: 0
 
   # Properties that should not be enforced
   # but that can be give some good insight
