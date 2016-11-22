@@ -6,20 +6,20 @@
 // Colors
 //============================================
 
-// 1. To prevent linting errors these values are stored.
-//    in variables. Be careful when changing (better don't).
+// 1. To prevent linting errors these
+//    values are stored in variables.
 
 $black:           #000; // 1.
 $white:           #fff; // 1.
 
 $primary:         #00f;
 
-$gray-powder:     #f7f7f7;
-$gray-dust:       #ddd;
-$gray-concrete:   #767676;
-$gray-space:      #111;
+// $gray-powder:     #f7f7f7;
+// $gray-dust:       #ddd;
+// $gray-concrete:   #767676;
+// $gray-space:      #111;
 
-$color-text:      $gray-space;
+$color-text:      lighten($black, 13.5%);
 $color-bg:        $white;
 $color-error:     #ed331a;
 $color-success:   #2fa714;

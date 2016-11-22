@@ -56,7 +56,7 @@ select,
   font-size: inherit
   font-weight: inherit
   line-height: $lh
-  border: 0.1rem solid $gray-dust
+  border: 0.1rem solid lighten($black, 80%)
   border-radius: 0
   background: $white
   padding: $space-quarter
@@ -64,9 +64,9 @@ select,
 
   &.disabled,
   &[disabled]
-    background: $gray-powder
+    background: lighten($black, 90%)
     cursor: default
-    color: $gray-dust
+    color: lighten($black, 60%)
 
   &:focus
     border-color: $primary
