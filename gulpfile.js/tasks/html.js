@@ -9,11 +9,13 @@ var path         = require('path');
 var render       = require('gulp-nunjucks-render');
 var fs           = require('fs');
 var _            = require('lodash');
+var glob         = require("glob");
 
 var getData = function() {
   let data = {};
 
-  config.data.forEach((el) => {
+  let files = glob.sync(config.data)
+  files.forEach((el) => {
     const dataPath = path.resolve(el);
     _.extend(data, JSON.parse(fs.readFileSync(dataPath, 'utf8')))
   });
