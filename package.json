@@ -1,13 +1,13 @@
 {
   "name": "gulp-plate",
-  "version": "1.4.0",
+  "version": "1.4.3",
   "description": "Gulp boilerplate for static page generation",
   "repository": {
     "type": "git",
     "url": "git://github.com/arillo/gulp-plate.git"
   },
   "scripts": {
-    "start": "gulp",
+    "start": "gulp watch",
     "gulp": "gulp",
     "watch": "gulp watch",
     "prod": "gulp production"
