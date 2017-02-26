@@ -1,9 +1,7 @@
-'use strict';
+const gulp           = require('gulp');
+const browserifyTask = require('./browserify');
 
-var gulp           = require('gulp');
-var browserifyTask = require('./browserify');
-
-gulp.task('watchify', function() {
+gulp.task('watchify', () => {
   // Start browserify task with devMode === true
   return browserifyTask(true);
 });

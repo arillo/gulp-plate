@@ -1,12 +1,10 @@
-'use strict';
+const config      = require('../config').production;
+const gulp        = require('gulp');
+const sizereport  = require('gulp-sizereport');
 
-var config      = require('../config').production
-var gulp        = require('gulp')
-var sizereport  = require('gulp-sizereport')
-
-gulp.task('size-report', function() {
+gulp.task('size-report', () => {
   return gulp.src(config.reportSrc)
     .pipe(sizereport({
-      gzip: true
-    }))
+      gzip: true,
+    }));
 });

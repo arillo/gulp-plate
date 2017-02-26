@@ -1,9 +1,8 @@
-'use strict';
+const convertToRem  = require('./util/convertToRem');
+const path          = require('path');
 
-var convertToRem = require('./util/convertToRem');
-
-var dest = './dist';
-var src = './src';
+const dest = './dist';
+const src = './src';
 
 module.exports = {
   destFolder: dest,
@@ -11,23 +10,22 @@ module.exports = {
   browserSync: {
     port: 9000,
     server: {
-      baseDir: dest
+      baseDir: dest,
     },
     notify: false,
-    open: false
+    open: false,
   },
 
   sass: {
-    src: src + '/sass/**/*.{sass,scss}',
-    dest: dest + '/css',
+    src: `${src}/sass/**/*.{sass,scss}`,
+    dest: `${dest}/css`,
     settings: {
       outputStyle: 'expanded',
-      // Enable .sass syntax!
       indentedSyntax: true,
       // Include paths to thirdparty styles
       includePaths: [
-        './node_modules/normalize.css'
-      ]
+        './node_modules/normalize.css',
+      ],
     },
     prefix: [
       'ie >= 10',
@@ -39,11 +37,11 @@ module.exports = {
       'ios >= 8',
       'edge >= 13',
       'android >= 4.4',
-      'bb >= 10'
+      'bb >= 10',
     ],
     // Css Selectors that should be removed from your css.
     // useful to remove unneeded thirdparty styles.
-    remove: []
+    remove: [],
   },
 
   // Generic move task, useful to move assets that do
@@ -53,33 +51,33 @@ module.exports = {
   move: [
     // {
     //   src: src + '/fonts/**',
-    //   dest: dest + '/fonts'
+    //   dest: `${dest}/fonts`,
     // }
   ],
 
   images: {
-    src: src + '/images/**',
-    dest: dest + '/images'
+    src: `${src}/images/**`,
+    dest: `${dest}/images`,
   },
 
   html: {
-    src: src + '/html',
-    dest: dest + '/',
+    src: `${src}/html`,
+    dest: `${dest}/`,
     glob: '**/*.{html,json}',
-    data: src + '/html/data/*.json',
+    data: `${src}/html/data/*.json`,
     extensions: ['html', 'json'],
-    excludeFolders: ['layouts', 'shared', 'macros', 'data']
+    excludeFolders: ['layouts', 'shared', 'macros', 'data'],
   },
 
   eslint: {
-    src: src + '/js/**/*.js',
-    options: './eslintrc.json'
+    src: [`${src}/js/**/*.js`, './gulpfile.js/**/*.js'],
+    options: './eslintrc.json',
   },
 
   svgSprite: {
-    src: src + '/icons',
+    src: `${src}/icons`,
     glob: '**/*.svg',
-    dest: dest + '/images',
+    dest: `${dest}/images`,
 
     // Sprite type:
     // 1. `symbol` for inline SVGs
@@ -94,7 +92,7 @@ module.exports = {
     templateCss: 'gulpfile.js/tpl/_sprite-css.scss',
     templateVars: {
       cssPath: '../images/',
-      rem: convertToRem
+      rem: convertToRem,
     },
   },
 
@@ -104,40 +102,70 @@ module.exports = {
     // See README.md for more info.
     bundleConfigs: [
       {
-        entries: src + '/js/main.js',
-        dest: dest + '/js',
-        outputName: 'main.js'
-      }
-    ]
+        entries: `${src}/js/main.js`,
+        dest: `${dest}/js`,
+        outputName: 'main.js',
+      },
+    ],
+  },
+
+  webpack: {
+    entry: [
+      'webpack-hot-middleware/client?&reload=true',
+      `${src}/js/main.js`,
+    ],
+    devtool: 'inline-source-map',
+    output: {
+      filename: '[name].js',
+      path: path.resolve(__dirname, dest),
+      publicPath: '/js/',
+    },
+    module: {
+      loaders: [
+        {
+          loader: 'babel-loader',
+
+          // Only run `.js` and `.jsx` files through Babel
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+
+          // Options to configure babel with
+          query: {
+            plugins: ['transform-runtime'],
+            presets: ['es2015'],
+          },
+        },
+      ],
+    },
   },
 
   production: {
-    dest: dest,
+    dest,
 
-    cssSrc: dest + '/css/*.css',
-    jsSrc: dest + '/js/*.js',
-    htmlSrc: dest + '/**/*.html',
+    cssSrc: `${dest}/css/*.css`,
+    jsSrc: `${dest}/js/*.js`,
+    htmlSrc: `${dest}/**/*.html`,
 
-    cssDest: dest + '/css',
-    jsDest: dest + '/js',
+    cssDest: `${dest}/css`,
+    jsDest: `${dest}/js`,
     htmlDest: dest,
 
     htmlminOpts: {
-      'collapseWhitespace': true
+      'collapseWhitespace': true,
     },
 
     cssCompressionOpts: {
       safe: true,
       mergeLonghand: false,
       discardComments: {
-        removeAll: true
-      }
+        removeAll: true,
+      },
     },
 
     reportSrc: [
-      dest + '/css/*.css',
-      dest + '/js/*.js',
-      dest + '/images/**/*'
-    ]
-  }
+      `${dest}/css/*.css`,
+      `${dest}/js/*.js`,
+      `${dest}/images/**/*`,
+    ],
+  },
 };

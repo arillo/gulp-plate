@@ -1,4 +1,3 @@
-'use strict';
 /* browserify task
    ---------------
    Bundle javascripty things with browserify!
@@ -9,22 +8,22 @@
    See browserify.bundleConfigs in gulp/config.js
 */
 
-var browserify   = require('browserify');
-var browserSync  = require('browser-sync');
-var watchify     = require('watchify');
-var mergeStream  = require('merge-stream');
-var bundleLogger = require('../util/bundleLogger');
-var gulp         = require('gulp');
-var handleErrors = require('../util/handleErrors');
-var source       = require('vinyl-source-stream');
-var config       = require('../config').browserify;
-var _            = require('lodash');
+const browserify   = require('browserify');
+const browserSync  = require('browser-sync');
+const watchify     = require('watchify');
+const mergeStream  = require('merge-stream');
+const bundleLogger = require('../util/bundleLogger');
+const gulp         = require('gulp');
+const handleErrors = require('../util/handleErrors');
+const source       = require('vinyl-source-stream');
+const config       = require('../config').browserify;
+const _            = require('lodash');
 
-var browserifyTask = function(devMode) {
+function browserifyTask(devMode) {
 
-  var browserifyThis = function(bundleConfig) {
+  function browserifyThis(bundleConfig) {
 
-    if(devMode) {
+    if (devMode) {
       // Add watchify args and debug (sourcemaps) option
       _.extend(bundleConfig, watchify.args, { debug: true });
       // A watchify require/external bug that prevents proper recompiling,
@@ -33,9 +32,9 @@ var browserifyTask = function(devMode) {
       bundleConfig = _.omit(bundleConfig, ['external', 'require']);
     }
 
-    var b = browserify(bundleConfig);
+    const b = browserify(bundleConfig);
 
-    var bundle = function() {
+    function bundle() {
       // Log when bundling starts
       bundleLogger.start(bundleConfig.outputName);
 
@@ -50,11 +49,11 @@ var browserifyTask = function(devMode) {
         // Specify the output destination
         .pipe(gulp.dest(bundleConfig.dest))
         .pipe(browserSync.reload({
-          stream: true
+          stream: true,
         }));
-    };
+    }
 
-    if(devMode) {
+    if (devMode) {
       // Wrap with watchify and rebundle on changes
       b = watchify(b);
       // Rebundle on update
@@ -63,21 +62,21 @@ var browserifyTask = function(devMode) {
     } else {
       // Sort out shared dependencies.
       // b.require exposes modules externally
-      if(bundleConfig.require) b.require(bundleConfig.require);
+      if (bundleConfig.require) { b.require(bundleConfig.require); }
       // b.external excludes modules from the bundle, and expects
       // they'll be available externally
-      if(bundleConfig.external) b.external(bundleConfig.external);
+      if (bundleConfig.external) { b.external(bundleConfig.external); }
     }
 
     return bundle();
-  };
+  }
 
   // Start bundling with Browserify for each bundleConfig specified
   return mergeStream.apply(gulp, _.map(config.bundleConfigs, browserifyThis));
 
-};
+}
 
-gulp.task('browserify', function() {
+gulp.task('browserify', () => {
   return browserifyTask();
 });
 

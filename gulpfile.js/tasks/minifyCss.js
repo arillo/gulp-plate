@@ -1,15 +1,13 @@
-'use strict';
+const gulp      = require('gulp');
+const config    = require('../config').production;
+const postcss   = require('gulp-postcss');
+const nano      = require('cssnano');
 
-var gulp      = require('gulp');
-var config    = require('../config').production;
-var postcss   = require('gulp-postcss');
-var nano      = require('cssnano');
-
-var procesors = [
-  nano(config.cssCompressionOpts)
+const procesors = [
+  nano(config.cssCompressionOpts),
 ];
 
-gulp.task('minifyCss', function() {
+gulp.task('minifyCss', () => {
   return gulp.src(config.cssSrc)
     .pipe(postcss(procesors))
     .pipe(gulp.dest(config.cssDest));
