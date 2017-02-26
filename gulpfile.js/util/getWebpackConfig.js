@@ -4,11 +4,11 @@ const path          = require('path');
 
 const wpConfig = {
   plugins: config.plugins || [],
-  // context: path.resolve(__dirname, config.src),
+  context: path.resolve(__dirname, config.src),
   entry: config.entry,
   output: {
     filename: '[name].js',
-    path: `${config.dest}${config.destFolder}`,
+    path: '../dist/' + config.destFolder,
     publicPath: '/js/',
   },
   module: {

@@ -3,7 +3,11 @@ const webpack           = require('webpack');
 const getWebpackConfig  = require('../util/getWebpackConfig');
 
 gulp.task('js:prod', (cb) => {
-  webpack(getWebpackConfig('production'), () => {
+  const config = getWebpackConfig('production');
+
+  webpack(config, (err, stats) => {
+    // console.log(err);
+    // console.log(stats);
     cb();
   });
 });

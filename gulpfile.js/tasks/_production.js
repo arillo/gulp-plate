@@ -6,7 +6,7 @@ gulp.task('production', () => {
   runSequence(
     'js:prod',
     ['sprite', 'images'],
-    ['eslint', 'sasslint', 'sass', 'html', 'move'],
+    ['sasslint', 'sass', 'html', 'move'],
     ['minifyCss', 'minifyHtml'],
     'size-report'
   );
