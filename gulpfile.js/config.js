@@ -1,5 +1,4 @@
 const convertToRem  = require('./util/convertToRem');
-const path          = require('path');
 
 const dest = './dist';
 const src = './src';
@@ -96,46 +95,13 @@ module.exports = {
     },
   },
 
-  browserify: {
-    // A separate bundle will be generated for each
-    // bundle config in the list below.
-    // See README.md for more info.
-    bundleConfigs: [
-      {
-        entries: `${src}/js/main.js`,
-        dest: `${dest}/js`,
-        outputName: 'main.js',
-      },
-    ],
-  },
-
   webpack: {
-    entry: [
-      'webpack-hot-middleware/client?&reload=true',
-      `${src}/js/main.js`,
-    ],
-    devtool: 'inline-source-map',
-    output: {
-      filename: '[name].js',
-      path: path.resolve(__dirname, dest),
-      publicPath: '/js/',
-    },
-    module: {
-      loaders: [
-        {
-          loader: 'babel-loader',
-
-          // Only run `.js` and `.jsx` files through Babel
-          test: /\.jsx?$/,
-          exclude: /node_modules/,
-
-          // Options to configure babel with
-          query: {
-            plugins: ['transform-runtime'],
-            presets: ['es2015'],
-          },
-        },
-      ],
+    src,
+    dest,
+    srcFolder: '/js',
+    destFolder: '/js',
+    entry: {
+      main: [`${src}/js/main.js`],
     },
   },
 

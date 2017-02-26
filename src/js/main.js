@@ -6,6 +6,6 @@ import $ from 'jquery';
 
 $(document).ready(() => {
   console.log('ready!');
-  console.log('yes');
+  console.log('yes s');
 
 });
