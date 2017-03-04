@@ -1,15 +1,18 @@
-const config = require('../config').webpack;
-const webpack     = require('webpack');
-const path          = require('path');
+const config    = require('../config').webpack;
+const webpack   = require('webpack');
+const path      = require('path');
+
+const src   = path.resolve(__dirname, `../../${config.src}/${config.srcFolder}`);
+const dest  = path.resolve(__dirname, `../../${config.dest}/${config.destFolder}`);
 
 const wpConfig = {
   plugins: config.plugins || [],
-  context: path.resolve(__dirname, config.src),
+  context: src,
   entry: config.entry,
   output: {
     filename: '[name].js',
-    path: '../dist/' + config.destFolder,
-    publicPath: '/js/',
+    path: dest,
+    publicPath: `/${config.destFolder}`,
   },
   module: {
     loaders: [
@@ -37,8 +40,6 @@ module.exports = (env) => {
     wpConfig.plugins.push(
       new webpack.HotModuleReplacementPlugin()
     );
-
-    return wpConfig;
   }
 
   if (env === 'production') {
@@ -50,8 +51,6 @@ module.exports = (env) => {
       }),
       new webpack.optimize.UglifyJsPlugin
     );
-
-    return wpConfig;
   }
 
   return wpConfig;

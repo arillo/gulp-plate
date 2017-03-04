@@ -1,8 +1,10 @@
 /* eslint no-sync: 0 */
+if (global.env !== 'watch') { return }
 
 const browserSync = require('browser-sync');
 const gulp        = require('gulp');
 const config      = require('../config').browserSync;
+const path        = require('path');
 const webpack     = require('webpack');
 const getWebpackConfig = require('../util/getWebpackConfig');
 const webpackDevMiddleware = require('webpack-dev-middleware');
@@ -10,6 +12,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 
 const wpConfig = getWebpackConfig('watch');
 const bundler = webpack(wpConfig);
+
 
 config.middleware = [
   webpackDevMiddleware(bundler, {

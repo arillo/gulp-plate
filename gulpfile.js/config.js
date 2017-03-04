@@ -98,10 +98,11 @@ module.exports = {
   webpack: {
     src,
     dest,
-    srcFolder: '/js',
-    destFolder: '/js',
+    srcFolder: 'js',
+    destFolder: 'js',
     entry: {
-      main: [`${src}/js/main.js`],
+      // Relative to the js folder.
+      main: [`./main.js`],
     },
   },
 

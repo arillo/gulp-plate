@@ -7,10 +7,11 @@
     "url": "git://github.com/arillo/gulp-plate.git"
   },
   "scripts": {
-    "start": "NODE_ENV='production' gulp watch",
+    "start": "gulp watch",
     "gulp": "gulp",
+    "g": "gulp",
     "watch": "gulp watch",
-    "prod": "gulp production"
+    "prod": "NODE_ENV='production' gulp production"
   },
   "engines": {
     "node": "^7.5.0",
