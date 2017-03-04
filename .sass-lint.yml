@@ -18,8 +18,12 @@ rules:
   no-empty-rulesets: 0
   force-pseudo-nesting: 0
   no-qualifying-elements: 0
-  no-url-protocols: 0
   no-warn: 0
+  no-url-domains: 0
+  no-url-protocols:
+    - 1
+    -
+      allow-protocol-relative-urls: true
 
   nesting-depth:
     - 1

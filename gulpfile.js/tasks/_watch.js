@@ -1,9 +1,3 @@
-/* Notes:
-   - gulp/tasks/browserify.js handles js recompiling with watchify
-   - gulp/tasks/browserSync.js watches and reloads compiled files
-   - watchers are made using `gulp-watch` so new files are automatically watched
-*/
-
 const gulp          = require('gulp');
 const config        = require('../config');
 const browserSync   = require('browser-sync');
@@ -12,9 +6,13 @@ const watch         = require('gulp-watch');
 
 
 gulp.task('watch', () => {
-  runSequence('default', ['browserSync']);
+  // Set environment
+  global.env = 'watch';
+  require('./browserSync');
 
-  watch(config.svgSprite.src + '/' + config.svgSprite.glob, () => {
+  runSequence('default', 'browserSync');
+
+  watch(`${config.svgSprite.src}/${config.svgSprite.glob}`, () => {
     runSequence('sprite', browserSync.reload);
   });
 
@@ -30,7 +28,7 @@ gulp.task('watch', () => {
     runSequence('images', browserSync.reload);
   });
 
-  watch(config.html.src + '/' + config.html.glob, () => {
+  watch(`${config.html.src}/${config.html.glob}`, () => {
     runSequence('html', browserSync.reload);
   });
 });

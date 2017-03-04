@@ -2,59 +2,57 @@
 // Icons
 //============================================
 
-// Define default var to prevent a sass error
+// Helpers to retrieve icon information from
+// `$i-map` which is generated via gulp along
+// the actual sprite file.
+
+// Default var to prevent sass errors when no
+// sprite was generated. Warnings will appear
+// to let the user know that something is wrong.
 $i-map: () !default
+
+
+// Icon props
+//============================================
+
+@function icon-prop($name, $prop)
+  $key: "#{$name}-#{$prop}"
+  $val: map-get($i-map, $key)
+
+  @if $val
+    @return $val
+  @else
+    @warn "Icon #{name} is not defined"
+    @return false
 
 
 // Icon width
 //============================================
 
 @function icon-width($name)
-  $name: $name + "-width"
-  $val: map-get($i-map, $name)
+  @return icon-prop($name, "width")
 
-  @if $val
-    @return $val
-  @else
-    @warn "Icon not defined"
-    @return false
-
-// Alias
 @function iw($name)
-  @return icon-width($name)
+  @return icon-prop($name, "width")
 
 
-// Icon Height
+// Icon height
 //============================================
 
 @function icon-height($name)
-  $name: $name + "-height"
-  $val: map-get($i-map, $name)
+  @return icon-prop($name, "height")
 
-  @if $val
-    @return $val
-  @else
-    @warn "Icon not defined"
-    @return false
-
-// Alias
 @function ih($name)
-  @return icon-height($name)
+  @return icon-prop($name, "height")
 
 
-// Icon Position
+// Icon position (when using sprite as bg-images only)
 //============================================
 
 @function icon-position($name)
-  $name: $name + "-position"
-  $val: map-get($i-map, $name)
-
-  @if $val
-    @return $val
-  @else
-    @warn "Icon not defined"
-    @return false
+  @return icon-prop($name, "position")
 
 // Alias
 @function ip($name)
-  @return icon-position($name)
+  @return icon-prop($name, "position")
+

@@ -2,8 +2,17 @@
 // Icons
 //============================================
 
-// Define default var to prevent a sass error
+// Helpers to retrieve icon information from
+// `$i-map` which is generated via gulp along
+// the actual sprite file.
+
+// Default var to prevent sass errors when no
+// sprite was generated. Warnings will appear
+// to let the user know that something is wrong.
 $i-map: () !default
+
+@import "../functions/icons"
+@import "size"
 
 
 // Icon Styles
@@ -27,7 +36,7 @@ $i-map: () !default
   background-position: icon-position($name)
 
 // Alias
-=ip($name)
+=ipos($name)
   +icon-position($name)
 
 
@@ -38,7 +47,7 @@ $i-map: () !default
   +size(icon-width($name), icon-height($name))
 
 // Alias
-=is($name)
+=isize($name)
   +icon-size($name)
 
 
@@ -46,10 +55,8 @@ $i-map: () !default
 //============================================
 
 =scale-icon ($name, $width, $round: "round")
-  $w: $name + "-width"
-  $w: map-get($i-map, $w)
-  $h: $name + "-height"
-  $h: map-get($i-map, $h)
+  $w: icon-width($name)
+  $h: icon-height($name)
 
   $height: ($width / $w) * $h
 

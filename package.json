@@ -8,10 +8,14 @@
   },
   "scripts": {
     "start": "gulp watch",
-    "gulp": "gulp",
-    "g": "gulp",
+    "build": "gulp",
+    "gulp": "npm run build",
+    "g": "npm run build",
     "watch": "gulp watch",
-    "prod": "NODE_ENV='production' gulp production"
+    "w": "npm run watch",
+    "production": "NODE_ENV='production' gulp production",
+    "prod": "npm run production",
+    "p": "npm run production"
   },
   "engines": {
     "node": "^7.5.0",

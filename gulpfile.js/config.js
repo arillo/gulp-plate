@@ -70,7 +70,7 @@ module.exports = {
 
   eslint: {
     src: [`${src}/js/**/*.js`, './gulpfile.js/**/*.js'],
-    options: './eslintrc.json',
+    options: './.eslintrc.json',
   },
 
   svgSprite: {
@@ -102,7 +102,7 @@ module.exports = {
     destFolder: 'js',
     entry: {
       // Relative to the js folder.
-      main: [`./main.js`],
+      main: ['./main.js'],
     },
   },
 

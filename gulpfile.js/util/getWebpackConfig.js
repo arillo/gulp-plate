@@ -29,6 +29,10 @@ const wpConfig = {
 };
 
 module.exports = (env) => {
+  if (env === 'build') {
+    wpConfig.devtool = 'inline-source-map';
+  }
+
   if (env === 'watch') {
     wpConfig.devtool = 'inline-source-map';
 
@@ -42,14 +46,14 @@ module.exports = (env) => {
     );
   }
 
-  if (env === 'production') {
+  if (env === 'prod') {
     wpConfig.plugins.push(
       new webpack.DefinePlugin({
         'process.env': {
-          'NODE_ENV': JSON.stringify('production')
-        }
+          'NODE_ENV': JSON.stringify('production'),
+        },
       }),
-      new webpack.optimize.UglifyJsPlugin
+      new webpack.optimize.UglifyJsPlugin()
     );
   }
 
