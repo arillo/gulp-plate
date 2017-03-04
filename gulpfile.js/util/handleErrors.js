@@ -10,7 +10,6 @@
 const notify = require('gulp-notify');
 
 module.exports = () => {
-
   const args = Array.prototype.slice.call(arguments);
 
   // console.log(arguments);

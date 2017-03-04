@@ -18,12 +18,10 @@ function matchClassnames(selector, classes) {
   return matches;
 }
 
-
 module.exports = (classes) => {
   // Return css process function
   return (css) => {
     css.walkRules((node) => {
-
       if (matchClassnames(node.selector, classes)) {
         node.remove();
       }

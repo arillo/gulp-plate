@@ -23,7 +23,7 @@ function getData() {
   return jsonData;
 }
 
-const exclude = path.normalize('!**/{' + config.excludeFolders.join(',') + '}/**');
+const exclude = path.normalize(`!**/{${config.excludeFolders.join(',')}}/**`);
 const src = [path.join(config.src, config.glob), exclude];
 
 gulp.task('html', () => {

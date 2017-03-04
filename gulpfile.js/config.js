@@ -68,11 +68,6 @@ module.exports = {
     excludeFolders: ['layouts', 'shared', 'macros', 'data'],
   },
 
-  eslint: {
-    src: [`${src}/js/**/*.js`, './gulpfile.js/**/*.js'],
-    options: './.eslintrc.json',
-  },
-
   svgSprite: {
     src: `${src}/icons`,
     glob: '**/*.svg',
@@ -93,6 +88,11 @@ module.exports = {
       cssPath: '../images/',
       rem: convertToRem,
     },
+  },
+
+  eslint: {
+    src: [`${src}/js/**/*.js`, './gulpfile.js/**/*.js'],
+    options: './.eslintrc',
   },
 
   webpack: {
@@ -118,7 +118,7 @@ module.exports = {
     htmlDest: dest,
 
     htmlminOpts: {
-      'collapseWhitespace': true,
+      collapseWhitespace: true,
     },
 
     cssCompressionOpts: {

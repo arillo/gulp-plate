@@ -27,7 +27,7 @@ const spriteOptions = {
 
 // Clean
 gulp.task('sprite:clean', (cb) => {
-  del([config.dest + '/images/sprite*.svg'], { dot: true })
+  del([`${config.dest}/images/sprite*.svg`], { dot: true })
     .then(() => {
       cb();
     });

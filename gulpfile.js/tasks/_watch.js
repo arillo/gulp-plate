@@ -1,3 +1,5 @@
+/* eslint no-sync: 0, no-console: 0, global-require: 0 */
+
 const gulp          = require('gulp');
 const config        = require('../config');
 const browserSync   = require('browser-sync');
