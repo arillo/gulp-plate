@@ -7,16 +7,16 @@ const notify = require('gulp-notify');
 module.exports = () => {
   const args = Array.prototype.slice.call(arguments);
 
-  const notifyOpts = {
+  // const notifyOpts = ;
+
+  // // if (typeof args.error === 'undefined' || args.error.length <= 0) {
+  // //   notifyOpts.message = 'There was an error, check the console';
+  // // }
+
+  notify.onError({
     title: 'Compile Error',
-    message: '<%= error.message %>',
-  };
-
-  if (typeof args.error === 'undefined' || args.error.length <= 0) {
-    notifyOpts.message = 'There was an error, check the console';
-  }
-
-  notify.onError(notifyOpts).apply(this, args);
+    message: '<%= error %>',
+  }).apply(this, args);
 
   // Keep gulp from hanging on this task
   if (typeof this.emit === 'function') { this.emit('end'); }

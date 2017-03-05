@@ -11,7 +11,6 @@ const wpConfig = {
   plugins: config.plugins || [],
   context: src,
   entry: config.entry,
-  extensions: ['', '.js']
   output: {
     filename: '[name].js',
     path: dest,
