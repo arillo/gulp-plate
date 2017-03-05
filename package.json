@@ -9,10 +9,11 @@
   "scripts": {
     "start": "gulp watch",
     "build": "gulp",
+    "b": "npm run build",
     "gulp": "npm run build",
     "g": "npm run build",
-    "watch": "gulp watch",
-    "w": "npm run watch",
+    "watch": "npm start",
+    "w": "npm start",
     "production": "NODE_ENV='production' gulp production",
     "prod": "npm run production",
     "p": "npm run production"

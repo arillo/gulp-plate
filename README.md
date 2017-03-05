@@ -4,16 +4,16 @@
 
 Includes the following tools, tasks, and workflows:
 
-- [Browserify](http://browserify.org/) as JavaScript module bundler
-- [Watchify](https://github.com/substack/watchify) (caching version of browserify for super fast rebuilds)
-- [ES2015](http://www.ecma-international.org/ecma-262/6.0/) syntax transpiled with [Babel](https://babeljs.io/) using [Babelify](https://github.com/babel/babelify) (with source maps!)
+- [Webpack](https://webpack.js.org/) as JavaScript module bundler
+- [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) in memory copilation for faster rebuils while developing.
+- [ES2015](http://www.ecma-international.org/ecma-262/6.0/) syntax transpiled with [Babel](https://babeljs.io/)
 - JavaScript linting using [ESLint](http://eslint.org/)
 - Shimming non common-js vendor code with other dependencies (like a jQuery plugin) with [browserify-shim](https://github.com/thlorenz/browserify-shim))
 - [SASS](http://sass-lang.com/) (super fast libsass with [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), and [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
 - [Sass linting](https://github.com/sasstools/sass-lint)
-- [BrowserSync](http://browsersync.io) for live reloading and a static server
+- [BrowserSync](http://browsersync.io) for live reloading and static server
 - [Image optimization](https://www.npmjs.com/package/gulp-imagemin)
-- Svg icon sprite generation using [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite), with `<symbol>` and `<use>` tags or as CSS Background image
+- Svg icon sprite generation using [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite), with `<symbol>` & `<use>` tags or as CSS Background image
 - Error handling in the console [and in Notification Center](https://github.com/mikaelbr/gulp-notify)
 
 Looking for the [SilverStripe](https://github.com/silverstripe) version? [Look here](https://github.com/arillo/silverstripe-gulp-plate).
@@ -43,38 +43,47 @@ $ npm install
 
 This runs through all dependencies listed in `package.json` and downloads them to a `node_modules` folder in your project directory.
 
-## `gulp` commands
+## commands
 
-Use `npm` to use the locally installed version of gulp in `./node_modules/bin` instead of the global version.
-
-```
+```bash
+# These are equivalent
+$ npm run build
 $ npm run gulp
+$ npm run g
 ```
 
-Will generate a dev version of the site in the `dist` folder
+Will run the default task and generate a dev version of the site in the `dist` folder.
 
-
-```
+```bash
+# These are equivalent
+$ npm start
 $ npm run watch
+$ npm run w
 ```
 
 Will run the default task once, start a server and watch for file changes.
 
-```
+```bash
+# These are equivalent
+$ npm run production
 $ npm run prod
+$ npm run p
 ```
 
-Will generate a production version of the site by compressing js & css & html. This is the folder that should go on the server.
+Will set `NODE_ENV='production'` and generate a production version of the site by compressing js, css & html. This is the folder that should go on the server.
 
-If you want to run any other gulp task just append the task name to the gulp command:
+If you want to run any other gulp task just append the task name to the build /gulp command:
 
 ```
+$ npm run build sprite
+$ npm run b sprite
 $ npm run gulp sprite
+$ npm run g sprite
 ```
 
 __Important:__
 
-Every time you run one of the commands the generated theme will be deleted! Don't make any changes in that directory.
+The `dist` folder will be deleted every time you run build / watch / prod. Don't make any changes in the `dist` folder.
 
 ## Folder structure
 
@@ -101,7 +110,7 @@ __Sprite config__
 
 Set what type of sprite generation you want to use: (`symbol` is the default)
 
-```javascript
+```js
 ...
 svgSprite: {
   type: 'symbol' // set to 'symbol' or 'css'
@@ -116,16 +125,16 @@ svgSprite: {
 
 __Generic move task__
 
-There is a generic task to move assets from the source directory without transformations, e.g. font files. To use is add the paths to the `move` array in the config file:
+There is a generic task to move static assets from the source directory without transformations, e.g. font files. To use is add the paths to the `move` array in the config file:
 
 ```js
 ...
-move: {
+move: [
   {
-    src: "path/to/source-files"
-    dest: "path/to/destination"
-  }
-}
+    src: "path/to/source-files",
+    dest: "path/to/destination",
+  },
+]
 ...
 ```
 
@@ -170,112 +179,43 @@ If there happen to be multiple files with the same name but different extensions
 
 Sass will always prefer Sass files (`.sass` or `.scss`) over css files, so when you hit this problem you have to import the Sass file over the css file.
 
-## Shim a jQuery plugin to work with browserify
+## Shim a jQuery plugin to work with webpack
 
-```js
-// package.json
+See instructions here: https://webpack.js.org/guides/shimming/
 
-{
-...
-  "browser": {
-    // Path to your plugin
-    "plugin": "./src/js/vendor/jquery-plugin.js"
-  },
-  "browserify-shim": {
-    // Shim it and declare dependencies
-    "plugin": {
-      "exports": "plugin",
-      "depends": [
-        "jquery:$"
-      ]
-    }
-  },
-...
-}
+__Note:__
 
-// use in main.js
-import plugin from 'plugin';
-
-plugin();
-
-```
+At the moment the webpack config is generated in the `/gulpfile.js/util/getWebpackConfig.js` file. Apply changes there as needed (this might be changed in the future).
 
 ## Declare aliases for frequently required files
 
-If you have to require one of your own files a lot you can add it as an alias to `"browser"` in the `package.json` file
+See instructions here: https://webpack.js.org/configuration/resolve/#resolve-alias
 
-```js
-// package.json
+__Note:__
 
-{
-...
-  "browser": {
-    // Path to your plugin
-    "myScript": "./src/js/ui/my-script.js"
-  },
-...
-}
-
-// use in main.js
-import myScript from 'myScript';
-// instead of
-import myScript from './ui/myScript';
-
-```
+At the moment the webpack config is generated in the `/gulpfile.js/util/getWebpackConfig.js` file. Apply changes there as needed (this might be changed in the future).
 
 ## Multiple JavaScript bundles & library sharing between bundles
 
-When creating multiple JavaScript bundles it is important to include each library (e.g. jQuery) only once in your _main_ or _library_ bundle instead of every single bundle. To make this work follow the steps below to share `jquery` for example:
-
-__In your `package.json`__
+To generate multiple bundles add new entries to the `webpack.entry` array in the `config.js` file (file paths are relative to the `webpack.srcFolder`):
 
 ```js
-{
-  //...
-  // Add the library you want to share to the `browser` object
-  // Look inside the package.json file of the library you want to share 
-  // to know which is the `main` file it exports.
-  "browser" : {
-    "jquery": "./node_modules/jquery/dist/jquery.js"
-  },
-  //...
-}
-```
-
-__In your `gulpfile.js/config.js`__
-
-```js
-{
-  //...
-  browserify: {
-    bundleConfigs: [
-      // This is the main bundle that contains the libraries
-      {
-        entries: src + '/js/main.js',
-        dest: dest + '/js',
-        outputName: 'main.js',
-        // This will include `jquery` in the main bundle weather it is uses
-        //`require('jquery')` itself or not, and make it available to the
-        // other bundles
-        require: ['jquery']
-      },
-
-      // This is another bundle that will be generated
-      // it uses `jquery` but does not include it itself
-      {
-        entries: src + '/js/other-bundle.js',
-        dest: dest + '/js',
-        outputName: 'other-bundle.js',
-        // This bit lets the bundle know that it has to get 
-        // jquery from somewhere else
-        external: ['jquery']
-
-      }
-    ]
+webpack: {
+  entry: {
+    main: ['./main.js'],
+    otherFile: ['./otherFile.js'],
   }
-  //...
 }
 ```
+
+If you do this it is probably a good idea to generate another bundle that contains all shared vendor code.
+
+Instructions can be found here: https://webpack.js.org/guides/code-splitting-libraries/
+
+__Note:__
+
+At the moment the webpack config is generated in the `/gulpfile.js/util/getWebpackConfig.js` file. Apply changes there as needed (this might be changed in the future).
+
 
 ## Known issues
 
