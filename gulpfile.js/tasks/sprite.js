@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: 0, arrow-body-style: 0 */
+
 const gulp          = require('gulp');
 const svgSprite     = require('gulp-svg-sprite');
 const del           = require('del');

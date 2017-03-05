@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: 0 */
+
 // Task for static webpack builds (default & production),
 // see `browserSync.js` for live update builds.
 

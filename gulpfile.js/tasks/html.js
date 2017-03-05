@@ -1,7 +1,6 @@
-/* eslint no-sync: 0 */
+/* eslint import/no-extraneous-dependencies: 0, arrow-body-style: 0 */
 
 const config       = require('../config').html;
-const browserSync  = require('browser-sync');
 const data         = require('gulp-data');
 const gulp         = require('gulp');
 const handleErrors = require('../util/handleErrors');
@@ -37,6 +36,5 @@ gulp.task('html', () => {
       },
     }))
     .on('error', handleErrors)
-    .pipe(gulp.dest(config.dest))
-    .pipe(browserSync.reload({ stream: true }));
+    .pipe(gulp.dest(config.dest));
 });

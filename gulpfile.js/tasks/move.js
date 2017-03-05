@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: 0 */
+
 const gulp          = require('gulp');
 const config        = require('../config').move;
 

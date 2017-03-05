@@ -1,4 +1,4 @@
-/* eslint no-sync: 0, no-console: 0, global-require: 0 */
+/* eslint no-sync: 0, global-require: 0, import/no-extraneous-dependencies: 0 */
 
 const gulp          = require('gulp');
 const config        = require('../config');
@@ -7,12 +7,10 @@ const runSequence   = require('run-sequence');
 const watch         = require('gulp-watch');
 
 
-gulp.task('watch', () => {
+gulp.task('watch', (callback) => {
   // Set environment
   global.env = 'watch';
   require('./browserSync');
-
-  runSequence('default', 'browserSync');
 
   watch(`${config.svgSprite.src}/${config.svgSprite.glob}`, () => {
     runSequence('sprite', browserSync.reload);
@@ -33,4 +31,6 @@ gulp.task('watch', () => {
   watch(`${config.html.src}/${config.html.glob}`, () => {
     runSequence('html', browserSync.reload);
   });
+
+  runSequence('default', 'browserSync', callback);
 });

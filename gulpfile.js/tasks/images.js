@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: 0, arrow-body-style: 0 */
+
 const changed       = require('gulp-changed');
 const gulp          = require('gulp');
 const imagemin      = require('gulp-imagemin');

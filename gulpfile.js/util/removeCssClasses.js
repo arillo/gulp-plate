@@ -18,7 +18,7 @@ function matchClassnames(selector, classes) {
   return matches;
 }
 
-module.exports = (classes) => {
+module.exports = function removeCssClasses(classes) {
   // Return css process function
   return (css) => {
     css.walkRules((node) => {

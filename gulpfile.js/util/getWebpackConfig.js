@@ -1,4 +1,5 @@
-/* eslint guard-for-in: 0 */
+/* eslint import/no-extraneous-dependencies: 0 */
+
 const config    = require('../config').webpack;
 const webpack   = require('webpack');
 const path      = require('path');
@@ -37,10 +38,10 @@ module.exports = (env) => {
   if (env === 'watch') {
     wpConfig.devtool = 'inline-source-map';
 
-    for (const key in wpConfig.entry) {
+    Object.keys(wpConfig.entry).forEach((key) => {
       const entry = wpConfig.entry[key];
       wpConfig.entry[key] = ['webpack-hot-middleware/client?&reload=true'].concat(entry);
-    }
+    });
 
     wpConfig.plugins.push(
       new webpack.HotModuleReplacementPlugin()

@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: 0, arrow-body-style: 0 */
+
 const gulp          = require('gulp');
 const browserSync   = require('browser-sync');
 const sass          = require('gulp-sass');

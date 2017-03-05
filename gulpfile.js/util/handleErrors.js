@@ -1,26 +1,23 @@
-// const notify = require('gulp-notify');
+/* eslint import/no-extraneous-dependencies: 0 */
 
-// module.exports = (errorObject) => {
-//   notify.onError(errorObject.toString().split(': ').join(':\n')).apply(this, arguments);
-//   // Keep gulp from hanging on this task
-//   if (typeof this.emit === 'function') { this.emit('end'); }
-// };
-
+// @TODO review this to emit an erorr notification when eslint fails
 
 const notify = require('gulp-notify');
 
 module.exports = () => {
   const args = Array.prototype.slice.call(arguments);
 
-  // console.log(arguments);
-
-  // Send error to notification center with gulp-notify
-  notify.onError({
+  const notifyOpts = {
     title: 'Compile Error',
     message: '<%= error.message %>',
-  }).apply(this, args);
+  };
+
+  if (typeof args.error === 'undefined' || args.error.length <= 0) {
+    notifyOpts.message = 'There was an error, check the console';
+  }
+
+  notify.onError(notifyOpts).apply(this, args);
 
   // Keep gulp from hanging on this task
   if (typeof this.emit === 'function') { this.emit('end'); }
-  // this.emit('end');
 };

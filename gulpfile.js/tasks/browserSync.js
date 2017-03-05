@@ -1,4 +1,4 @@
-/* eslint no-sync: 0, no-console: 0 */
+/* eslint no-sync: 0, import/no-extraneous-dependencies: 0 */
 
 // This task is not registered by default to prevent
 // webpackDevMiddleware and webpackHotMiddleware be

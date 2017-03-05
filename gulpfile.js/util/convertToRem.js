@@ -3,7 +3,7 @@
 // Very specific to this project,
 // it asumes that the rem base is 10.
 
-module.exports = () => {
+module.exports = function convertToRem() {
   return (pos, render) => {
     const num = parseInt(render(pos), 10) / 10;
     if (num === 0) {

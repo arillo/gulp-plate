@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: 0, arrow-body-style: 0 */
+
 const config      = require('../config').production;
 const gulp        = require('gulp');
 const sizereport  = require('gulp-sizereport');

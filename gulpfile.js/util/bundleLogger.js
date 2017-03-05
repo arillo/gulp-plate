@@ -1,6 +1,7 @@
+/* eslint import/no-extraneous-dependencies: 0 */
+
 const gutil        = require('gulp-util');
 const prettifyTime = require('./prettifyTime');
-const handleErrors = require('./handleErrors');
 
 module.exports = (err, stats) => {
   if (err) { throw new gutil.PluginError('webpack', err); }
@@ -8,13 +9,9 @@ module.exports = (err, stats) => {
   let statColor = stats.compilation.warnings.length < 1 ? 'green' : 'yellow';
 
   if (stats.compilation.errors.length > 0) {
-    console.log('errors');
-    stats.compilation.errors.forEach((error) => {
-      handleErrors(error);
-      statColor = 'red';
-    });
+    statColor = 'red';
+    gutil.log(gutil.colors[statColor](stats));
   } else {
-    console.log('no errors');
     const compileTime = prettifyTime(stats.endTime - stats.startTime);
     gutil.log(gutil.colors[statColor](stats));
     gutil.log('Compiled with', gutil.colors.cyan('webpack'), 'in', gutil.colors.magenta(compileTime));
