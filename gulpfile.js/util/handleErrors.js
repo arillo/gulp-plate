@@ -1,23 +1,48 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 
-// @TODO review this to emit an erorr notification when eslint fails
-
 const notify = require('gulp-notify');
+const gutil  = require('gulp-util');
 
-module.exports = () => {
-  const args = Array.prototype.slice.call(arguments);
 
-  // const notifyOpts = ;
+function reportError(error) {
+  // Console error
+  let report = '\n';
+  const chalk = gutil.colors.red.bold;
+  let notifyMessage = '';
 
-  // // if (typeof args.error === 'undefined' || args.error.length <= 0) {
-  // //   notifyOpts.message = 'There was an error, check the console';
-  // // }
+  if (error.plugin) {
+    report += `${chalk('PLUGIN:')} [' ${error.plugin} ']\n`;
+  }
 
-  notify.onError({
-    title: 'Compile Error',
-    message: '<%= error %>',
-  }).apply(this, args);
+  if (error.message) {
+    report += `${chalk('ERROR:')} ${error.message}\n`;
+  }
 
-  // Keep gulp from hanging on this task
+  if (!error.message) {
+    report += `${chalk('ERROR:')} ${error.toString()}\n`;
+  }
+
+  gutil.log(gutil.colors.red(report));
+
+  // Notification
+  if (error.line && error.column) {
+    notifyMessage += `LINE ${error.line}:${error.column} -- `;
+  }
+
+  if (error.file) {
+    notifyMessage += `FILE ${error.file}`;
+  }
+
+  notify({
+    title: `FAIL: ${error.plugin}`,
+    message: `${notifyMessage} See console.`,
+    sound: false, // See: https://github.com/mikaelbr/node-notifier#all-notification-options-with-their-defaults
+  }).write(error);
+
+  // System beep
+  gutil.beep();
+
   if (typeof this.emit === 'function') { this.emit('end'); }
-};
+}
+
+module.exports = reportError;

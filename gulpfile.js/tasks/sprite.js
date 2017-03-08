@@ -39,6 +39,6 @@ gulp.task('sprite', ['sprite:clean'], () => {
   return gulp.src(config.glob, { cwd: config.src })
     .pipe(plumber())
     .pipe(svgSprite(spriteOptions))
-    // .on('error', handleErrors)
+    .on('error', handleErrors)
     .pipe(gulp.dest(config.dest));
 });

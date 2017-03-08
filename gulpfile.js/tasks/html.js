@@ -28,13 +28,13 @@ const src = [path.join(config.src, config.glob), exclude];
 gulp.task('html', () => {
   return gulp.src(src)
     .pipe(data(getData))
-    // .on('error', handleErrors)
+    .on('error', handleErrors)
     .pipe(render({
       path: config.src,
       envOptions: {
         watch: false,
       },
     }))
-    // .on('error', handleErrors)
+    .on('error', handleErrors)
     .pipe(gulp.dest(config.dest));
 });

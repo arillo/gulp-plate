@@ -3,15 +3,12 @@
 const gulp          = require('gulp');
 const eslint        = require('gulp-eslint');
 const config        = require('../config').eslint;
-// const handleErrors  = require('../util/handleErrors');
-const gulpif        = require('gulp-if');
-// const notify        = require('gulp-notify');
+const handleErrors  = require('../util/handleErrors');
 
 gulp.task('eslint', () => {
   return gulp.src(config.src)
     .pipe(eslint(config.options))
     .pipe(eslint.format())
-    // Fail if trying to creat production bundle with errors
-    .pipe(gulpif(global.env === 'prod', eslint.failAfterError()));
-    // .on('error', handleErrors);
+    .pipe(eslint.failAfterError())
+    .on('error', handleErrors);
 });
