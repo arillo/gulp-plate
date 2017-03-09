@@ -6,7 +6,10 @@ const sass          = require('gulp-sass');
 const sourcemaps    = require('gulp-sourcemaps');
 const handleErrors  = require('../util/handleErrors');
 const config        = require('../config').sass;
+const prodConfig    = require('../config').production;
 const postcss       = require('gulp-postcss');
+const gulpif        = require('gulp-if');
+const nano          = require('cssnano');
 const autoprefixer  = require('autoprefixer');
 const removeClasses = require('../util/removeCssClasses')(config.remove);
 
@@ -16,12 +19,22 @@ const procesors = [
 ];
 
 gulp.task('sass', () => {
+  const isProd = global.env === 'prod';
+
+  if (isProd) {
+    procesors.push(
+      nano(prodConfig.cssCompressionOpts)
+    );
+  }
+
+  console.log(isProd);
+
   return gulp.src(config.src)
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(!isProd, sourcemaps.init()))
     .pipe(sass(config.settings))
     .on('error', handleErrors)
     .pipe(postcss(procesors))
-    .pipe(sourcemaps.write())
+    .pipe(gulpif(!isProd, sourcemaps.write()))
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.reload({ stream: true }));
 });

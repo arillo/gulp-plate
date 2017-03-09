@@ -8,7 +8,7 @@ gulp.task('production', (callback) => {
 
   const tasks = [
     'default',
-    ['webpack', 'minifyCss', 'minifyHtml'],
+    ['webpack', 'minifyHtml'],
     'size-report',
   ];
 

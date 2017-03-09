@@ -3,6 +3,8 @@ const convertToRem  = require('./util/convertToRem');
 const dest = './dist';
 const src = './src';
 
+console.log(__dirname);
+
 module.exports = {
   destFolder: dest,
 

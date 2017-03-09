@@ -1,5 +1,4 @@
 options:
-  # Merge default rules (for now)
   merge-default-rules: true
 
 files:
