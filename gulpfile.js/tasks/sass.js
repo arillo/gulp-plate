@@ -28,7 +28,7 @@ gulp.task('sass', () => {
 
   return gulp.src(config.src)
     .pipe(gulpif(!isProd, sourcemaps.init()))
-    .pipe(sass(config.settings))
+    .pipe(sass(config.options))
     .on('error', handleErrors)
     .pipe(postcss(procesors))
     .pipe(gulpif(!isProd, sourcemaps.write()))

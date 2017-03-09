@@ -14,10 +14,45 @@ const browserSync = {
   open: false,
 };
 
+const eslint = {
+  src: [
+    `${src}/js/**/*.js`,
+    './gulpfile.js/**/*.js',
+  ],
+  options: './.eslintrc',
+};
+
+const html = {
+  src: `${src}/html`,
+  dest: `${dest}/`,
+  glob: '**/*.{html,json}',
+  data: `${src}/html/data/*.json`,
+  extensions: ['html', 'json'],
+  excludeFolders: ['layouts', 'shared', 'macros', 'data'],
+
+  compression: {
+    collapseWhitespace: true,
+  },
+};
+
+const images = {
+  src: `${src}/images/**`,
+  dest: `${dest}/images`,
+};
+
+// Generic move task to move static assets.
+// Files are not watched for changes.
+const move = [
+  // {
+  //   src: src + '/fonts/**',
+  //   dest: `${dest}/fonts`,
+  // }
+];
+
 const sass = {
   src: `${src}/sass/**/*.{sass,scss}`,
   dest: `${dest}/css`,
-  settings: {
+  options: {
     outputStyle: 'expanded',
     indentedSyntax: true,
     // Include paths to thirdparty styles
@@ -50,33 +85,6 @@ const sass = {
   },
 };
 
-// Generic move task to move static assets.
-// Files are not watched for changes.
-const move = [
-  // {
-  //   src: src + '/fonts/**',
-  //   dest: `${dest}/fonts`,
-  // }
-];
-
-const images = {
-  src: `${src}/images/**`,
-  dest: `${dest}/images`,
-};
-
-const html = {
-  src: `${src}/html`,
-  dest: `${dest}/`,
-  glob: '**/*.{html,json}',
-  data: `${src}/html/data/*.json`,
-  extensions: ['html', 'json'],
-  excludeFolders: ['layouts', 'shared', 'macros', 'data'],
-
-  compression: {
-    collapseWhitespace: true,
-  },
-};
-
 const sprite = {
   src: `${src}/icons`,
   dest: `${dest}/images`,
@@ -91,22 +99,6 @@ const sprite = {
     cssPath: '../images/',
     rem: convertToRem,
   },
-};
-
-const eslint = {
-  src: [
-    `${src}/js/**/*.js`,
-    './gulpfile.js/**/*.js',
-  ],
-  options: './.eslintrc',
-};
-
-const report = {
-  src: [
-    `${dest}/css/*.css`,
-    `${dest}/js/*.js`,
-    `${dest}/images/**/*`,
-  ],
 };
 
 const webpack = {
@@ -134,6 +126,10 @@ const webpack = {
       },
     ],
   },
+};
+
+const report = {
+  src: [sass.dest, webpack.output.path, images.dest],
 };
 
 module.exports = {
