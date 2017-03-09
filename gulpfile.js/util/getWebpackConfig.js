@@ -4,8 +4,8 @@ const config    = require('../config').webpack;
 const webpack   = require('webpack');
 const path      = require('path');
 
-const src   = path.resolve(__dirname, `../../${config.src}/${config.srcFolder}`);
-const dest  = path.resolve(__dirname, `../../${config.dest}/${config.destFolder}`);
+const src   = path.resolve(process.env.PWD, config.src, config.srcFolder);
+const dest  = path.resolve(process.env.PWD, config.dest, config.destFolder);
 
 const wpConfig = {
   plugins: config.plugins || [],

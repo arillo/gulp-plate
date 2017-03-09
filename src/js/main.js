@@ -1,5 +1,4 @@
 import $ from 'jquery';
-// import dd from 'dd';
 
 // Enable inline svgs in IE
 // import svg4everybody from 'svg4everybody';

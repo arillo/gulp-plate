@@ -2,46 +2,30 @@
 
 [Gulp](http://gulpjs.com/) boilerplate & build system.
 
-Includes the following tools, tasks, and workflows:
+Includes the following tools, tasks, and work-flows:
 
 - [Webpack](https://webpack.js.org/) as JavaScript module bundler
-- [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) in memory copilation for faster rebuils while developing.
+- [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) in memory compilation for faster rebuilds while developing
 - [ES2015](http://www.ecma-international.org/ecma-262/6.0/) syntax transpiled with [Babel](https://babeljs.io/)
 - JavaScript linting using [ESLint](http://eslint.org/)
-- Shimming non common-js vendor code with other dependencies (like a jQuery plugin) with [browserify-shim](https://github.com/thlorenz/browserify-shim))
-- [SASS](http://sass-lang.com/) (super fast libsass with [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), and [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
+- [SASS](http://sass-lang.com/) compiled with libsass, [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), and [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
 - [Sass linting](https://github.com/sasstools/sass-lint)
 - [BrowserSync](http://browsersync.io) for live reloading and static server
-- [Image optimization](https://www.npmjs.com/package/gulp-imagemin)
-- Svg icon sprite generation using [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite), with `<symbol>` & `<use>` tags or as CSS Background image
-- Error handling in the console [and in Notification Center](https://github.com/mikaelbr/gulp-notify)
+- Svg compression via [svgo](https://github.com/svg/svgo)
+- Svg icon sprite generation via [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite), with `<symbol>` & `<use>` tags or as CSS Background image
+- Error handling in the console and in [Notification Center](https://github.com/mikaelbr/gulp-notify)
 
 Looking for the [SilverStripe](https://github.com/silverstripe) version? [Look here](https://github.com/arillo/silverstripe-gulp-plate).
 
 ## Dependencies / Installation
 
-Install Node. If you use homebrew, do:
+Gulp-plate depends on the following technologies:
 
-```bash
-$ brew install node
-```
+- [nodejs](http://nodejs.org) as local host environment for gulp
+- [gulp](http://gulpjs.com/) as task-runner
+- [yarn](https://yarnpkg.com) as dependency manager
 
-Otherwise, you can download and install from [here](http://nodejs.org/download/). At the time of writing Node version 4+ is needed.
-
-Install Gulp globally:
-
-```
-$ npm install -g gulp
-```
-
-After the setup:
-
-```
-$ cd to project
-$ npm install
-```
-
-This runs through all dependencies listed in `package.json` and downloads them to a `node_modules` folder in your project directory.
+ It is recommended to install node trough [nvm](https://github.com/creationix/nvm) (Node Version Manager).
 
 ## commands
 
