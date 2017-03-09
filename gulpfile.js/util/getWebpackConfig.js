@@ -2,54 +2,27 @@
 
 const config    = require('../config').webpack;
 const webpack   = require('webpack');
-const path      = require('path');
-
-const src   = path.resolve(process.env.PWD, config.src, config.srcFolder);
-const dest  = path.resolve(process.env.PWD, config.dest, config.destFolder);
-
-const wpConfig = {
-  plugins: config.plugins || [],
-  context: src,
-  entry: config.entry,
-  output: {
-    filename: '[name].js',
-    path: dest,
-    publicPath: `/${config.destFolder}`,
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015'],
-        },
-      },
-    ],
-  },
-};
 
 module.exports = (env) => {
   if (env === 'build') {
-    wpConfig.devtool = 'inline-source-map';
+    config.devtool = 'inline-source-map';
   }
 
   if (env === 'watch') {
-    wpConfig.devtool = 'inline-source-map';
+    config.devtool = 'inline-source-map';
 
-    Object.keys(wpConfig.entry).forEach((key) => {
-      const entry = wpConfig.entry[key];
-      wpConfig.entry[key] = ['webpack-hot-middleware/client?&reload=true'].concat(entry);
+    Object.keys(config.entry).forEach((key) => {
+      const entry = config.entry[key];
+      config.entry[key] = ['webpack-hot-middleware/client?&reload=true'].concat(entry);
     });
 
-    wpConfig.plugins.push(
+    config.plugins.push(
       new webpack.HotModuleReplacementPlugin()
     );
   }
 
   if (env === 'prod') {
-    wpConfig.plugins.push(
+    config.plugins.push(
       new webpack.DefinePlugin({
         'process.env': {
           NODE_ENV: JSON.stringify('production'),
@@ -59,5 +32,5 @@ module.exports = (env) => {
     );
   }
 
-  return wpConfig;
+  return config;
 };

@@ -1,7 +1,9 @@
 const convertToRem  = require('./util/convertToRem');
+const path          = require('path');
 
-const dest = './dist';
-const src = './src';
+const src   = path.resolve(process.env.PWD, 'src');
+const dest  = path.resolve(process.env.PWD, 'dist');
+
 
 module.exports = {
   destFolder: dest,
@@ -41,12 +43,18 @@ module.exports = {
     // Css Selectors that should be removed from your css.
     // useful to remove unneeded thirdparty styles.
     remove: [],
+
+    compression: {
+      safe: true,
+      mergeLonghand: false,
+      discardComments: {
+        removeAll: true,
+      },
+    },
   },
 
-  // Generic move task, useful to move assets that do
-  // not need transformations. Keep in mind that
-  // these files will not be watched and are only
-  // moved when the default task is executed.
+  // Generic move task to move static assets.
+  // Files are not watched for changes.
   move: [
     // {
     //   src: src + '/fonts/**',
@@ -66,6 +74,10 @@ module.exports = {
     data: `${src}/html/data/*.json`,
     extensions: ['html', 'json'],
     excludeFolders: ['layouts', 'shared', 'macros', 'data'],
+
+    compression: {
+      collapseWhitespace: true,
+    },
   },
 
   svgSprite: {
@@ -91,48 +103,48 @@ module.exports = {
   },
 
   eslint: {
-    src: [`${src}/js/**/*.js`, './gulpfile.js/**/*.js'],
+    src: [
+      `${src}/js/**/*.js`,
+      './gulpfile.js/**/*.js',
+    ],
     options: './.eslintrc',
   },
 
-  webpack: {
-    src,
-    dest,
-    srcFolder: 'js',
-    destFolder: 'js',
-    entry: {
-      // Relative to the js folder.
-      main: ['./main.js'],
-    },
-  },
-
-  production: {
-    dest,
-
-    cssSrc: `${dest}/css/*.css`,
-    jsSrc: `${dest}/js/*.js`,
-    htmlSrc: `${dest}/**/*.html`,
-
-    cssDest: `${dest}/css`,
-    jsDest: `${dest}/js`,
-    htmlDest: dest,
-
-    htmlminOpts: {
-      collapseWhitespace: true,
-    },
-
-    cssCompressionOpts: {
-      safe: true,
-      mergeLonghand: false,
-      discardComments: {
-        removeAll: true,
-      },
-    },
-
-    reportSrc: [
+  report: {
+    src: [
       `${dest}/css/*.css`,
       `${dest}/js/*.js`,
       `${dest}/images/**/*`,
     ],
+    options: {
+      gzip: true,
+    },
+  },
+
+  webpack: {
+    plugins: [],
+    context: `${src}/js`,
+    entry: {
+      // Relative to the js folder.
+      main: ['./main.js'],
+    },
+    output: {
+      filename: '[name].js',
+      path: `${dest}/js`,
+      // Path on server
+      publicPath: '/js',
+    },
+    module: {
+      loaders: [
+        {
+          test: /\.js$/,
+          exclude: /(node_modules|bower_components)/,
+          loader: 'babel-loader',
+          query: {
+            presets: ['es2015'],
+          },
+        },
+      ],
+    },
   },
 };

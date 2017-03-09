@@ -1,7 +1,6 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 
 const config        = require('../config').html;
-const prodConfig    = require('../config').production;
 const data          = require('gulp-data');
 const gulp          = require('gulp');
 const handleErrors  = require('../util/handleErrors');
@@ -41,6 +40,6 @@ gulp.task('html', () => {
       },
     }))
     .on('error', handleErrors)
-    .pipe(gulpif(isProd, htmlmin(prodConfig.htmlminOpts)))
+    .pipe(gulpif(isProd, htmlmin(config.compression)))
     .pipe(gulp.dest(config.dest));
 });

@@ -6,7 +6,6 @@ const sass          = require('gulp-sass');
 const sourcemaps    = require('gulp-sourcemaps');
 const handleErrors  = require('../util/handleErrors');
 const config        = require('../config').sass;
-const prodConfig    = require('../config').production;
 const postcss       = require('gulp-postcss');
 const gulpif        = require('gulp-if');
 const nano          = require('cssnano');
@@ -23,7 +22,7 @@ gulp.task('sass', () => {
 
   if (isProd) {
     procesors.push(
-      nano(prodConfig.cssCompressionOpts)
+      nano(config.compression)
     );
   }
 
