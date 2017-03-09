@@ -3,7 +3,7 @@
 const gulp          = require('gulp');
 const svgSprite     = require('gulp-svg-sprite');
 const del           = require('del');
-const config        = require('../config').svgSprite;
+const config        = require('../config').sprite;
 const plumber       = require('gulp-plumber');
 const handleErrors  = require('../util/handleErrors');
 
@@ -36,7 +36,7 @@ gulp.task('sprite:clean', (cb) => {
 });
 
 gulp.task('sprite', ['sprite:clean'], () => {
-  return gulp.src(config.glob, { cwd: config.src })
+  return gulp.src('**/*.svg', { cwd: config.src })
     .pipe(plumber())
     .pipe(svgSprite(spriteOptions))
     .on('error', handleErrors)

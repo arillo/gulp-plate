@@ -12,7 +12,7 @@ gulp.task('watch', (callback) => {
   global.env = 'watch';
   require('./browserSync');
 
-  watch(`${config.svgSprite.src}/${config.svgSprite.glob}`, () => {
+  watch(`${config.sprite.src}/**/*.svg`, () => {
     runSequence('sprite', browserSync.reload);
   });
 

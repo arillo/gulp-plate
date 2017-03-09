@@ -4,7 +4,7 @@ const config      = require('../config').report;
 const gulp        = require('gulp');
 const sizereport  = require('gulp-sizereport');
 
-gulp.task('size-report', () => {
+gulp.task('report', () => {
   return gulp.src(config.src)
-    .pipe(sizereport(config.options));
+    .pipe(sizereport({ gzip: true }));
 });
