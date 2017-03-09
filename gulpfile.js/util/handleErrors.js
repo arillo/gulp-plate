@@ -3,6 +3,7 @@
 const notify = require('gulp-notify');
 const gutil  = require('gulp-util');
 
+// Taken from here https://github.com/mikaelbr/gulp-notify/issues/81#issuecomment-268852774
 
 function reportError(error) {
   // Console error
@@ -36,7 +37,7 @@ function reportError(error) {
   notify({
     title: `FAIL: ${error.plugin}`,
     message: `${notifyMessage} See console.`,
-    sound: false, // See: https://github.com/mikaelbr/node-notifier#all-notification-options-with-their-defaults
+    sound: false,
   }).write(error);
 
   // System beep
