@@ -6,11 +6,7 @@ const runSequence = require('run-sequence');
 gulp.task('production', (callback) => {
   global.env = 'prod';
 
-  const tasks = [
-    'default',
-    ['webpack', 'minifyHtml'],
-    'size-report',
-  ];
+  const tasks = ['default', 'webpack', 'size-report'];
 
   runSequence(...tasks, callback);
 });

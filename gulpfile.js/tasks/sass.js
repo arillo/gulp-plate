@@ -1,4 +1,4 @@
-/* eslint import/no-extraneous-dependencies: 0, arrow-body-style: 0 */
+/* eslint import/no-extraneous-dependencies: 0 */
 
 const gulp          = require('gulp');
 const browserSync   = require('browser-sync');
@@ -27,8 +27,6 @@ gulp.task('sass', () => {
     );
   }
 
-  console.log(isProd);
-
   return gulp.src(config.src)
     .pipe(gulpif(!isProd, sourcemaps.init()))
     .pipe(sass(config.settings))
@@ -36,5 +34,5 @@ gulp.task('sass', () => {
     .pipe(postcss(procesors))
     .pipe(gulpif(!isProd, sourcemaps.write()))
     .pipe(gulp.dest(config.dest))
-    .pipe(browserSync.reload({ stream: true }));
+    .pipe(gulpif(!isProd, browserSync.reload({ stream: true })));
 });
