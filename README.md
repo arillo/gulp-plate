@@ -5,14 +5,13 @@
 Includes the following tools, tasks, and work-flows:
 
 - [Webpack](https://webpack.js.org/) as JavaScript module bundler
-- [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) for live reloading (in memory compilation for faster rebuilds while developing).
+- [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) for live reloading (in memory compilation for faster rebuilds while developing)
 - [ES2015](http://www.ecma-international.org/ecma-262/6.0/) syntax transpiled with [Babel](https://babeljs.io/)
 - [ESLint](http://eslint.org/) for JavaScript linting
-- [SASS](http://sass-lang.com/) compiled with libsass, [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), and [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer))
-- [Sass linting](https://github.com/sasstools/sass-lint)
+- [SASS](http://sass-lang.com/) compiled with libsass, [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) and [Sass linting](https://github.com/sasstools/sass-lint)
 - [BrowserSync](http://browsersync.io) for live reloading and static server
-- Svg compression via [svgo](https://github.com/svg/svgo)
-- Svg icon sprite generation via [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite), with `<symbol>` & `<use>` tags or as CSS Background image
+- [svgo](https://github.com/svg/svgo) for SVG compression.
+- [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) for automatically generate SVG icon sprite, with `<symbol>` & `<use>` tags or as CSS background image
 - Error handling in the console and in [Notification Center](https://github.com/mikaelbr/gulp-notify)
 
 Looking for the [SilverStripe](https://github.com/silverstripe) version? [Look here](https://github.com/arillo/silverstripe-gulp-plate).
