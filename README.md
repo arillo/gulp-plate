@@ -186,7 +186,7 @@ myModule();
 
 Docs: https://webpack.js.org/configuration/resolve/#resolve-alias
 
-### Shimming non Common Js modules
+### Shimming non CommonJs modules
 
 #### jQuery plugin
 
@@ -306,6 +306,11 @@ const js = {
 ```
 
 Docs: https://webpack.js.org/guides/code-splitting-libraries/
+
+## Roadmap
+
+- [ ] Research Tree-shaking with webpack and implement if possible
+- [ ] Evaluate if es-lint should be used through a webpack loader instead of gulp
 
 ## Credits
 
