@@ -11,7 +11,7 @@ Includes the following tools, tasks, and work-flows:
 - [SASS](http://sass-lang.com/) compiled with libsass, [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) and [Sass linting](https://github.com/sasstools/sass-lint)
 - [BrowserSync](http://browsersync.io) for live reloading and static server
 - [svgo](https://github.com/svg/svgo) for SVG compression.
-- [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) for automatically generate SVG icon sprite, with `<symbol>` & `<use>` tags or as CSS background image
+- [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) to generate a SVG icon sprite, with `<symbol>` & `<use>` tags or as CSS background image
 - Error handling in the console and in [Notification Center](https://github.com/mikaelbr/gulp-notify)
 
 Looking for the [SilverStripe](https://github.com/silverstripe) version? [Look here](https://github.com/arillo/silverstripe-gulp-plate).
@@ -20,16 +20,16 @@ Looking for the [SilverStripe](https://github.com/silverstripe) version? [Look h
 
 Gulp-plate depends on the following technologies:
 
-- [nodejs](http://nodejs.org) as local host environment for gulp
+- [node.js](http://nodejs.org) as local host environment for gulp*
 - [gulp](http://gulpjs.com/) as task-runner
 - [yarn](https://yarnpkg.com) as dependency manager
 
- It is recommended to install node trough [nvm](https://github.com/creationix/nvm) (Node Version Manager).
+*It is recommended to install node trough [nvm](https://github.com/creationix/nvm) (Node Version Manager).
 
 ## Commands
 
 ```bash
-# These are equivalent
+# Equivalent
 $ yarn run build
 $ yarn run gulp
 $ yarn run g
@@ -38,7 +38,7 @@ $ yarn run g
 Will run the default task and generate a dev version of the site in the `dist` folder.
 
 ```bash
-# These are equivalent
+# Equivalent
 $ yarn start
 $ yarn run watch
 $ yarn run w
@@ -47,7 +47,7 @@ $ yarn run w
 Will run the default task once, start a server and watch for file changes.
 
 ```bash
-# These are equivalent
+# Equivalent
 $ yarn run production
 $ yarn run prod
 $ yarn run p
@@ -57,7 +57,8 @@ Will set `NODE_ENV='production'` and generate a production version of the site b
 
 If you want to run any other gulp task just append the task name to the build /gulp command:
 
-```
+```bash
+# Equivalent
 $ yarn run build sprite
 $ yarn run b sprite
 $ yarn run gulp sprite
