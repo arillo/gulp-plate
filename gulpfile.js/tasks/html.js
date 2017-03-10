@@ -8,17 +8,16 @@ const path          = require('path');
 const gulpif        = require('gulp-if');
 const render        = require('gulp-nunjucks-render');
 const fs            = require('fs');
-const _             = require('lodash');
 const glob          = require('glob');
 const htmlmin       = require('gulp-htmlmin');
 
-function getData() {
-  const jsonData = {};
+function getData(isProd) {
+  const jsonData = { isProd };
   const files = glob.sync(config.data);
 
   files.forEach((el) => {
     const dataPath = path.resolve(el);
-    _.extend(jsonData, JSON.parse(fs.readFileSync(dataPath, 'utf8')));
+    Object.assign(jsonData, JSON.parse(fs.readFileSync(dataPath, 'utf8')));
   });
 
   return jsonData;
@@ -31,7 +30,7 @@ gulp.task('html', () => {
   const isProd = global.env === 'prod';
 
   return gulp.src(src)
-    .pipe(data(getData))
+    .pipe(data(getData(isProd)))
     .on('error', handleErrors)
     .pipe(render({
       path: config.src,

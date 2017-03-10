@@ -10,6 +10,9 @@
   </head>
   <body>
     {% block content %}{% endblock %}
+
+    {% include "shared/grid-helper.html" %}
+
     {% block javascript %}
       <script src="js/main.js"></script>
     {% endblock %}

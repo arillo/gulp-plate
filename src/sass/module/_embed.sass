@@ -29,6 +29,11 @@
 // Embedded media
 //============================================
 
+// 1. Images used to have `height: auto` but
+//    this often leads to to one visible pixel
+//    at the bottom of the `.embed` when it
+//    has a bg-color.
+
 .embed object,
 .embed iframe,
 .embed embed,
@@ -36,7 +41,4 @@
 .embed_img,
 .embed_media
   +pos(0, top left)
-  +size(100%)
-
-.embed_img
-  height: auto
+  +size(100%) // 1.

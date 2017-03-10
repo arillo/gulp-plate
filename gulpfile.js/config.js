@@ -82,7 +82,8 @@ const sass = {
 
   compression: {
     safe: true,
-    mergeLonghand: false,
+    core: false,
+    autoprefixer: false,
     discardComments: {
       removeAll: true,
     },
