@@ -40,9 +40,9 @@ const images = {
   dest: `${dest}/images`,
 };
 
-// Generic move task to move static assets.
+// Generic task to move static assets.
 // Files are not watched for changes.
-const move = [
+const static = [
   // {
   //   src: `${src}/fonts/**`,
   //   dest: `${dest}/fonts`,

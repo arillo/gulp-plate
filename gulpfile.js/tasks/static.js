@@ -1,11 +1,11 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 
 const gulp          = require('gulp');
-const config        = require('../config').move;
+const config        = require('../config').static;
 
-gulp.task('move', (cb) => {
+gulp.task('static', (callback) => {
   if (config.length <= 0) {
-    return cb();
+    return callback();
   }
 
   config.forEach((entry) => {
@@ -13,5 +13,5 @@ gulp.task('move', (cb) => {
       .pipe(gulp.dest(entry.dest));
   });
 
-  return cb();
+  return callback();
 });
