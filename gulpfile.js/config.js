@@ -1,8 +1,9 @@
 const convertToRem  = require('./util/convertToRem');
 const path          = require('path');
 
-const src   = path.resolve(process.env.PWD, 'src');
-const dest  = path.resolve(process.env.PWD, 'dist');
+const dir   = process.env.PWD;
+const src   = path.resolve(dir, 'src');
+const dest  = path.resolve(dir, 'dist');
 
 
 const browserSync = {
@@ -16,10 +17,11 @@ const browserSync = {
 
 const eslint = {
   src: [
-    `${src}/js/**/*.js`,
-    './gulpfile.js/**/*.js',
+    './**/*.js',
+    `!${dir}/node_modules/**/*.*`,
+    `!${dest}/**/*.*`,
   ],
-  options: './.eslintrc',
+  options: './.eslintrc.js',
 };
 
 const html = {
@@ -42,7 +44,7 @@ const images = {
 
 // Generic task to move static assets.
 // Files are not watched for changes.
-const static = [
+const assets = [
   // {
   //   src: `${src}/fonts/**`,
   //   dest: `${dest}/fonts`,
@@ -114,8 +116,14 @@ const webpack = {
     // Path on server
     publicPath: '/js',
   },
+  resolve: {
+    extensions: ['', '.js', '.json'],
+    alias: {
+      waypoints: 'waypoints/lib/jquery.waypoints.js',
+    },
+  },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -133,5 +141,5 @@ const report = {
 };
 
 module.exports = {
-  dest, src, browserSync, sass, move, images, html, sprite, eslint, report, webpack,
+  dir, dest, src, browserSync, sass, assets, images, html, sprite, eslint, report, webpack,
 };

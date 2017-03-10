@@ -1,9 +1,9 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 
 const gulp          = require('gulp');
-const config        = require('../config').static;
+const config        = require('../config').assets;
 
-gulp.task('static', (callback) => {
+gulp.task('assets', (callback) => {
   if (config.length <= 0) {
     return callback();
   }

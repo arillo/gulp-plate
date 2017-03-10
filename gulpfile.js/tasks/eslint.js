@@ -2,8 +2,8 @@
 
 const gulp          = require('gulp');
 const eslint        = require('gulp-eslint');
-const config        = require('../config').eslint;
 const handleErrors  = require('../util/handleErrors');
+const config        = require('../config').eslint;
 
 gulp.task('eslint', () => {
   return gulp.src(config.src)

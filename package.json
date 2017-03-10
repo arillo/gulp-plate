@@ -34,6 +34,7 @@
     "del": "2.2.2",
     "eslint": "^3.17.0",
     "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-import-resolver-webpack": "^0.8.1",
     "eslint-plugin-babel": "^4.0.1",
     "eslint-plugin-import": "^2.2.0",
     "glob": "^7.1.1",
@@ -69,6 +70,7 @@
   "dependencies": {
     "jquery": "^3.1.1",
     "normalize.css": "^5.0.0",
-    "svg4everybody": "^2.1.4"
+    "svg4everybody": "^2.1.4",
+    "waypoints": "^4.0.1"
   }
 }

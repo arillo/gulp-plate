@@ -92,14 +92,14 @@ All paths and plugin settings have been abstracted into a centralized config obj
 
 __Sprite config__
 
-Set what type of sprite generation you want to use: (defaults to `symbol`)
+Set what type of sprite generation you want to use:
 
-- __`'symbol'`__ creates a SVG image that can be used to reference icons with the `<use>` tag.
+- __`'symbol'`__ (default) creates a SVG image that can be used to reference icons with the `<use>` tag.
 - __`'css'`__ creates a SVG sprite that can be used as a background image in css.
 
-__Move static assets__
+__Static assets__
 
-To move static assets from the source directory without transformations, e.g. font files. Add the `src` and `dest` paths to the `move` array in the `config.js`
+To move static assets from the source directory without transformations, e.g. font files. Add the `src` and `dest` paths to the `static` array in the `config.js`
 
 ## HTML Templates
 
@@ -111,19 +111,16 @@ To include third-party styles in your css use the `includePaths` array in the `c
 
 ```js
 // gulpfile.js/config.js
-
-{
+const sass = {
   //...
-  sass: {
-    settings: {
-      includePaths: [
-        './node_modules/normalize.css',
-        // put other paths here..
-      ]
-    }
+  settings: {
+    includePaths: [
+      './node_modules/normalize.css',
+      // put other paths here..
+    ]
   },
   //...
-}
+};
 ```
 
 Include it using a regular `@import`:
