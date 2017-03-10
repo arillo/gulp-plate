@@ -10,18 +10,17 @@ body .browserWarning // 1.
   position: fixed
 
 .browserWarning
-  +size(100%)
-  position: absolute
-  top: 0
-  left: 0
+  +pos(0, left bottom)
+  width: 100%
   z-index: 1000000
-  background: $black
+  background: $color-error
   color: $white
   font-size: 16px // 2.
+  padding: 20px
 
 .browserWarning_inner
-  +center(300px, 180px) // 2.
+  h3
+    font-weight: bold
 
-.browserWarning_inner a
-  color: light($black, 60%)
-  border-bottom: 1px solid light($black, 65%) // 2.
+  a
+    text-decoration: underline
