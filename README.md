@@ -307,4 +307,4 @@ Docs: https://webpack.js.org/guides/code-splitting-libraries/
 
 ## Credits
 
-- Gulp-plate is based on https://github.com/greypants/gulp-starter
+Gulp-plate is based on https://github.com/greypants/gulp-starter
