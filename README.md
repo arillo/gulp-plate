@@ -20,7 +20,7 @@ Looking for the [SilverStripe](https://github.com/silverstripe) version? [Look h
 
 Gulp-plate depends on the following technologies:
 
-- [node.js](http://nodejs.org) as local host environment for gulp*
+- [node.js](http://nodejs.org) as local host environment for gulp (v. 7.5.0 or higher)*
 - [gulp](http://gulpjs.com/) as task-runner
 - [yarn](https://yarnpkg.com) as dependency manager
 
