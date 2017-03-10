@@ -28,7 +28,7 @@ Gulp-plate depends on the following technologies:
 
 To get started:
 
-```
+```bash
 $ git clone https://github.com/arillo/gulp-plate myProject
 $ cd myProject
 $ rm -r .git    # Remove the link to the git repo
