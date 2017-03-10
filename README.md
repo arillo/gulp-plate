@@ -88,7 +88,7 @@ myProject/
 
 ## Configuration
 
-All paths and plugin settings have been abstracted into a centralized file `./gulpfile.js/config.js`. Adapt the paths and settings to the structure and needs of your project.
+All paths and plugin settings have been abstracted into a centralized file: `./gulpfile.js/config.js`. Adapt the paths and settings to the structure and needs of your project.
 
 ## SVG Sprite configuration
 
@@ -96,6 +96,10 @@ Set what type of sprite generation you want to use:
 
 - __`'symbol'`__ (default) creates a SVG image that can be used to reference icons with the `<use>` tag.
 - __`'css'`__ creates a SVG sprite that can be used as a background image in css.
+
+The sprite creates an image with the name `sprite.svg` in `./dist/images/`. It also creates a Sass file named: `_sprite.scss` in `./src/sass/base/`.
+
+The generated Sass files contains useful information about the sprite icons like the dimensions of each icon and, depending on your settings, the `background-position`. The file will change every time an icons is added, removed or changes, do not edit it manually. You can change the file by changing the templates in `./gulpfile.js/tpl/`.
 
 ## Static assets
 
