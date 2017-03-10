@@ -26,6 +26,15 @@ Gulp-plate depends on the following technologies:
 
 *It is recommended to install node trough [nvm](https://github.com/creationix/nvm) (Node Version Manager).
 
+To get started:
+
+```
+$ git clone https://github.com/arillo/gulp-plate myProject
+$ cd myProject
+$ rm -r .git    # Remove the link to the git repo
+$ yarn          # Install dependencies
+```
+
 ## Commands
 
 ```bash
