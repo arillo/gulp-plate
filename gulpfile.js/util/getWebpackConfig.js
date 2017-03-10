@@ -1,9 +1,13 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 
-const config    = require('../config').webpack;
+const config    = require('../config').js;
 const webpack   = require('webpack');
 
 module.exports = (env) => {
+  if (!config.plugins) {
+    config.plugins = [];
+  }
+
   if (env === 'build') {
     config.devtool = 'inline-source-map';
   }

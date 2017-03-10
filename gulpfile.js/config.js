@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: 0 */
+
 const convertToRem  = require('./util/convertToRem');
 const path          = require('path');
 
@@ -103,11 +105,10 @@ const sprite = {
   },
 };
 
-const webpack = {
-  plugins: [],
+const js = {
   context: `${src}/js`,
   entry: {
-    // Relative to the js folder.
+    // Path relative to `context`
     main: ['./main.js'],
   },
   output: {
@@ -115,12 +116,6 @@ const webpack = {
     path: `${dest}/js`,
     // Path on server
     publicPath: '/js',
-  },
-  resolve: {
-    extensions: ['', '.js', '.json'],
-    alias: {
-      waypoints: 'waypoints/lib/jquery.waypoints.js',
-    },
   },
   module: {
     rules: [
@@ -137,9 +132,9 @@ const webpack = {
 };
 
 const report = {
-  src: [sass.dest, webpack.output.path, images.dest],
+  src: [sass.dest, js.output.path, images.dest],
 };
 
 module.exports = {
-  dir, dest, src, browserSync, sass, assets, images, html, sprite, eslint, report, webpack,
+  dir, dest, src, browserSync, sass, assets, images, html, sprite, eslint, report, js,
 };

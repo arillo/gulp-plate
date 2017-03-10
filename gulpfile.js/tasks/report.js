@@ -8,8 +8,8 @@ const sizereport  = require('gulp-sizereport');
 gulp.task('report', () => {
   let src = config.report.src;
 
-  if (config.move.length) {
-    config.move.forEach(el => src.push(el.dest));
+  if (config.assets && config.assets.length) {
+    config.assets.forEach(el => src.push(el.dest));
   }
 
   src = src.map(el => `${el}/**/*`);

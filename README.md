@@ -27,7 +27,7 @@ Gulp-plate depends on the following technologies:
 
  It is recommended to install node trough [nvm](https://github.com/creationix/nvm) (Node Version Manager).
 
-## commands
+## Commands
 
 ```bash
 # These are equivalent
@@ -88,16 +88,16 @@ myProject/
 
 ## Configuration
 
-All paths and plugin settings have been abstracted into a centralized config object in `./gulpfile.js/config.js`. Adapt the paths and settings to the structure and needs of your project.
+All paths and plugin settings have been abstracted into a centralized file `./gulpfile.js/config.js`. Adapt the paths and settings to the structure and needs of your project.
 
-__Sprite config__
+## SVG Sprite configuration
 
 Set what type of sprite generation you want to use:
 
 - __`'symbol'`__ (default) creates a SVG image that can be used to reference icons with the `<use>` tag.
 - __`'css'`__ creates a SVG sprite that can be used as a background image in css.
 
-__Static assets__
+## Static assets
 
 To move static assets from the source directory without transformations, e.g. font files. Add the `src` and `dest` paths to the `static` array in the `config.js`
 
@@ -105,19 +105,24 @@ To move static assets from the source directory without transformations, e.g. fo
 
 Templates use [Nunjucks](https://github.com/mozilla/nunjucks). See the [docs](http://mozilla.github.io/nunjucks/) for more information on how to use them.
 
-## Include external vendor css files
+## Sass
+
+Sass indented syntax is used by default. The main Sass files need to have a `.sass` extension, otherwise the compiler fails. Partials can be both `.sass` and `.scss`.
+
+### Include external vendor css files
 
 To include third-party styles in your css use the `includePaths` array in the `config.js` file:
 
 ```js
 // gulpfile.js/config.js
+
 const sass = {
   //...
   settings: {
     includePaths: [
       './node_modules/normalize.css',
       // put other paths here..
-    ]
+    ],
   },
   //...
 };
@@ -131,55 +136,170 @@ Include it using a regular `@import`:
 
 The Sass compiler will look for files with `.sass`, `.scss` and `.css` extension and include its contents in the generated file.
 
-If there happen to be multiple files with the same name but different extensions (e.g. `slick.css` and `slick.scss`) the compiler will throw an error. To circumvent this problem include the file extension in the `@import`:
+If there happen to be multiple files with the same name but different extensions (e.g. `style.css` and `style.scss`) the compiler will throw an error. To circumvent this problem include the file extension in the `@import`:
 
 ```sass
-@import "slick.scss"
+@import "style.scss"
 ```
 
 Sass will always prefer Sass files (`.sass` or `.scss`) over css files, so when you hit this problem you have to import the Sass file over the css file.
 
-## Shim a jQuery plugin to work with webpack
+## JavaScript
 
-See instructions here: https://webpack.js.org/guides/shimming/
+When using the watch task, Javascript compilation happen in memory, so no files are written to disk (`./dist/js/` will be empty). Also for live reloading to work `webpack-hot-middleware/client` is injected in all bundles.
 
-__Note:__
+When building for production the `webpack.optimize.UglifyJsPlugin` is used for minification.
 
-At the moment the webpack config is generated in the `/gulpfile.js/util/getWebpackConfig.js` file. Apply changes there as needed (this might be changed in the future).
+Take a look at `./gulpfile.js/util/getWebpackConfig.js` to see what is happening.
 
-## Declare aliases for frequently required files
+Here are some usefull recipes to get you up and running:
 
-See instructions here: https://webpack.js.org/configuration/resolve/#resolve-alias
+### Shimming non Common Js modules
 
-__Note:__
-
-At the moment the webpack config is generated in the `/gulpfile.js/util/getWebpackConfig.js` file. Apply changes there as needed (this might be changed in the future).
-
-## Multiple JavaScript bundles & library sharing between bundles
-
-To generate multiple bundles add new entries to the `webpack.entry` array in the `config.js` file (file paths are relative to the `webpack.srcFolder`):
+#### jQuery plugin
 
 ```js
-webpack: {
-  entry: {
-    main: ['./main.js'],
-    otherFile: ['./otherFile.js'],
+// gulpfile.js/config.js
+
+const webpack = require('webpack');
+//...
+const js = {
+  plugins: [
+    // Make jQuery global, expected by the plugin.
+    new webpack.ProvidePlugin({
+      'window.jQuery': 'jquery',
+    }),
+  ],
+  //...
+  resolve: {
+    // Add extensions to prevent linting errors.
+    extensions: ['.js', '.json'],
+    // Path from `node_modules`, where `myModule` is the module name.
+    alias: {
+      myModule: 'myModule/dist/myModule.js',
+    },
   }
-}
+};
 ```
 
-If you do this it is probably a good idea to generate another bundle that contains all shared vendor code.
+```js
+// src/js/main.js
 
-Instructions can be found here: https://webpack.js.org/guides/code-splitting-libraries/
+import $ from 'jquery';
+import 'myModule';
 
-__Note:__
+$('.js-selector').myModule();
+```
 
-At the moment the webpack config is generated in the `/gulpfile.js/util/getWebpackConfig.js` file. Apply changes there as needed (this might be changed in the future).
+#### Regular JavaScript module
 
+```js
+// gulpfile.js/config.js
 
-## Known issues
+const js = {
+  //...
+  resolve: {
+    // Add extensions to prevent linting errors.
+    extensions: ['.js', '.json'],
+    // Path from `node_modules`, where `myModule` is the module name.
+    alias: {
+      myModule: 'myModule/dist/myModule.js',
+    },
+  },
+  module: {
+    rules: [
+      // ...
+      {
+        include: require.resolve('myModule/dist/myModule.js'),
+        loader: 'exports-loader?MyModule',
+      },
+    ],
+  },
+};
+```
 
-- The Sass files to be rendered as `.css` files need to have the extension `.sass` otherwise the compiler fails. Partials can be both `.sass` and `.scss`.
+```js
+// src/js/main.js
+
+import $ from 'jquery';
+import MyModule from 'myModule';
+
+const myInstance = new MyModule();
+```
+
+Docs: https://webpack.js.org/guides/shimming/
+
+### Declare aliases for frequently required files
+
+```js
+// gulpfile.js/config.js
+
+const js = {
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      // Path relative to `context`
+      myModule: './myModule/myModule.js',
+    },
+  },
+};
+```
+
+```js
+// src/js/some-file.js
+
+import myModule from 'myModule';
+
+myModule();
+```
+
+Docs: https://webpack.js.org/configuration/resolve/#resolve-alias
+
+### Multiple JavaScript bundles & vendor code sharing
+
+To create multiple bundles add entires to `entry`
+
+```js
+// gulpfile.js/config.js
+
+const js = {
+  // ...
+  entry: {
+    main: ['./main.js'],
+    other: ['./someFile.js', './sotherOtherFile.js'],
+  },
+  // ...
+};
+```
+
+This will generate two bundles: `main.js` & `other.js`.
+
+If you do this it is probably a good idea to generate another bundle that contains all shared vendor code:
+
+```js
+// gulpfile.js/config.js
+
+const webpack = require('webpack');
+//...
+const js = {
+  // ...
+  entry: {
+    main: ['./main.js'],
+    other: ['./someFile.js', './sotherOtherFile.js'],
+    // List vendor modules here:
+    vendor: ['jquery', 'svg4everybody'],
+  },
+  // ...
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor', // Specify the common bundle's name
+    }),
+  ],
+  // ...
+};
+```
+
+Docs: https://webpack.js.org/guides/code-splitting-libraries/
 
 ## Credits
 

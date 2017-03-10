@@ -1,6 +1,6 @@
 // Pass webpack `reslove.aliases` & `reslove.extensions`
 // to prevent `import/resolver` errors.
-const resolve = require('./gulpfile.js/config').webpack.resolve || {};
+const resolve = require('./gulpfile.js/config').js.resolve || {};
 
 module.exports = {
   parser: 'babel-eslint',

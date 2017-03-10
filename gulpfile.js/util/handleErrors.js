@@ -41,7 +41,9 @@ function reportError(error) {
   }).write(error);
 
   // System beep
-  gutil.beep();
+  if (global.env !== 'watch') {
+    gutil.beep();
+  }
 
   if (typeof this.emit === 'function') { this.emit('end'); }
 }
