@@ -148,15 +148,43 @@ If there happen to be multiple files with the same name but different extensions
 
 Sass will always prefer Sass files (`.sass` or `.scss`) over css files, so when you hit this problem you have to import the Sass file over the css file.
 
+### Sass-lint errors
+
+At the time of writing `sass-lint`
+
 ## JavaScript
 
-When using the watch task, Javascript compilation happen in memory, so no files are written to disk (`./dist/js/` will be empty). Also for live reloading to work `webpack-hot-middleware/client` is injected in all bundles.
+The `./gulpfile.js/config.js` file contains the full webpack configuration (see the `js` variable). Feel free to alter is as needed. Keep in mind that the `babel-loader` should always be present as `eslint` will rely on it.
 
-When building for production the `webpack.optimize.UglifyJsPlugin` is used for minification.
+There configuration will be slightly altered depending on the task you are running. When using the watch task, Javascript compilation will happen in memory, so no files are written to disk (`./dist/js/` will be empty) and `webpack-hot-middleware/client` will be injected in all bundles for live reloading to work. When building for production `webpack.optimize.UglifyJsPlugin` is used for minification. Take a look at `./gulpfile.js/util/getWebpackConfig.js` to see exactly what is happening and change it as needed.
 
-Take a look at `./gulpfile.js/util/getWebpackConfig.js` to see what is happening.
+Here are some useful recipes to get you up and running:
 
-Here are some usefull recipes to get you up and running:
+### Declare aliases for frequently required files
+
+```js
+// gulpfile.js/config.js
+
+const js = {
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      // Path relative to `context`
+      myModule: './myModule/myModule.js',
+    },
+  },
+};
+```
+
+```js
+// src/js/some-file.js
+
+import myModule from 'myModule';
+
+myModule();
+```
+
+Docs: https://webpack.js.org/configuration/resolve/#resolve-alias
 
 ### Shimming non Common Js modules
 
@@ -232,32 +260,6 @@ const myInstance = new MyModule();
 ```
 
 Docs: https://webpack.js.org/guides/shimming/
-
-### Declare aliases for frequently required files
-
-```js
-// gulpfile.js/config.js
-
-const js = {
-  resolve: {
-    extensions: ['.js'],
-    alias: {
-      // Path relative to `context`
-      myModule: './myModule/myModule.js',
-    },
-  },
-};
-```
-
-```js
-// src/js/some-file.js
-
-import myModule from 'myModule';
-
-myModule();
-```
-
-Docs: https://webpack.js.org/configuration/resolve/#resolve-alias
 
 ### Multiple JavaScript bundles & vendor code sharing
 
