@@ -44,9 +44,9 @@ const images = {
 // Files are not watched for changes.
 const move = [
   // {
-  //   src: src + '/fonts/**',
+  //   src: `${src}/fonts/**`,
   //   dest: `${dest}/fonts`,
-  // }
+  // },
 ];
 
 const sass = {

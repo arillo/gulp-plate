@@ -31,27 +31,27 @@ Gulp-plate depends on the following technologies:
 
 ```bash
 # These are equivalent
-$ npm run build
-$ npm run gulp
-$ npm run g
+$ yarn run build
+$ yarn run gulp
+$ yarn run g
 ```
 
 Will run the default task and generate a dev version of the site in the `dist` folder.
 
 ```bash
 # These are equivalent
-$ npm start
-$ npm run watch
-$ npm run w
+$ yarn start
+$ yarn run watch
+$ yarn run w
 ```
 
 Will run the default task once, start a server and watch for file changes.
 
 ```bash
 # These are equivalent
-$ npm run production
-$ npm run prod
-$ npm run p
+$ yarn run production
+$ yarn run prod
+$ yarn run p
 ```
 
 Will set `NODE_ENV='production'` and generate a production version of the site by compressing js, css & html. This is the folder that should go on the server.
@@ -59,10 +59,10 @@ Will set `NODE_ENV='production'` and generate a production version of the site b
 If you want to run any other gulp task just append the task name to the build /gulp command:
 
 ```
-$ npm run build sprite
-$ npm run b sprite
-$ npm run gulp sprite
-$ npm run g sprite
+$ yarn run build sprite
+$ yarn run b sprite
+$ yarn run gulp sprite
+$ yarn run g sprite
 ```
 
 __Important:__
@@ -92,35 +92,14 @@ All paths and plugin settings have been abstracted into a centralized config obj
 
 __Sprite config__
 
-Set what type of sprite generation you want to use: (`symbol` is the default)
-
-```js
-...
-svgSprite: {
-  type: 'symbol' // set to 'symbol' or 'css'
-  ...
-}
-...
-
-```
+Set what type of sprite generation you want to use: (defaults to `symbol`)
 
 - __`'symbol'`__ creates a SVG image that can be used to reference icons with the `<use>` tag.
 - __`'css'`__ creates a SVG sprite that can be used as a background image in css.
 
-__Generic move task__
+__Move static assets__
 
-There is a generic task to move static assets from the source directory without transformations, e.g. font files. To use is add the paths to the `move` array in the config file:
-
-```js
-...
-move: [
-  {
-    src: "path/to/source-files",
-    dest: "path/to/destination",
-  },
-]
-...
-```
+To move static assets from the source directory without transformations, e.g. font files. Add the `src` and `dest` paths to the `move` array in the `config.js`
 
 ## HTML Templates
 
