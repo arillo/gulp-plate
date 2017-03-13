@@ -158,7 +158,7 @@ Sass will always prefer Sass files (`.sass` or `.scss`) over css files, so when 
 
 ### Sass-lint errors
 
-At the time of writing `sass-lint`
+At the time of writing `sass-lint` fails when it encounters empty selectors. This is a [bug](https://github.com/sasstools/sass-lint/issues/820), it can be prevented by adding a comment (`//`) at the end of the file (does not allways work).
 
 ## JavaScript
 
@@ -318,7 +318,7 @@ Docs: https://webpack.js.org/guides/code-splitting-libraries/
 ## Roadmap
 
 - [ ] Research Tree-shaking with webpack and implement if possible
-- [ ] Evaluate if es-lint should be used through a webpack loader instead of gulp
+- [x] Evaluate if es-lint should be used through a webpack loader instead of gulp
 
 ## Credits
 
