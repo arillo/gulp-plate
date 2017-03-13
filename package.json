@@ -16,7 +16,8 @@
     "w": "npm start",
     "production": "NODE_ENV='production' gulp production",
     "prod": "npm run production",
-    "p": "npm run production"
+    "p": "npm run production",
+    "lint-tasks": "./node_modules/.bin/eslint --config .eslintrc.json 'gulpfile.js/**/*.js'"
   },
   "engines": {
     "node": "^7.5.0",
