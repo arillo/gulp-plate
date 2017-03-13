@@ -16,10 +16,6 @@ gulp.task('watch', (callback) => {
     runSequence('sprite', browserSync.reload);
   });
 
-  watch(config.eslint.src, () => {
-    runSequence('eslint');
-  });
-
   watch(config.sass.src, () => {
     runSequence('sasslint', 'sass');
   });

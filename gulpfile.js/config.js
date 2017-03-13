@@ -7,7 +7,6 @@ const dir   = process.env.PWD;
 const src   = path.resolve(dir, 'src');
 const dest  = path.resolve(dir, 'dist');
 
-
 const browserSync = {
   port: 9000,
   server: {
@@ -15,15 +14,6 @@ const browserSync = {
   },
   notify: false,
   open: false,
-};
-
-const eslint = {
-  src: [
-    './**/*.js',
-    `!${dir}/node_modules/**/*.*`,
-    `!${dest}/**/*.*`,
-  ],
-  options: './.eslintrc.js',
 };
 
 const html = {
@@ -123,10 +113,17 @@ const js = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015'],
-        },
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015'],
+            },
+          },
+          {
+            loader: 'eslint-loader',
+          },
+        ],
       },
     ],
   },
@@ -137,5 +134,5 @@ const report = {
 };
 
 module.exports = {
-  dir, dest, src, browserSync, sass, assets, images, html, sprite, eslint, report, js,
+  dir, dest, src, browserSync, sass, assets, images, html, sprite, report, js,
 };
