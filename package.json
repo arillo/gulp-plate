@@ -70,7 +70,6 @@
   "dependencies": {
     "jquery": "^3.1.1",
     "normalize.css": "^5.0.0",
-    "svg4everybody": "^2.1.4",
-    "waypoints": "^4.0.1"
+    "svg4everybody": "^2.1.4"
   }
 }
