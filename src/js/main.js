@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Waypoint from 'waypoints';
 
 // Enable inline svgs in IE
 // import svg4everybody from 'svg4everybody';
@@ -7,4 +8,5 @@ import $ from 'jquery';
 
 $(document).ready(() => {
   console.log('ready!');
+  console.log(Waypoint);
 });

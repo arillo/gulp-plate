@@ -12,7 +12,6 @@ Includes the following tools, tasks, and work-flows:
 - [BrowserSync](http://browsersync.io) for live reloading and static server
 - [svgo](https://github.com/svg/svgo) for SVG compression.
 - [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) to generate a SVG icon sprite, with `<symbol>` & `<use>` tags or as CSS background image
-- Error handling in the console and in [Notification Center](https://github.com/mikaelbr/gulp-notify)
 
 Looking for the [SilverStripe](https://github.com/silverstripe) version? [Look here](https://github.com/arillo/silverstripe-gulp-plate).
 

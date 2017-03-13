@@ -17,7 +17,7 @@
     "production": "NODE_ENV='production' gulp production",
     "prod": "npm run production",
     "p": "npm run production",
-    "lint-tasks": "./node_modules/.bin/eslint --config .eslintrc.json 'gulpfile.js/**/*.js'"
+    "lint-tasks": "./node_modules/.bin/eslint --config .eslintrc.js 'gulpfile.js/**/*.js'"
   },
   "engines": {
     "node": "^7.5.0",
@@ -61,11 +61,8 @@
     "gulp-watch": "^4.3.11",
     "imports-loader": "^0.7.1",
     "merge-stream": "^1.0.1",
-    "pretty-hrtime": "^1.0.3",
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
-    "vinyl": "^2.0.1",
-    "vinyl-source-stream": "^1.1.0",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-hot-middleware": "^2.17.1"
@@ -73,6 +70,7 @@
   "dependencies": {
     "jquery": "^3.1.1",
     "normalize.css": "^5.0.0",
-    "svg4everybody": "^2.1.4"
+    "svg4everybody": "^2.1.4",
+    "waypoints": "^4.0.1"
   }
 }

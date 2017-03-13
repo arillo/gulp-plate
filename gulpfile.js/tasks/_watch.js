@@ -17,7 +17,7 @@ gulp.task('watch', (callback) => {
   });
 
   watch(config.sass.src, () => {
-    runSequence('sasslint', 'sass');
+    runSequence('sass');
   });
 
   watch(config.images.src, () => {
