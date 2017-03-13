@@ -19,5 +19,5 @@
       "exports": "always-multiline",
       "functions": "never"
     }]
-  },
+  }
 }
