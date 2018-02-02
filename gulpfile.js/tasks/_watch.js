@@ -1,13 +1,10 @@
-/* eslint no-sync: 0, global-require: 0, import/no-extraneous-dependencies: 0 */
+const gulp = require('gulp');
+const config = require('../config');
+const browserSync = require('browser-sync');
+const runSequence = require('run-sequence');
+const watch = require('gulp-watch');
 
-const gulp          = require('gulp');
-const config        = require('../config');
-const browserSync   = require('browser-sync');
-const runSequence   = require('run-sequence');
-const watch         = require('gulp-watch');
-
-
-gulp.task('watch', (callback) => {
+gulp.task('watch', callback => {
   // Set environment
   global.env = 'watch';
   require('./browserSync');

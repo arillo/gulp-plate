@@ -6,25 +6,15 @@ module.exports = {
   parser: 'babel-eslint',
   env: {
     browser: true,
-    node: true
+    node: true,
   },
-  extends: 'airbnb-base',
-
+  plugins: ['prettier', 'standard'],
+  extends: ['standard', 'prettier', 'prettier/standard'],
   rules: {
-    'no-multi-spaces': [ 'error', {
-      exceptions: {
-        VariableDeclarator: true
-      }
-    }],
-    'comma-dangle': ['error', {
-      arrays: 'always-multiline',
-      objects: 'always-multiline',
-      imports: 'always-multiline',
-      exports: 'always-multiline',
-      functions: 'never'
-    }]
+    'prettier/prettier': 1,
+    'no-unused-vars': 1,
   },
-  'settings': {
+  settings: {
     'import/resolver': {
       webpack: {
         config: {

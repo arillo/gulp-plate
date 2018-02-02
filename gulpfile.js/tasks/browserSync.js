@@ -1,13 +1,11 @@
-/* eslint no-sync: 0, import/no-extraneous-dependencies: 0 */
-
 // This task is not registered by default to prevent
 // webpackDevMiddleware and webpackHotMiddleware be
 // executed unless we are using the watch task.
 
 const browserSync = require('browser-sync');
-const gulp        = require('gulp');
-const config      = require('../config').browserSync;
-const webpack     = require('webpack');
+const gulp = require('gulp');
+const config = require('../config').browserSync;
+const webpack = require('webpack');
 const getWebpackConfig = require('../util/getWebpackConfig');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');

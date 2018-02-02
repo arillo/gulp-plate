@@ -9,7 +9,7 @@ function matchClassnames(selector, classes) {
 
   let matches = false;
 
-  classes.forEach((className) => {
+  classes.forEach(className => {
     if (selector.indexOf(className) > -1) {
       matches = true;
     }
@@ -20,8 +20,8 @@ function matchClassnames(selector, classes) {
 
 module.exports = function removeCssClasses(classes) {
   // Return css process function
-  return (css) => {
-    css.walkRules((node) => {
+  return css => {
+    css.walkRules(node => {
       if (matchClassnames(node.selector, classes)) {
         node.remove();
       }

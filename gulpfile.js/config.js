@@ -1,15 +1,12 @@
-/* eslint import/no-extraneous-dependencies: 0 */
+const path = require('path');
 
-const convertToRem  = require('./util/convertToRem');
-const path          = require('path');
-
-const dir   = process.env.PWD;
-const src   = path.resolve(dir, 'src');
-const dest  = path.resolve(dir, 'dist');
+const dir = process.env.PWD;
+const src = path.resolve(dir, 'src');
+const dest = path.resolve(dir, 'dist');
 
 // Generic task to move static assets.
 // Files are not watched for changes.
-// All all the paths you need.
+// Add all the paths you need.
 const assets = [
   // {
   //   src: `${src}/fonts/**`,
@@ -51,9 +48,7 @@ const sass = {
     outputStyle: 'expanded',
     indentedSyntax: true,
     // Include paths to thirdparty styles
-    includePaths: [
-      './node_modules/normalize.css',
-    ],
+    includePaths: ['./node_modules/normalize.css'],
   },
 
   prefix: 'last 3 versions',
@@ -73,20 +68,11 @@ const sass = {
 };
 
 const sprite = {
-  src: `${src}/icons`,
+  src: `${src}/icons/**/*.svg`,
   dest: `${dest}/images`,
-
-  // Sprite type: `symbol` or `css` (for bg images)
-  type: 'symbol',
-
-  sassDest: '../../src/sass/base/_sprite.scss',
-  spriteImgName: 'sprite.svg',
-  templateSymbol: 'gulpfile.js/tpl/_sprite-symbol.scss',
-  templateCss: 'gulpfile.js/tpl/_sprite-css.scss',
-  templateVars: {
-    cssPath: '../images/',
-    rem: convertToRem,
-  },
+  sassDest: `${src}/sass/base`,
+  spriteName: 'sprite.svg',
+  template: `${dir}/gulpfile.js/tpl/_sprite.scss`,
 };
 
 const js = {
@@ -101,6 +87,12 @@ const js = {
     // Path on server
     publicPath: '/js',
   },
+  resolve: {
+    alias: {
+      utils: path.resolve(__dirname, '../src/js/utils'),
+      modules: path.resolve(__dirname, '../src/js/modules'),
+    },
+  },
   module: {
     rules: [
       {
@@ -109,9 +101,6 @@ const js = {
         use: [
           {
             loader: 'babel-loader',
-            options: {
-              presets: ['es2015'],
-            },
           },
           {
             loader: 'eslint-loader',
@@ -127,5 +116,15 @@ const report = {
 };
 
 module.exports = {
-  dir, dest, src, browserSync, sass, assets, images, html, sprite, report, js,
+  dir,
+  dest,
+  src,
+  browserSync,
+  sass,
+  assets,
+  images,
+  html,
+  sprite,
+  report,
+  js,
 };

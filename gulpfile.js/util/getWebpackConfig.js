@@ -1,9 +1,7 @@
-/* eslint import/no-extraneous-dependencies: 0 */
+const config = require('../config').js;
+const webpack = require('webpack');
 
-const config    = require('../config').js;
-const webpack   = require('webpack');
-
-module.exports = (env) => {
+module.exports = env => {
   if (!config.plugins) {
     config.plugins = [];
   }
@@ -15,14 +13,14 @@ module.exports = (env) => {
   if (env === 'watch') {
     config.devtool = 'inline-source-map';
 
-    Object.keys(config.entry).forEach((key) => {
+    Object.keys(config.entry).forEach(key => {
       const entry = config.entry[key];
-      config.entry[key] = ['webpack-hot-middleware/client?&reload=true'].concat(entry);
+      config.entry[key] = ['webpack-hot-middleware/client?&reload=true'].concat(
+        entry
+      );
     });
 
-    config.plugins.push(
-      new webpack.HotModuleReplacementPlugin()
-    );
+    config.plugins.push(new webpack.HotModuleReplacementPlugin());
   }
 
   if (env === 'prod') {

@@ -9,7 +9,13 @@
 // Default var to prevent sass errors when no
 // sprite was generated. Warnings will appear
 // to let the user know that something is wrong.
+
 $i-map: () !default
+
+
+// Block
+//============================================
+
 
 
 // Icon props
@@ -44,15 +50,3 @@ $i-map: () !default
 
 @function ih($name)
   @return icon-prop($name, "height")
-
-
-// Icon position (when using sprite as bg-images only)
-//============================================
-
-@function icon-position($name)
-  @return icon-prop($name, "position")
-
-// Alias
-@function ip($name)
-  @return icon-prop($name, "position")
-

@@ -1,0 +1,15 @@
+//============================================
+// Sprite Definition
+//============================================
+
+$i-map: (<% _.forEach( icons, function( icon ){ %>
+  <%= icon.id %>-width: <%= icon.width %>,
+  <%= icon.id %>-height: <%= icon.height %>,
+<% }); %>);
+
+<% _.forEach( icons, function( icon ){ %>.i-<%= icon.id %> {
+  width: <%= icon.width %>;
+  height: <%= icon.height %>;
+}
+
+<% }); %>

@@ -9,30 +9,31 @@
 .embed
   position: relative
   overflow: hidden
-  height: 0
-  display: block
-  padding-bottom: 100%
+
+  &::before
+    display: block
+    content: ""
+    padding-bottom: 100%
 
 .embed-16\:9
-  padding-bottom: (9 / 16) * 100%
+  &::before
+    padding-bottom: (9 / 16) * 100%
 
 .embed-4\:3
-  padding-bottom: (3 / 4) * 100%
+  &::before
+    padding-bottom: (3 / 4) * 100%
 
 .embed-3\:2
-  padding-bottom: (2 / 3) * 100%
+  &::before
+    padding-bottom: (2 / 3) * 100%
 
 .embed-2\:1
-  padding-bottom: 50%
+  &::before
+    padding-bottom: 50%
 
 
 // Embedded media
 //============================================
-
-// 1. Images used to have `height: auto` but
-//    this often leads to to one visible pixel
-//    at the bottom of the `.embed` when it
-//    has a bg-color.
 
 .embed object,
 .embed iframe,

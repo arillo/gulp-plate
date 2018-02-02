@@ -28,7 +28,7 @@
   .g
     float: left
     width: 100%
-    min-height: 0.1rem
+    min-height: 1px
     position: relative
 
   @each $config in $configs
@@ -65,7 +65,7 @@
         @each $col in map-get($config, "clear")
           $nth-val: "#{$col}n + 1"
 
-          .g-clear-#{$col}#{$name}
+          .g-row-clear-#{$col}#{$name}
             > .g
               &:nth-child(#{$nth-val})
                 clear: left

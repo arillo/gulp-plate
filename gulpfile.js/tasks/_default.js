@@ -1,9 +1,7 @@
-/* eslint import/no-extraneous-dependencies: 0, arrow-body-style: 0 */
-
-const gulp        = require('gulp');
+const gulp = require('gulp');
 const runSequence = require('run-sequence');
 
-gulp.task('default', ['clean'], (callback) => {
+gulp.task('default', ['clean'], callback => {
   // Set environment
   global.env = global.env || 'build';
 

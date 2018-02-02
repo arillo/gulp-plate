@@ -24,13 +24,10 @@
 //============================================
 
 // 1. Remove gray overlay on links for iOS
-// 2. Reset font-size to 10px for more straight forward calculations
-// 3. If this base changes keep in mind to change the `rem` custom
-//    function in the sprite configuration in the config.js file. !!
 
 html
-  -webkit-tap-highlight-color: rgba($black, 0) // 1.
-  font-size: 62.5% // 2., 3.
+  -webkit-tap-highlight-color: transparent // 1.
+  font-size: 100%
 
 
 // Body
@@ -45,12 +42,13 @@ body
   line-height: $lh // 1.
   background: $color-bg
   color: $color-txt
+  margin: 0
 
 
 // Reset vertical rhythm
 //============================================
 
-p, table, blockquote, address, pre, iframe, form, figure
+p, table, blockquote, address, pre, iframe, form, figure, dl
   margin: 0
 
 
@@ -94,10 +92,6 @@ ul, ol
 
 // Lists (definition)
 //============================================
-
-dl
-  margin-top: 0
-  margin-bottom: $space
 
 dt
   font-weight: bold
@@ -147,7 +141,7 @@ hr
   display: block
   height: 0
   border: 0
-  border-top: 0.1rem solid
+  border-top: 1px solid
   margin: 0
   padding: 0
   clear: both
@@ -172,8 +166,8 @@ pre
 //============================================
 
 blockquote
-  padding-left: 1.5rem
-  border-left: 0.2rem solid
+  padding-left: 15px
+  border-left: 2px solid
 
 q
   quotes: "\201C" "\201D" "\2018" "\2019"
@@ -190,6 +184,11 @@ optgroup,
 select,
 textarea
   vertical-align: middle
+  color: inherit
+  font: inherit
+  border: 0
+  background: transparent
+  padding: 0
 
 fieldset
   margin: 0
@@ -202,6 +201,9 @@ label
 
   &[for]
     cursor: pointer
+
+::placeholder
+  font: inherit
 
 
 // Buttons
@@ -218,3 +220,4 @@ button
   vertical-align: baseline
   color: inherit
   cursor: pointer
+  font: inherit

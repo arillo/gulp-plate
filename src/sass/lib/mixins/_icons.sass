@@ -11,35 +11,6 @@
 // to let the user know that something is wrong.
 $i-map: () !default
 
-@import "../functions/icons"
-@import "size"
-
-
-// Icon Styles
-//============================================
-
-=i-styles
-  display: inline-block
-  vertical-align: middle
-  font-style: normal
-  position: relative
-  overflow: hidden
-  text-indent: 100%
-  color: transparent
-  speak: none
-
-
-// Icon Position
-//============================================
-
-=icon-position($name)
-  background-position: icon-position($name)
-
-// Alias
-=ipos($name)
-  +icon-position($name)
-
-
 // Icon Size
 //============================================
 
@@ -51,24 +22,26 @@ $i-map: () !default
   +icon-size($name)
 
 
-// Scale Icon (Inline only)
+// Scale Icon
 //============================================
 
-=scale-icon ($name, $width, $round: "round")
+// Icons should be square, but in case they are not...
+
+=icon-scale ($name, $width, $round: "round")
   $w: icon-width($name)
   $h: icon-height($name)
 
   $height: ($width / $w) * $h
 
   @if $round == "round"
-    $height: decimal-round($height, 1)
+    $height: round($height, 1)
   @if $round == "ceil"
-    $height: decimal-ceil($height, 1)
+    $height: ceil($height, 1)
   @if $round == "floor"
-    $height: decimal-floor($height, 1)
+    $height: floor($height, 1)
 
   +size($width, $height)
 
 // Alias
 =iscale ($name, $width, $round: "round")
-  +scale-icon($name, $width, $round)
+  +icon-scale($name, $width, $round)

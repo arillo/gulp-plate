@@ -1,3 +1,5 @@
+// sass-lint:disable empty-line-between-blocks
+
 //============================================
 // Form
 //============================================
@@ -41,7 +43,7 @@
 // remember to update when changing the vertical padding & border.
 
 .form_input
-  transition: border-color 0.2s
+  transition: border-color $motion
   outline: 0
   width: 100%
   color: inherit
@@ -49,12 +51,12 @@
   font-size: inherit
   font-weight: inherit
   line-height: $lh
-  border: 0.1rem solid lighten($black, 80%)
+  border: 1px solid lighten($black, 80%)
   border-radius: 0
   background: $white
   appearance: none
   padding: $space-quarter $space-third
-  height: ($fs * $lh) + $space-half + 0.2rem // 1.
+  height: ($fs * $lh) + $space-half + 2px // 1.
 
   &.disabled,
   &[disabled]
@@ -72,7 +74,7 @@
 .form_input-textarea
   vertical-align: top
   height: auto
-  min-height: 10rem
+  min-height: 100px
   resize: vertical
 
 
@@ -103,17 +105,17 @@
 
 // Common style mixin
 =select-style
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20x%3D%270%27%20y%3D%270%27%20width%3D%2719%27%20height%3D%275%27%20viewBox%3D%270%200%2019%205%27%3E%3Cpolygon%20points%3D%270%200%204.5%205%209%200%20%27%2F%3E%3C%2Fsvg%3E")
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0' y='0' width='19' height='5' viewBox='0 0 19 5'%3E%3Cpolygon points='0 0 4.5 5 9 0 '/%3E%3C/svg%3E");
   background-repeat: no-repeat
   background-position: right center
-  padding-right: 3.5rem
+  padding-right: 35px
 
   &[multiple]
     padding: 0
     background-image: none
 
 // Webkit & FF
-@supports ( -webkit-appearance: none ) or ( appearance: none ) or ( ( -moz-appearance: none ) and ( mask-type: alpha ) )
+@supports ( -webkit-appearance: none ) or ( appearance: none ) or (( -moz-appearance: none ) and ( mask-type: alpha ))
   .form_input-select
     +select-style
 

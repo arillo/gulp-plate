@@ -1,80 +1,21 @@
 //============================================
-// Headings
+// headings
 //============================================
 
-// @TODO document mixin usage & API
-
-// Default / Common
-//============================================
-
-// 1. Force word break when words in titles
-//    are too long to fin on the page.
-
-=h-common-styles
-  margin: 0
-  font-family: inherit
-  font-weight: bold
-  overflow-wrap: break-word // 1.
-  word-wrap: break-word // 1.
-  word-break: break-word // 1.
-
-
-// H1
-//============================================
-
-=h1($common-styles: false)
+=h1
   +fs($fs-h1)
 
-  @if $common-styles
-    +h-common-styles
-
-
-
-// H2
-//============================================
-
-=h2($common-styles: false)
+=h2
   +fs($fs-h2)
 
-  @if $common-styles
-    +h-common-styles
-
-
-// H3
-//============================================
-
-=h3($common-styles: false)
+=h3
   +fs($fs-h3)
 
-  @if $common-styles
-    +h-common-styles
-
-
-// H4
-//============================================
-
-=h4($common-styles: false)
+=h4
   +fs($fs-h4)
 
-  @if $common-styles
-    +h-common-styles
-
-
-// H5
-//============================================
-
-=h5($common-styles: false)
+=h5
   +fs($fs-h5)
 
-  @if $common-styles
-    +h-common-styles
-
-
-// H6
-//============================================
-
-=h6($common-styles: false)
+=h6
   +fs($fs-h6)
-
-  @if $common-styles
-    +h-common-styles
