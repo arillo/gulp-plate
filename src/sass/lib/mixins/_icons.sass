@@ -27,21 +27,21 @@ $i-map: () !default
 
 // Icons should be square, but in case they are not...
 
-=icon-scale ($name, $width, $round: "round")
+=icon-scale ($name, $width, $round: 'round')
   $w: icon-width($name)
   $h: icon-height($name)
 
   $height: ($width / $w) * $h
 
-  @if $round == "round"
+  @if $round == 'round'
     $height: round($height, 1)
-  @if $round == "ceil"
+  @if $round == 'ceil'
     $height: ceil($height, 1)
-  @if $round == "floor"
+  @if $round == 'floor'
     $height: floor($height, 1)
 
   +size($width, $height)
 
 // Alias
-=iscale ($name, $width, $round: "round")
+=iscale ($name, $width, $round: 'round')
   +icon-scale($name, $width, $round)

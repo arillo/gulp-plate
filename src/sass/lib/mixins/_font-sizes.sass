@@ -6,7 +6,7 @@
 // from Sass maps.
 
 // Expects a map. Map-keys should map to breakpoint
-// names or "" for no breakpoint. Values can be a number
+// names or ' for no breakpoint. Values can be a number
 // (font-size) or a list of numbers, fist value -> `font-size`,
 // second value (line-height).
 
@@ -16,12 +16,12 @@
 
 // Vriables `_vars.scss`
 // $breakpoints: (
-//   "sm": 728px,
+//   'sm': 728px,
 // )
 //
 // $fs-p-sm: (
-//   "": (12px, 1.5),
-//   "sm": 14px,
+//   ': (12px, 1.5),
+//   'sm': 14px,
 // );
 
 // Usage
@@ -47,13 +47,12 @@
 // Requires a map by the name of `$breakpoints`.
 // Requires mq mixin.
 
-@import "mq"
 $breakpoints: () !default
 
 
 =font-sizes($map, $bps: $breakpoints)
   @each $bp, $fs in $map
-    +mq(if(str-length($bp) > 0, "(min-width: #{map-get($bps, $bp)})", false))
+    +mq(if(str-length($bp) > 0, '(min-width: #{map-get($bps, $bp)})', false))
       font-size: nth($fs, 1)
 
       @if (length($fs) > 1)

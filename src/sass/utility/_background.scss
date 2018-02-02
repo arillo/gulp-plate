@@ -1,0 +1,11 @@
+//============================================
+// Background
+//============================================
+
+$config: (
+  'name': 'bg',
+  'prop': 'background-color',
+  'variants': ('primary': $primary, 'black': $black)
+);
+
+@include utility-class($config);

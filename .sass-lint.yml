@@ -55,7 +55,7 @@ rules:
   quotes:
     - 1
     -
-      style: double
+      style: single
 
   indentation:
     size: 2

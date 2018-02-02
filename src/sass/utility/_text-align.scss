@@ -1,0 +1,12 @@
+//============================================
+// Text
+//============================================
+
+$config: (
+  'name': 'ta',
+  'prop': 'text-align',
+  'mqs': $mqs,
+  'variants': ('lft': left, 'rgt': right, 'center': center)
+);
+
+@include utility-class($config);

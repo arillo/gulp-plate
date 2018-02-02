@@ -1,0 +1,12 @@
+//============================================
+// Float
+//============================================
+
+$config: (
+  'name': 'fl',
+  'prop': 'float',
+  'mqs': $mqs,
+  'variants': ('lft': left, 'rgt': right, 'none': none)
+);
+
+@include utility-class($config);

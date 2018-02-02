@@ -2,121 +2,117 @@
 // Global variables
 //============================================
 
-
 // Colors
 //============================================
 
 // 1. To prevent linting errors these
 //    values are stored in variables.
 
-$black:           #000; // 1.
-$white:           #fff; // 1.
+$black: #000; // 1.
+$white: #fff; // 1.
 
-$primary:         #00f;
+$primary: #00f;
 
 // $gray-powder:     #f7f7f7;
 // $gray-dust:       #ddd;
 // $gray-concrete:   #767676;
 // $gray-space:      #111;
 
-$color-txt:       lighten($black, 13.5%);
-$color-bg:        $white;
-$color-error:     #ed331a;
-$color-success:   #2fa714;
-
+$color-txt: lighten($black, 13.5%);
+$color-bg: $white;
+$color-error: #ed331a;
+$color-success: #2fa714;
 
 // Dimensions
 //============================================
 
-$space:                     24px; // 24px
-$space-quarter:             $space * 0.25;
-$space-third:               round($space / 3);
-$space-half:                $space * 0.5;
-$space-twoThird:            round(($space / 3) * 2);
-$space-threeQuarter:        round($space * 0.75);
-$space-plusQuarter:         $space + $space-quarter;
-$space-plusThird:           $space + $space-third;
-$space-plusHalf:            $space + $space-half;
-$space-plusTwoThird:        $space + $space-twoThird;
-$space-plusThreeQuarter:    $space + $space-threeQuarter;
-$space-double:              $space * 2;
-$space-triple:              $space * 3;
-
+$space: 24px; // 24px
+$space-quarter: $space * 0.25;
+$space-third: round($space / 3);
+$space-half: $space * 0.5;
+$space-twoThird: round(($space / 3) * 2);
+$space-threeQuarter: round($space * 0.75);
+$space-plusQuarter: $space + $space-quarter;
+$space-plusThird: $space + $space-third;
+$space-plusHalf: $space + $space-half;
+$space-plusTwoThird: $space + $space-twoThird;
+$space-plusThreeQuarter: $space + $space-threeQuarter;
+$space-double: $space * 2;
+$space-triple: $space * 3;
 
 // Typography
 //============================================
 
-$font:      "Helvetica Neue", Arial, sans-serif;
+$font: 'Helvetica Neue', Arial, sans-serif;
 $font-mono: monospace, monospace;
-$fs:        16px;
-$lh:        ($space / $fs);
+$fs: 16px;
+$lh: ($space / $fs);
 
 $fs-h1: (
-  "": (30px, 1.15),
-  "sm": (40px, 1),
+  '': (30px, 1.15),
+  'sm': (40px, 1)
 );
 
 $fs-h2: (
-  "": (28px, 1.2),
-  "sm": 36px,
+  '': (28px, 1.2),
+  'sm': 36px
 );
 
 $fs-h3: (
-  "": (20px, 1.2),
-  "sm": 26px,
+  '': (20px, 1.2),
+  'sm': 26px
 );
 
 $fs-h4: $fs-h3;
 $fs-h5: $fs-h3;
 $fs-h6: $fs-h3;
 
-
 // Motion
 //============================================
 
 $motion: 0.2s;
-
 
 // Layout
 //============================================
 
 // XS
 $layout-gutter-xs: 16px;
-$layout-width-xs:  416px;
+$layout-width-xs: 416px;
 
 // SM
 $layout-gutter-sm: 20px;
-$layout-width-sm:  728px;
+$layout-width-sm: 728px;
 
 // MD
 $layout-gutter-md: 22px;
-$layout-width-md:  966px;
+$layout-width-md: 966px;
 
 // LG
 $layout-gutter-lg: 30px;
-$layout-width-lg:  1290px;
-
+$layout-width-lg: 1290px;
 
 // Breakpoints
 //============================================
 
 $breakpoints: (
-  "xs": $layout-width-xs,
-  "sm": $layout-width-sm,
-  "md": $layout-width-md,
-  "lg": $layout-width-lg,
+  'sm': $layout-width-sm,
+  'md': $layout-width-md,
+  'lg': $layout-width-lg
 );
 
-$bp-xs:       "(min-width: #{map-get($breakpoints, 'xs')})";
-$bp-sm:       "(min-width: #{map-get($breakpoints, 'sm')})";
-$bp-md:       "(min-width: #{map-get($breakpoints, 'md')})";
-$bp-lg:       "(min-width: #{map-get($breakpoints, 'lg')})";
+$mq-sm: '(min-width: #{map-get($breakpoints, 'sm')})';
+$mq-md: '(min-width: #{map-get($breakpoints, 'md')})';
+$mq-lg: '(min-width: #{map-get($breakpoints, 'lg')})';
 
-$bp-xs-down:  "(max-width: #{map-get($breakpoints, 'xs') - 1px})";
-$bp-sm-down:  "(max-width: #{map-get($breakpoints, 'sm') - 1px})";
-$bp-md-down:  "(max-width: #{map-get($breakpoints, 'md') - 1px})";
-$bp-lg-down:  "(max-width: #{map-get($breakpoints, 'lg') - 1px})";
+$mq-sm-down: '(max-width: #{map-get($breakpoints, 'sm') - 1px})';
+$mq-md-down: '(max-width: #{map-get($breakpoints, 'md') - 1px})';
+$mq-lg-down: '(max-width: #{map-get($breakpoints, 'lg') - 1px})';
 
+$mqs: (
+  'sm': $mq-sm,
+  'md': $mq-md,
+  'lg': $mq-lg
+);
 
 // Grid
 //============================================
@@ -124,122 +120,117 @@ $bp-lg-down:  "(max-width: #{map-get($breakpoints, 'lg') - 1px})";
 $grid-columns: 12;
 
 $grid-config-xs: (
-  "name": "",
-  "cols": $grid-columns,
-  "gutter": $layout-gutter-xs,
-  "bp": false,
-  "off": false,
-  "pull": false,
-  "push": false,
-  "clear": 2
+  'name': '',
+  'cols': $grid-columns,
+  'gutter': $layout-gutter-xs,
+  'mq': false,
+  'off': false,
+  'pull': false,
+  'push': false,
+  'clear': 2
 );
 
 $grid-config-sm: (
-  "name": "sm",
-  "cols": $grid-columns,
-  "gutter": $layout-gutter-sm,
-  "bp": $bp-sm,
-  "off": true,
-  "pull": true,
-  "push": true,
-  "clear": 2
+  'name': 'sm',
+  'cols': $grid-columns,
+  'gutter': $layout-gutter-sm,
+  'mq': $mq-sm,
+  'off': true,
+  'pull': true,
+  'push': true,
+  'clear': 2
 );
 
 $grid-config-md: (
-  "name": "md",
-  "cols": $grid-columns,
-  "gutter": $layout-gutter-md,
-  "bp": $bp-md,
-  "off": true,
-  "pull": true,
-  "push": true,
-  "clear": 3 4
+  'name': 'md',
+  'cols': $grid-columns,
+  'gutter': $layout-gutter-md,
+  'mq': $mq-md,
+  'off': true,
+  'pull': true,
+  'push': true,
+  'clear': 3 4
 );
 
 $grid-config-lg: (
-  "name": "lg",
-  "cols": $grid-columns,
-  "gutter": $layout-gutter-lg,
-  "bp": $bp-lg,
-  "off": true,
-  "pull": true,
-  "push": true,
-  "clear": 3 4
+  'name': 'lg',
+  'cols': $grid-columns,
+  'gutter': $layout-gutter-lg,
+  'mq': $mq-lg,
+  'off': true,
+  'pull': true,
+  'push': true,
+  'clear': 3 4
 );
 
 // Grid sizes for print
 $grid-config-print: (
-  "name": "print",
-  "cols": $grid-columns,
-  "gutter": $layout-gutter-md,
-  "bp": "print",
-  "off": true,
-  "pull": true,
-  "push": true,
-  "clear": 2 3
+  'name': 'print',
+  'cols': $grid-columns,
+  'gutter': $layout-gutter-md,
+  'mq': 'print',
+  'off': true,
+  'pull': true,
+  'push': true,
+  'clear': 2 3
 );
-
 
 // Dimension Utility
 //============================================
 
 $dimension-utility-sizes: (
-  "1":                  1px,
-  "2":                  2px,
-  "3":                  3px,
-  "4":                  4px,
-  "":                   $space,
-  "quarter":            $space-quarter,
-  "third":              $space-third,
-  "half":               $space-half,
-  "twoThird":           $space-twoThird,
-  "threeQuarter":       $space-threeQuarter,
-  "plusQuarter":        $space-plusQuarter,
-  "plusThird":          $space-plusThird,
-  "plusHalf":           $space-plusHalf,
-  "plusTwoThird":       $space-plusTwoThird,
-  "plusThreeQuarter":   $space-plusThreeQuarter,
-  "double":             $space-double,
-  "triple":             $space-triple,
-  "0": 0,
+  '1': 1px,
+  '2': 2px,
+  '3': 3px,
+  '4': 4px,
+  '': $space,
+  'quarter': $space-quarter,
+  'third': $space-third,
+  'half': $space-half,
+  'twoThird': $space-twoThird,
+  'threeQuarter': $space-threeQuarter,
+  'plusQuarter': $space-plusQuarter,
+  'plusThird': $space-plusThird,
+  'plusHalf': $space-plusHalf,
+  'plusTwoThird': $space-plusTwoThird,
+  'plusThreeQuarter': $space-plusThreeQuarter,
+  'double': $space-double,
+  'triple': $space-triple,
+  '0': 0
 );
 
 $dimension-utility-config-xs: (
-  "name": "",
-  "pull": true,
-  "push": true,
-  "padd": true,
-  "bp": false,
-
-  "sizes": $dimension-utility-sizes
+  'name': '',
+  'pull': true,
+  'push': true,
+  'padd': true,
+  'mq': false,
+  'sizes': $dimension-utility-sizes
 );
 
 $dimension-utility-config-sm: (
-  "name": "sm",
-  "pull": true,
-  "push": true,
-  "padd": true,
-  "bp": $bp-sm,
-
-  "sizes": $dimension-utility-sizes
+  'name': 'sm',
+  'pull': true,
+  'push': true,
+  'padd': true,
+  'mq': $mq-sm,
+  'sizes': $dimension-utility-sizes
 );
 
 $dimension-utility-config-md: (
-  "name": "md",
-  "pull": true,
-  "push": true,
-  "padd": true,
-  "bp": $bp-md,
-
-  "sizes": $dimension-utility-sizes
+  'name': 'md',
+  'pull': true,
+  'push': true,
+  'padd': true,
+  'mq': $mq-md,
+  'sizes': $dimension-utility-sizes
 );
 
 $dimension-utility-config-lg: (
-  "name": "lg",
-  "pull": true,
-  "push": true,
-  "padd": true,
-  "bp": $bp-lg,
-
-  "sizes": $dimension-utility-sizes
+  'name': 'lg',
+  'pull': true,
+  'push': true,
+  'padd': true,
+  'mq': $mq-lg,
+  'sizes': $dimension-utility-sizes
 );

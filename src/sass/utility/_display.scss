@@ -1,0 +1,34 @@
+//============================================
+// Display
+//============================================
+
+$config: (
+  'name': 'd',
+  'prop': 'display',
+  'mqs': $mqs,
+  'variants':
+    (
+      'none': none,
+      'blk': block,
+      'inl': inline,
+      'ibl': inline-block,
+      'flx': flex
+    )
+);
+
+@include utility-class($config);
+
+// Print
+//============================================
+
+.u-d-none\@print {
+  @include mq('print') {
+    display: none;
+  }
+}
+
+.u-d-blk\@print {
+  @include mq('print') {
+    display: block;
+  }
+}

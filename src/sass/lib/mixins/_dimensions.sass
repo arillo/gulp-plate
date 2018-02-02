@@ -4,25 +4,25 @@
 
 =generate-dimension-helpers($configs...)
   @each $config in $configs
-    $bp: map-get($config, "bp")
-    $pull: map-get($config, "pull")
-    $push: map-get($config, "push")
-    $padd: map-get($config, "padd")
-    $name: map-get($config, "name")
+    $mq: map-get($config, 'mq')
+    $pull: map-get($config, 'pull')
+    $push: map-get($config, 'push')
+    $padd: map-get($config, 'padd')
+    $name: map-get($config, 'name')
 
-    $sizes: map-get($config, "sizes")
+    $sizes: map-get($config, 'sizes')
 
     @if str-length($name) != 0
-      $name: "#{\@}#{$name}"
+      $name: '#{\@}#{$name}'
 
     @if not length($sizes)
-      @warn "No sizes defined"
+      @warn 'No sizes defined'
 
-    +mq($bp)
+    +mq($mq)
       @each $key, $val in $sizes
 
         @if str-length($key) != 0
-          $key: "-#{$key}"
+          $key: '-#{$key}'
 
         @if $pull
           +generate-dimension-block($key, $name, $val, $type: pull, $multiplier: -1)

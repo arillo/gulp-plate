@@ -22,13 +22,13 @@ $i-map: () !default
 //============================================
 
 @function icon-prop($name, $prop)
-  $key: "#{$name}-#{$prop}"
+  $key: '#{$name}-#{$prop}'
   $val: map-get($i-map, $key)
 
   @if $val
     @return $val
   @else
-    @warn "Icon #{name} is not defined"
+    @warn 'Icon #{name} is not defined'
     @return false
 
 
@@ -36,17 +36,17 @@ $i-map: () !default
 //============================================
 
 @function icon-width($name)
-  @return icon-prop($name, "width")
+  @return icon-prop($name, 'width')
 
 @function iw($name)
-  @return icon-prop($name, "width")
+  @return icon-prop($name, 'width')
 
 
 // Icon height
 //============================================
 
 @function icon-height($name)
-  @return icon-prop($name, "height")
+  @return icon-prop($name, 'height')
 
 @function ih($name)
-  @return icon-prop($name, "height")
+  @return icon-prop($name, 'height')
