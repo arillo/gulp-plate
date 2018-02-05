@@ -1,0 +1,70 @@
+//============================================
+// Dimension utilities
+//============================================
+
+// Dimension utilities
+//============================================
+
+// Generate helper classes following this pattern
+// .u-<property>-<direction>-<amount>@<media-query>
+
+// Properties
+// push = margin
+// pull = negative margin
+// padd = padding
+
+// Directions
+// top = top
+// btm = bottom
+// lft = left
+// rgt = right
+// vert = vertical - top bottom
+// horz = horizontal - left right
+// '' (nothing) = all sides
+
+// Amounts and media-queries
+// See `$dimension-utility-sizes` in
+// `base/_vars.scss` for configurations
+
+$dimension-utility-config-xs: (
+  'name': '',
+  'pull': true,
+  'push': true,
+  'padd': true,
+  'mq': false,
+  'sizes': $dimension-utility-sizes
+);
+
+$dimension-utility-config-sm: (
+  'name': 'sm',
+  'pull': true,
+  'push': true,
+  'padd': true,
+  'mq': $mq-sm,
+  'sizes': $dimension-utility-sizes
+);
+
+$dimension-utility-config-md: (
+  'name': 'md',
+  'pull': true,
+  'push': true,
+  'padd': true,
+  'mq': $mq-md,
+  'sizes': $dimension-utility-sizes
+);
+
+$dimension-utility-config-lg: (
+  'name': 'lg',
+  'pull': true,
+  'push': true,
+  'padd': true,
+  'mq': $mq-lg,
+  'sizes': $dimension-utility-sizes
+);
+
+@include generate-dimension-helpers(
+  $dimension-utility-config-xs,
+  $dimension-utility-config-sm,
+  $dimension-utility-config-md,
+  $dimension-utility-config-lg
+);

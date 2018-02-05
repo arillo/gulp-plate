@@ -196,41 +196,6 @@ $dimension-utility-sizes: (
   'plusThreeQuarter': $space-plusThreeQuarter,
   'double': $space-double,
   'triple': $space-triple,
-  '0': 0
-);
-
-$dimension-utility-config-xs: (
-  'name': '',
-  'pull': true,
-  'push': true,
-  'padd': true,
-  'mq': false,
-  'sizes': $dimension-utility-sizes
-);
-
-$dimension-utility-config-sm: (
-  'name': 'sm',
-  'pull': true,
-  'push': true,
-  'padd': true,
-  'mq': $mq-sm,
-  'sizes': $dimension-utility-sizes
-);
-
-$dimension-utility-config-md: (
-  'name': 'md',
-  'pull': true,
-  'push': true,
-  'padd': true,
-  'mq': $mq-md,
-  'sizes': $dimension-utility-sizes
-);
-
-$dimension-utility-config-lg: (
-  'name': 'lg',
-  'pull': true,
-  'push': true,
-  'padd': true,
-  'mq': $mq-lg,
-  'sizes': $dimension-utility-sizes
+  '0': 0,
+  'auto': auto
 );

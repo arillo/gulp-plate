@@ -133,3 +133,33 @@ $config: (
 );
 
 @include utility-class($config);
+
+// Flex grow / shrink
+//============================================
+
+$config: (
+  'name': 'flxGrow',
+  'prop': 'flex-grow',
+  'mqs': $mqs,
+  'variants': ('1': 1, '0': 0)
+);
+
+@include utility-class($config);
+
+$config: (
+  'name': 'flxShrink',
+  'prop': 'flex-shrink',
+  'mqs': $mqs,
+  'variants': ('1': 1, '0': 0)
+);
+
+@include utility-class($config);
+
+$config: (
+  'name': 'flx',
+  'prop': 'flex',
+  'mqs': $mqs,
+  'variants': ('grow': 1 0 auto, 'none': none)
+);
+
+@include utility-class($config);

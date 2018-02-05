@@ -35,22 +35,25 @@
 
 
 =generate-dimension-block($key, $name, $val, $type, $prop: margin, $multiplier: 1)
+  @if type-of($val) == number
+    $val: $val * $multiplier
+
   .u-#{$type}-horz#{$key}#{$name},
   .u-#{$type}#{$key}#{$name},
   .u-#{$type}-lft#{$key}#{$name}
-    #{$prop}-left: $val * $multiplier
+    #{$prop}-left: $val
 
   .u-#{$type}-horz#{$key}#{$name},
   .u-#{$type}#{$key}#{$name},
   .u-#{$type}-rgt#{$key}#{$name}
-    #{$prop}-right: $val * $multiplier
+    #{$prop}-right: $val
 
   .u-#{$type}-vert#{$key}#{$name},
   .u-#{$type}#{$key}#{$name},
   .u-#{$type}-top#{$key}#{$name}
-    #{$prop}-top: $val * $multiplier
+    #{$prop}-top: $val
 
   .u-#{$type}-vert#{$key}#{$name},
   .u-#{$type}#{$key}#{$name},
   .u-#{$type}-btm#{$key}#{$name}
-    #{$prop}-bottom: $val * $multiplier
+    #{$prop}-bottom: $val
