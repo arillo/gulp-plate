@@ -59,7 +59,7 @@ const sass = {
 
   compression: {
     safe: true,
-    core: false,
+    core: true,
     autoprefixer: false,
     discardComments: {
       removeAll: true,

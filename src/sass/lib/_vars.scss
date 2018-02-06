@@ -175,10 +175,44 @@ $grid-config-print: (
   'clear': 2 3
 );
 
-// Dimension Utility
+// Utilities
 //============================================
 
-$dimension-utility-sizes: (
+$background-utility-variants: (
+  'primary': $primary,
+  'black': $black
+);
+
+$display-utility-variants: (
+  'none': none,
+  'blk': block,
+  'inl': inline,
+  'ibl': inline-block,
+  'flx': flex
+);
+
+$width-utility-variants: (
+  '100\\%': 100%,
+  '90\\%': 90%,
+  '200': 200px,
+  '100': 100px
+);
+
+$opacity-utility-variants: (
+  '100': 1,
+  '90': 0.9,
+  '80': 0.8,
+  '70': 0.7,
+  '60': 0.6,
+  '50': 0.5,
+  '40': 0.4,
+  '30': 0.3,
+  '20': 0.2,
+  '10': 0.1,
+  '0': 0
+);
+
+$dimension-utility-variants: (
   '1': 1px,
   '2': 2px,
   '3': 3px,

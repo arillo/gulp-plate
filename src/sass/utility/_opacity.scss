@@ -1,11 +1,11 @@
 //============================================
-// Background
+// Opacity
 //============================================
 
 $config: (
-  'name': 'bg',
-  'prop': 'background-color',
-  'variants': $background-utility-variants
+  'name': 'o',
+  'prop': 'opacity',
+  'variants': $opacity-utility-variants
 );
 
 @include utility-class($config);

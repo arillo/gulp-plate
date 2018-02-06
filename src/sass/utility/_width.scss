@@ -6,7 +6,7 @@ $config: (
   'name': 'w',
   'prop': 'width',
   'mqs': $mqs,
-  'variants': ('100\\%': 100%, '90\\%': 90%, '200': 200px, '100': 100px)
+  'variants': $width-utility-variants
 );
 
 @include utility-class($config);

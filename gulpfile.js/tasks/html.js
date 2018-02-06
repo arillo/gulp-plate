@@ -36,6 +36,7 @@ gulp.task('html', () => {
         path: config.src,
         envOptions: {
           watch: false,
+          autoescape: false,
         },
       })
     )

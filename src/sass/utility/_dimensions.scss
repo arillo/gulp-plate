@@ -23,7 +23,7 @@
 // '' (nothing) = all sides
 
 // Amounts and media-queries
-// See `$dimension-utility-sizes` in
+// See `$dimension-utility-variants` in
 // `base/_vars.scss` for configurations
 
 $dimension-utility-config-xs: (
@@ -32,7 +32,7 @@ $dimension-utility-config-xs: (
   'push': true,
   'padd': true,
   'mq': false,
-  'sizes': $dimension-utility-sizes
+  'sizes': $dimension-utility-variants
 );
 
 $dimension-utility-config-sm: (
@@ -41,7 +41,7 @@ $dimension-utility-config-sm: (
   'push': true,
   'padd': true,
   'mq': $mq-sm,
-  'sizes': $dimension-utility-sizes
+  'sizes': $dimension-utility-variants
 );
 
 $dimension-utility-config-md: (
@@ -50,7 +50,7 @@ $dimension-utility-config-md: (
   'push': true,
   'padd': true,
   'mq': $mq-md,
-  'sizes': $dimension-utility-sizes
+  'sizes': $dimension-utility-variants
 );
 
 $dimension-utility-config-lg: (
@@ -59,7 +59,7 @@ $dimension-utility-config-lg: (
   'push': true,
   'padd': true,
   'mq': $mq-lg,
-  'sizes': $dimension-utility-sizes
+  'sizes': $dimension-utility-variants
 );
 
 @include generate-dimension-helpers(

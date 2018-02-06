@@ -25,16 +25,15 @@
           $key: '-#{$key}'
 
         @if $pull
-          +generate-dimension-block($key, $name, $val, $type: pull, $multiplier: -1)
+          +generate-dimension-block($key, $name, $val, $type: 'pull', $multiplier: -1)
 
         @if $push
-          +generate-dimension-block($key, $name, $val, $type: push)
+          +generate-dimension-block($key, $name, $val, $type: 'push')
 
         @if $padd
-          +generate-dimension-block($key, $name, $val, $type: padd, $prop: padding)
+          +generate-dimension-block($key, $name, $val, $type: 'padd', $prop: 'padding')
 
-
-=generate-dimension-block($key, $name, $val, $type, $prop: margin, $multiplier: 1)
+=generate-dimension-block($key, $name, $val, $type, $prop: 'margin', $multiplier: 1)
   @if type-of($val) == number
     $val: $val * $multiplier
 
