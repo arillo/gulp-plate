@@ -9,5 +9,5 @@ import Module from 'modules/Module';
 // svg4everybody();
 
 $(document).ready(() => {
-  factory(Module, 'js-module');
+  factory(Module, '.js-module');
 });

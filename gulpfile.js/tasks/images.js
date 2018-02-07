@@ -7,6 +7,6 @@ gulp.task('images', () => {
   return gulp
     .src(config.src)
     .pipe(changed(config.dest))
-    .pipe(svgo({ removeViewBox: false, removeDimensions: true }))
+    .pipe(svgo({ plugins: [{ removeViewBox: false }, { cleanupIDs: false }] }))
     .pipe(gulp.dest(config.dest));
 });
