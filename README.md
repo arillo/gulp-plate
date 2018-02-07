@@ -4,14 +4,15 @@
 
 Includes the following tools, tasks, and work-flows:
 
-- [Webpack](https://webpack.js.org/) as JavaScript module bundler
-- [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) for live reloading (in memory compilation for faster rebuilds while developing)
-- [ES2015](http://www.ecma-international.org/ecma-262/6.0/) syntax transpiled with [Babel](https://babeljs.io/)
-- [ESLint](http://eslint.org/) for JavaScript linting
-- [SASS](http://sass-lang.com/) compiled with libsass, [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) and [Sass linting](https://github.com/sasstools/sass-lint)
-- [BrowserSync](http://browsersync.io) for live reloading and static server
-- [svgo](https://github.com/svg/svgo) for SVG compression.
-- [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) to generate a SVG icon sprite, with `<symbol>` & `<use>` tags or as CSS background image
+* [Webpack](https://webpack.js.org/) as JavaScript module bundler
+* [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) for live reloading (in memory compilation for faster rebuilds while developing)
+* [ES2015](http://www.ecma-international.org/ecma-262/6.0/) syntax transpiled with [Babel](https://babeljs.io/)
+* [ESLint](http://eslint.org/) for JavaScript linting
+* [Prettier](https://prettier.io/) for JavaScript code formatting
+* [SASS](http://sass-lang.com/) compiled with libsass, [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) and [Sass linting](https://github.com/sasstools/sass-lint)
+* [BrowserSync](http://browsersync.io) for live reloading and static server
+* [svgo](https://github.com/svg/svgo) for SVG compression.
+* [gulp-svg-symbols](https://github.com/Hiswe/gulp-svg-symbols) to generate a SVG icon sprite with `<symbol>` & `<use>` tags
 
 Looking for the [SilverStripe](https://github.com/silverstripe) version? [Look here](https://github.com/arillo/silverstripe-gulp-plate).
 
@@ -19,11 +20,11 @@ Looking for the [SilverStripe](https://github.com/silverstripe) version? [Look h
 
 Gulp-plate depends on the following technologies:
 
-- [node.js](http://nodejs.org) as local host environment for gulp (v. 7.5.0 or higher)*
-- [gulp](http://gulpjs.com/) as task-runner
-- [yarn](https://yarnpkg.com) as dependency manager
+* [node.js](http://nodejs.org) as local host environment for gulp (v. 7.5.0 or higher) [1]
+* [gulp](http://gulpjs.com/) as task-runner
+* [yarn](https://yarnpkg.com) as dependency manager
 
-*It is recommended to install node trough [nvm](https://github.com/creationix/nvm) (Node Version Manager).
+[1] It is recommended to install node trough [nvm](https://github.com/creationix/nvm) (Node Version Manager).
 
 To get started:
 
@@ -73,16 +74,16 @@ $ yarn run gulp sprite
 $ yarn run g sprite
 ```
 
-__Important:__
+**Important:**
 
-The `dist` folder will be deleted every time you run build / watch / prod. Don't make any changes in the `dist` folder.
+The `dist` directory will be deleted every time you run build / watch / prod. Don't make any changes in the `dist` directory.
 
 ## Folder structure
 
 ```bash
 myProject/
   gulpfile.js/  # gulp tasks
-  src/          
+  src/
     icons/      # SVG files to be included in he the sprite
     images/     # other images
     js/         # js code
@@ -100,14 +101,9 @@ All paths and plugin settings have been abstracted into a centralized file: `./g
 
 ## SVG Sprite configuration
 
-Set what type of sprite generation you want to use:
-
-- __`'symbol'`__ (default) creates a SVG image that can be used to reference icons with the `<use>` tag.
-- __`'css'`__ creates a SVG sprite that can be used as a background image in css.
-
 The sprite creates an image with the name `sprite.svg` in `./dist/images/`. It also creates a Sass file named: `_sprite.scss` in `./src/sass/base/`.
 
-The generated Sass files contains useful information about the sprite icons like the dimensions of each icon and, depending on your settings, the `background-position`. The file will change every time an icons is added, removed or changes, do not edit it manually. You can change the file by changing the templates in `./gulpfile.js/tpl/`.
+The generated Sass files contains useful information about the sprite icons like the dimensions of each icon. The file will change every time an icon is added, removed or changed, do not edit it manually. You can change the file by changing the template in `./gulpfile.js/tpl/_sprite.scss`.
 
 ## Static assets
 
@@ -142,7 +138,7 @@ const sass = {
 
 Include it using a regular `@import`:
 
-```sass
+```
 @import "normalize"
 ```
 
@@ -150,7 +146,7 @@ The Sass compiler will look for files with `.sass`, `.scss` and `.css` extension
 
 If there happen to be multiple files with the same name but different extensions (e.g. `style.css` and `style.scss`) the compiler will throw an error. To circumvent this problem include the file extension in the `@import`:
 
-```sass
+```
 @import "style.scss"
 ```
 
@@ -218,7 +214,7 @@ const js = {
     alias: {
       myModule: 'myModule/dist/myModule.js',
     },
-  }
+  },
 };
 ```
 
@@ -317,8 +313,7 @@ Docs: https://webpack.js.org/guides/code-splitting-libraries/
 
 ## Roadmap
 
-- [ ] Research Tree-shaking with webpack and implement if possible
-- [x] Evaluate if es-lint should be used through a webpack loader instead of gulp
+* [ ] Research Tree-shaking with webpack and implement if possible
 
 ## Credits
 
