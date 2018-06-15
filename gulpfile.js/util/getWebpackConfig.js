@@ -1,5 +1,6 @@
 const config = require('../config').js;
 const webpack = require('webpack');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = env => {
   if (!config.plugins) {
@@ -8,10 +9,12 @@ module.exports = env => {
 
   if (env === 'build') {
     config.devtool = 'inline-source-map';
+    config.mode = 'development';
   }
 
   if (env === 'watch') {
     config.devtool = 'inline-source-map';
+    config.mode = 'development';
 
     Object.keys(config.entry).forEach(key => {
       const entry = config.entry[key];
@@ -24,13 +27,14 @@ module.exports = env => {
   }
 
   if (env === 'prod') {
+    config.mode = 'production';
     config.plugins.push(
       new webpack.DefinePlugin({
         'process.env': {
           NODE_ENV: JSON.stringify('production'),
         },
       }),
-      new webpack.optimize.UglifyJsPlugin()
+      new UglifyJSPlugin()
     );
   }
 

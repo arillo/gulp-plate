@@ -9,9 +9,14 @@ const postcss = require('gulp-postcss');
 const gulpif = require('gulp-if');
 const nano = require('cssnano');
 const autoprefixer = require('autoprefixer');
+const importer = require('postcss-import');
 const removeClasses = require('../util/removeCssClasses')(config.remove);
 
-const procesors = [removeClasses, autoprefixer({ browsers: config.prefix })];
+const procesors = [
+  importer,
+  removeClasses,
+  autoprefixer({ browsers: config.prefix }),
+];
 
 gulp.task('sass', () => {
   const isProd = global.env === 'prod';

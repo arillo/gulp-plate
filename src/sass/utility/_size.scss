@@ -1,0 +1,48 @@
+//============================================
+// Vertical align
+//============================================
+
+// Width
+//============================================
+
+$config: (
+  'name': 'w',
+  'prop': 'width',
+  'mqs': $mqs,
+  'variants': $width-utility-variants
+);
+
+@include utility-class($config);
+
+// Width
+//============================================
+
+$config: (
+  'name': 'maxW',
+  'prop': 'max-width',
+  'mqs': $mqs,
+  'variants': $width-utility-variants
+);
+
+@include utility-class($config);
+
+// Height
+//============================================
+
+$config: (
+  'name': 'h',
+  'prop': 'height',
+  'mqs': $mqs,
+  'variants': $height-utility-variants
+);
+
+@include utility-class($config);
+
+$config: (
+  'name': 'minH',
+  'prop': 'min-height',
+  'mqs': $mqs,
+  'variants': $height-utility-variants
+);
+
+@include utility-class($config);

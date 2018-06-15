@@ -1,0 +1,36 @@
+//============================================
+// SVG
+//============================================
+
+// Stroke
+//============================================
+
+$config: (
+  'name': 'stroke',
+  'prop': 'stroke',
+  'variants': $svg-color-utility-variants
+);
+
+@include utility-class($config);
+
+// Stroke width
+//============================================
+
+$config: (
+  'name': 'strokeWidth',
+  'prop': 'stroke-width',
+  'variants': $svg-stroke-utility-variants
+);
+
+@include utility-class($config);
+
+// Fill
+//============================================
+
+$config: (
+  'name': 'fill',
+  'prop': 'fill',
+  'variants': $svg-color-utility-variants
+);
+
+@include utility-class($config);

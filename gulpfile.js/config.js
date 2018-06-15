@@ -47,8 +47,6 @@ const sass = {
   options: {
     outputStyle: 'expanded',
     indentedSyntax: true,
-    // Include paths to thirdparty styles
-    includePaths: ['./node_modules/normalize.css'],
   },
 
   prefix: 'last 3 versions',

@@ -9,11 +9,11 @@
     {% block head %}{% endblock %}
   </head>
   <body>
-    {% include "shared/browser-warning.html" %}
     {% block content %}{% endblock %}
 
     {% include "shared/grid-helper.html" %}
 
+    {% include "shared/browser-warning.html" %}
     {% block javascript %}
       <script src="js/main.js"></script>
     {% endblock %}

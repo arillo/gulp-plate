@@ -119,42 +119,29 @@ Sass indented syntax is used by default. The main Sass files need to have a `.sa
 
 ### Include external vendor css files
 
-To include third-party styles in your css use the `includePaths` array in the `config.js` file:
+To include third-party styles in your css use include them in the `main.sass` file:
 
-```js
-// gulpfile.js/config.js
+```css
+// main.sass
 
-const sass = {
-  //...
-  settings: {
-    includePaths: [
-      './node_modules/normalize.css',
-      // put other paths here..
-    ],
-  },
-  //...
-};
+@import url('../../node_modules/normalize.css/normalize.css');
 ```
 
-Include it using a regular `@import`:
+A postcss plugin will then inline the files preserving the source-maps. After the Sass compilation.
 
-```
-@import "normalize"
-```
-
-The Sass compiler will look for files with `.sass`, `.scss` and `.css` extension and include its contents in the generated file.
-
-If there happen to be multiple files with the same name but different extensions (e.g. `style.css` and `style.scss`) the compiler will throw an error. To circumvent this problem include the file extension in the `@import`:
-
-```
-@import "style.scss"
-```
-
-Sass will always prefer Sass files (`.sass` or `.scss`) over css files, so when you hit this problem you have to import the Sass file over the css file.
+Beware that Sass will move `@import url(...)` statements to the top of the generated CSS file, so independently of the place of inclusion these styles will always be included at the top of the file.
 
 ### Sass-lint errors
 
-At the time of writing `sass-lint` fails when it encounters empty selectors. This is a [bug](https://github.com/sasstools/sass-lint/issues/820), it can be prevented by adding a comment (`//`) at the end of the file (does not allways work).
+At the time of writing `sass-lint` fails when it encounters empty selectors. This is a [bug](https://github.com/sasstools/sass-lint/issues/456), it can be prevented by adding a indented comment `//` after the empty selector:
+
+```sass
+.mySelector
+  //
+
+.mySelector_child
+  text-align: center
+```
 
 ## JavaScript
 

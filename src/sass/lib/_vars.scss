@@ -183,19 +183,19 @@ $background-utility-variants: (
   'black': $black
 );
 
-$display-utility-variants: (
-  'none': none,
-  'blk': block,
-  'inl': inline,
-  'ibl': inline-block,
-  'flx': flex
-);
-
 $width-utility-variants: (
   '100\\%': 100%,
   '90\\%': 90%,
+  '50\\%': 50%,
   '200': 200px,
   '100': 100px
+);
+
+$height-utility-variants: (
+  '100\\%': 100%,
+  'auto': auto,
+  '100vh': 100vh,
+  '0': 0
 );
 
 $opacity-utility-variants: (
@@ -210,6 +210,23 @@ $opacity-utility-variants: (
   '20': 0.2,
   '10': 0.1,
   '0': 0
+);
+
+$svg-color-utility-variants: (
+  'primary': $primary,
+  'white': $white,
+  'txt': $color-txt,
+  'inherit': inherit
+);
+
+$svg-stroke-utility-variants: (
+  '0\\.5': 0.1,
+  '1': 1,
+  '1\\.5': 1.5,
+  '2': 2,
+  '2\\.5': 2.5,
+  '3': 3,
+  '3\\.5': 3.5
 );
 
 $dimension-utility-variants: (

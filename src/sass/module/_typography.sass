@@ -56,3 +56,35 @@
 
   ol
     list-style: decimal
+
+// Code
+//============================================
+
+.typography
+  pre, code
+    font-family: $font-mono
+
+  pre
+    background-color: rgba($black, 0.3)
+    overflow: auto
+    padding: $space-half
+    line-height: inherit
+    white-space: pre
+    text-align: left
+    margin-bottom: $space
+
+
+// Quotes
+//============================================
+
+.typography
+  blockquote
+    padding-left: 15px
+    border-left: 2px solid
+    margin-bottom: $space
+
+  q
+    quotes: '\201C' '\201D' '\2018' '\2019'
+
+  cite
+    font-style: normal
