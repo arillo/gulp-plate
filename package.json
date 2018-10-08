@@ -1,6 +1,6 @@
 {
   "name": "gulp-plate",
-  "version": "1.4.3",
+  "version": "1.4.5",
   "description": "Gulp boilerplate for static page generation",
   "repository": {
     "type": "git",
