@@ -3,7 +3,8 @@
 //============================================
 
 =center($width, $height: $width, $position: absolute)
-  +pos(50%, top left, $position)
+  @if $position
+    +pos(50%, top left, $position)
 
   +size($width, $height)
   margin-left: -$width / 2
