@@ -12,11 +12,7 @@ const autoprefixer = require('autoprefixer');
 const importer = require('postcss-import');
 const removeClasses = require('../util/removeCssClasses')(config.remove);
 
-const procesors = [
-  importer,
-  removeClasses,
-  autoprefixer({ browsers: config.prefix }),
-];
+const procesors = [importer, removeClasses, autoprefixer()];
 
 gulp.task('sass', () => {
   const isProd = global.env === 'prod';

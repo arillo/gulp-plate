@@ -6,7 +6,11 @@ $config: (
   'name': 'va',
   'prop': 'vertical-align',
   'mqs': $mqs,
-  'variants': ('top': top, 'btm': bottom, 'mdl': middle)
+  'variants': (
+    'top': top,
+    'btm': bottom,
+    'mdl': middle
+  )
 );
 
 @include utility-class($config);

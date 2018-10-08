@@ -21,60 +21,42 @@ rules:
   no-url-domains: 0
   no-url-protocols:
     - 1
-    -
-      allow-protocol-relative-urls: true
+    - allow-protocol-relative-urls: true
 
   nesting-depth:
     - 1
-    -
-      max-depth: 2
+    - max-depth: 2
 
   mixins-before-declarations:
     - 1
-    -
-      exclude: ['mq']
+    - exclude: ['mq']
 
   leading-zero:
     - 1
-    -
-      include: true
+    - include: true
 
   no-color-literals:
     - 1
-    -
-      allow-rgba: true
+    - allow-rgba: true
 
   no-misspelled-properties:
-  - 1
-  -
-    extra-properties:
-      - 'overflow-scrolling'
-      - 'flex-preferred-size'
-      - 'interpolation-mode'
+    - 1
+    - extra-properties:
+        - 'overflow-scrolling'
+        - 'flex-preferred-size'
+        - 'interpolation-mode'
 
   quotes:
     - 1
-    -
-      style: single
+    - style: single
 
   indentation:
     size: 2
 
   no-duplicate-properties:
     - 1
-    -
-      exclude:
+    - exclude:
         - src
-
-  # Allow file extensions when importing files.
-  # Reason: when using the `includePaths` option
-  # for Sass and retrieving files from a dir that contains
-  # both .scss & .css files with the same name, the Sass
-  # compiler does not know what file to use (even though he
-  # can't process .css files) and needs the extension to
-  # know what file to use.
-  clean-import-paths:
-    filename-extension: true
 
   # @TODO update this rules with a appropriate
   # regex to enforce class naming style.

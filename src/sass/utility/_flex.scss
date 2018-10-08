@@ -9,13 +9,12 @@ $config: (
   'name': 'flxDir',
   'prop': 'flex-direction',
   'mqs': $mqs,
-  'variants':
-    (
-      'row': row,
-      'col': column,
-      'rowRev': row-reverse,
-      'colRev': column-reverse
-    )
+  'variants': (
+    'row': row,
+    'col': column,
+    'rowRev': row-reverse,
+    'colRev': column-reverse
+  )
 );
 
 @include utility-class($config);
@@ -27,7 +26,11 @@ $config: (
   'name': 'flxWrap',
   'prop': 'flex-wrap',
   'mqs': $mqs,
-  'variants': ('wrap': wrap, 'nowrap': nowrap, 'wrapRev': wrap-reverse)
+  'variants': (
+    'wrap': wrap,
+    'nowrap': nowrap,
+    'wrapRev': wrap-reverse
+  )
 );
 
 @include utility-class($config);
@@ -39,14 +42,13 @@ $config: (
   'name': 'flxJustify',
   'prop': 'justify-content',
   'mqs': $mqs,
-  'variants':
-    (
-      'start': flex-sart,
-      'end': flex-end,
-      'center': center,
-      'between': space-between,
-      'around': space-around
-    )
+  'variants': (
+    'start': flex-sart,
+    'end': flex-end,
+    'center': center,
+    'between': space-between,
+    'around': space-around
+  )
 );
 
 @include utility-class($config);
@@ -58,14 +60,13 @@ $config: (
   'name': 'flxAlignItems',
   'prop': 'align-items',
   'mqs': $mqs,
-  'variants':
-    (
-      'start': flex-start,
-      'end': flex-end,
-      'center': center,
-      'base': baseline,
-      'stretch': stretch
-    )
+  'variants': (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'base': baseline,
+    'stretch': stretch
+  )
 );
 
 @include utility-class($config);
@@ -77,15 +78,14 @@ $config: (
   'name': 'flxAlignContent',
   'prop': 'align-content',
   'mqs': $mqs,
-  'variants':
-    (
-      'start': flex-sart,
-      'end': flex-end,
-      'center': center,
-      'between': space-between,
-      'around': space-around,
-      'stretch': stretch
-    )
+  'variants': (
+    'start': flex-sart,
+    'end': flex-end,
+    'center': center,
+    'between': space-between,
+    'around': space-around,
+    'stretch': stretch
+  )
 );
 
 @include utility-class($config);
@@ -97,15 +97,14 @@ $config: (
   'name': 'flxAlignItems',
   'prop': 'align-items',
   'mqs': $mqs,
-  'variants':
-    (
-      'auto': auto,
-      'start': flex-start,
-      'end': flex-end,
-      'center': center,
-      'base': baseline,
-      'stretch': stretch
-    )
+  'variants': (
+    'auto': auto,
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'base': baseline,
+    'stretch': stretch
+  )
 );
 
 @include utility-class($config);
@@ -117,19 +116,18 @@ $config: (
   'name': 'flxOrder',
   'prop': 'order',
   'mqs': $mqs,
-  'variants':
-    (
-      '1': 1,
-      '2': 2,
-      '3': 3,
-      '4': 4,
-      '5': 5,
-      '6': 6,
-      '7': 7,
-      '8': 8,
-      '9': 9,
-      'last': 999
-    )
+  'variants': (
+    '1': 1,
+    '2': 2,
+    '3': 3,
+    '4': 4,
+    '5': 5,
+    '6': 6,
+    '7': 7,
+    '8': 8,
+    '9': 9,
+    'last': 999
+  )
 );
 
 @include utility-class($config);
@@ -141,7 +139,10 @@ $config: (
   'name': 'flxGrow',
   'prop': 'flex-grow',
   'mqs': $mqs,
-  'variants': ('1': 1, '0': 0)
+  'variants': (
+    '1': 1,
+    '0': 0
+  )
 );
 
 @include utility-class($config);
@@ -150,7 +151,10 @@ $config: (
   'name': 'flxShrink',
   'prop': 'flex-shrink',
   'mqs': $mqs,
-  'variants': ('1': 1, '0': 0)
+  'variants': (
+    '1': 1,
+    '0': 0
+  )
 );
 
 @include utility-class($config);
@@ -159,7 +163,10 @@ $config: (
   'name': 'flx',
   'prop': 'flex',
   'mqs': $mqs,
-  'variants': ('grow': 1 0 auto, 'none': none)
+  'variants': (
+    'grow': 1 0 auto,
+    'none': none
+  )
 );
 
 @include utility-class($config);

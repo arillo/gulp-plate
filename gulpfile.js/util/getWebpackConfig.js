@@ -1,4 +1,4 @@
-const config = require('../config').js;
+const config = require('../config').webpack;
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 

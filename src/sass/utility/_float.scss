@@ -3,10 +3,14 @@
 //============================================
 
 $config: (
-  'name': 'fl',
+  'name': 'flt',
   'prop': 'float',
   'mqs': $mqs,
-  'variants': ('lft': left, 'rgt': right, 'none': none)
+  'variants': (
+    'lft': left,
+    'rgt': right,
+    'none': none
+  )
 );
 
 @include utility-class($config);
