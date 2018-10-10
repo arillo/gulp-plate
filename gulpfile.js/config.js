@@ -46,7 +46,6 @@ const sass = {
   dest: `${dest}/css`,
   options: {
     outputStyle: 'expanded',
-    indentedSyntax: true,
   },
 
   // Css Selectors that should be removed from your css.

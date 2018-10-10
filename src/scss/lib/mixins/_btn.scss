@@ -1,0 +1,73 @@
+//============================================
+// Buttons
+//============================================
+
+// Button styles are used in different places, this
+// includes third-party modules where a `.btn` class
+// can not be applied in the markup. Therefor `.btn`
+// classes are composed using mixins that can be reused
+// to attach `.btn` styles to elements that can not have
+// a `.btn` class in the markup.
+
+// This approach will create more css than using `@extend`
+// but is preferable in order to maintain source order
+// control & prevent unwanted side effects.
+
+// More info: http://csswizardry.com/2016/02/mixins-better-for-performance/
+
+// The `.btn` class definition is located at modules/_btn.sass
+
+// Main
+//============================================
+
+@mixin btn {
+  transition: background-color $motion, border-color $motion;
+  padding: $space-quarter 20px;
+  border: 1px solid $primary;
+  background: $primary;
+  font-size: inherit;
+  font-weight: normal;
+  font-family: inherit;
+  border-radius: 0.3rem;
+  width: auto;
+  display: inline-block;
+  color: $white;
+  line-height: $lh;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-shadow: none;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:focus,
+  &:active,
+  &:hover {
+    background-color: shade($primary, 10%);
+    border-color: shade($primary, 10%);
+    z-index: 1;
+    outline: 0;
+  }
+}
+
+// Disabled state
+//============================================
+
+// 1. Overwrite pseudo state styles
+
+@mixin btn-disabled {
+  &[disabled],
+  &-disabled {
+    background-color: lighten($black, 90%);
+    border-color: lighten($black, 90%) !important; // 1.
+    color: lighten($black, 60%);
+    cursor: not-allowed;
+  }
+}
+
+// Btn Truncate
+//============================================
+
+@mixin btn-truncate {
+  @include truncate;
+}

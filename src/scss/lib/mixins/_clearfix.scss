@@ -1,0 +1,16 @@
+//============================================
+// Clearfix
+//============================================
+
+@mixin clearfix {
+  &::after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+}
+
+// Alias
+@mixin cf {
+  @include clearfix;
+}

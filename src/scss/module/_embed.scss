@@ -1,0 +1,54 @@
+//============================================
+// Embed
+//============================================
+
+// Wrapper
+//============================================
+
+.embed {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    display: block;
+    content: '';
+    padding-bottom: 100%;
+  }
+}
+
+.embed-16\:9 {
+  &::before {
+    padding-bottom: (9 / 16) * 100%;
+  }
+}
+
+.embed-4\:3 {
+  &::before {
+    padding-bottom: (3 / 4) * 100%;
+  }
+}
+
+.embed-3\:2 {
+  &::before {
+    padding-bottom: (2 / 3) * 100%;
+  }
+}
+
+.embed-2\:1 {
+  &::before {
+    padding-bottom: 50%;
+  }
+}
+
+// Embedded media
+//============================================
+
+.embed object,
+.embed iframe,
+.embed embed,
+.embed video,
+.embed_img,
+.embed_media {
+  @include pos(0, top left);
+  @include size(100%);
+}

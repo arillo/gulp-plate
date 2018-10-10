@@ -1,0 +1,17 @@
+//============================================
+// Respond
+//============================================
+
+@mixin mq($breakpoint: false, $media: all) {
+  @if $breakpoint == 'print' {
+    @media print {
+      @content;
+    }
+  } @else if $breakpoint {
+    @media #{$media} and #{$breakpoint} {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

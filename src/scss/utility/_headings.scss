@@ -1,0 +1,31 @@
+//============================================
+// Headings
+//============================================
+
+// This styles only apply font size, to apply other
+// styles like font-weight and color use other
+// utility classes.
+
+.u-h1 {
+  @include h1;
+}
+
+.u-h2 {
+  @include h2;
+}
+
+.u-h3 {
+  @include h3;
+}
+
+.u-h4 {
+  @include h4;
+}
+
+.u-h5 {
+  @include h5;
+}
+
+.u-h6 {
+  @include h6;
+}

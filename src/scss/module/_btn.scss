@@ -1,0 +1,15 @@
+//============================================
+// Buttons
+//============================================
+
+// Buttons styles are created using mixins.
+// see lib/mixins/_btn.sass for more info.
+
+// Base
+//===========================================
+
+.btn {
+  @include btn;
+  @include btn-truncate;
+  @include btn-disabled;
+}

@@ -1,0 +1,166 @@
+// sass-lint:disable empty-line-between-blocks, quotes
+
+//============================================
+// Form
+//============================================
+
+// Block
+//============================================
+
+.form {
+  position: relative;
+}
+
+// Fields
+//============================================
+
+.form_field {
+  margin-bottom: $space-half;
+
+  &-inline {
+    position: relative;
+  }
+
+  & + &-inline {
+    margin-top: $space-threeQuarter;
+  }
+}
+
+// Labels
+//============================================
+
+.form_label {
+  &-block {
+    padding-bottom: $space-quarter;
+  }
+
+  &-inline {
+    padding-left: 1.7em;
+  }
+}
+
+// Inputs
+//============================================
+
+// 1. Calculate height to even out browser differences,
+// remember to update when changing the vertical padding & border.
+
+.form_input {
+  transition: border-color $motion;
+  outline: 0;
+  width: 100%;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: $lh;
+  border: 1px solid lighten($black, 80%);
+  border-radius: 0;
+  background: $white;
+  appearance: none;
+  padding: $space-quarter $space-third;
+  height: ($fs * $lh) + $space-half + 2px; // 1.
+
+  &.disabled,
+  &[disabled] {
+    background: lighten($black, 90%);
+    cursor: default;
+    color: lighten($black, 60%);
+  }
+
+  &:focus {
+    border-color: $primary;
+  }
+}
+
+// Textareas
+//============================================
+
+.form_input-textarea {
+  vertical-align: top;
+  height: auto;
+  min-height: 100px;
+  resize: vertical;
+}
+
+// Checkboxes & Radiobuttons
+//============================================
+
+.form_radio,
+.form_checkbox {
+  margin: 0 $space-quarter 0 0;
+  line-height: inherit;
+  vertical-align: baseline;
+
+  .form_field-inline > & {
+    @inlcude pos(0.27em 0, top left);
+  }
+}
+
+// Selects
+//============================================
+
+// Image encoded with http://meyerweb.com/eric/tools/dencoder/
+// Read more here: https://css-tricks.com/probably-dont-base64-svg/
+
+.form_input-select {
+  cursor: pointer;
+
+  &[multiple] {
+    height: auto;
+  }
+}
+
+// Common style mixin
+@mixin select-style {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0' y='0' width='19' height='5' viewBox='0 0 19 5'%3E%3Cpolygon points='0 0 4.5 5 9 0 '/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+  padding-right: 35px;
+
+  &[multiple] {
+    padding: 0;
+    background-image: none;
+  }
+}
+
+// Webkit & FF
+@supports (-webkit-appearance: none) or (appearance: none) or
+  ((-moz-appearance: none) and (mask-type: alpha)) {
+  .form_input-select {
+    @inlcude select-style;
+  }
+}
+
+// IE
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .form_input-select {
+    @inlcude select-style;
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:focus::-ms-value {
+    background: transparent;
+    color: inherit;
+  }
+}
+
+// Actions
+//============================================
+
+.form_actions {
+  padding-top: $space-half;
+}
+
+.form_action {
+  @inclue btn;
+  @inclue btn-truncate;
+  @inclue btn-disabled;
+
+  & + & {
+    margin-left: $space-quarter;
+  }
+}

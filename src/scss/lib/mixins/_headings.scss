@@ -1,0 +1,27 @@
+//============================================
+// headings
+//============================================
+
+@mixin h1 {
+  @inlcude fs($fs-h1);
+}
+
+@mixin h2 {
+  @inlcude fs($fs-h2);
+}
+
+@mixin h3 {
+  @inlcude fs($fs-h3);
+}
+
+@mixin h4 {
+  @inlcude fs($fs-h4);
+}
+
+@mixin h5 {
+  @inlcude fs($fs-h5);
+}
+
+@mixin h6 {
+  @inlcude fs($fs-h6);
+}
