@@ -10,7 +10,7 @@ gulp.task('sprite:data', () => {
     .src(config.src)
     .pipe(svgSymbols({ templates: [config.template] }))
     .on('error', handleErrors)
-    .pipe(gulp.dest(config.sassDest));
+    .pipe(gulp.dest(config.scssDest));
 });
 
 gulp.task('sprite', ['sprite:data'], () => {

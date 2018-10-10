@@ -13,8 +13,8 @@ gulp.task('watch', callback => {
     runSequence('sprite', browserSync.reload);
   });
 
-  watch(config.sass.src, () => {
-    runSequence('sass');
+  watch(config.scss.src, () => {
+    runSequence('scss');
   });
 
   watch(config.images.src, () => {

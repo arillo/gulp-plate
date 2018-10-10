@@ -4,7 +4,7 @@ const sass = require('gulp-sass');
 const sassLint = require('gulp-sass-lint');
 const sourcemaps = require('gulp-sourcemaps');
 const handleErrors = require('../util/handleErrors');
-const config = require('../config').sass;
+const config = require('../config').scss;
 const postcss = require('gulp-postcss');
 const gulpif = require('gulp-if');
 const nano = require('cssnano');
@@ -14,7 +14,7 @@ const removeClasses = require('../util/removeCssClasses')(config.remove);
 
 const procesors = [importer, removeClasses, autoprefixer()];
 
-gulp.task('sass', () => {
+gulp.task('scss', () => {
   const isProd = global.env === 'prod';
   if (isProd) {
     procesors.push(nano(config.compression));

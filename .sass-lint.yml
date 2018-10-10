@@ -2,10 +2,10 @@ options:
   merge-default-rules: true
 
 files:
-  include: 'src/sass/**/*.s+(a|c)ss'
+  include: 'src/scss/**/*.s+(a|c)ss'
   ignore:
     - 'src/sass/base/_sprite.scss'
-    - 'src/sass/lib/mixins/_grid.sass'
+    - 'src/sass/lib/mixins/_grid.scss'
 
 rules:
   no-ids: 0
@@ -18,6 +18,7 @@ rules:
   force-pseudo-nesting: 0
   no-qualifying-elements: 0
   no-warn: 0
+  brace-style: 0
   no-url-domains: 0
   no-url-protocols:
     - 1

@@ -5,7 +5,7 @@ gulp.task('default', ['clean'], callback => {
   // Set environment
   global.env = global.env || 'build';
 
-  const tasks = ['sprite', ['sass', 'html', 'images', 'assets']];
+  const tasks = ['sprite', ['scss', 'html', 'images', 'assets']];
 
   if (global.env === 'build') {
     tasks.push('webpack');
