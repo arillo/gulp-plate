@@ -6,7 +6,7 @@
 //============================================
 
 $config: (
-  'name': 'stroke',
+  'name': 'st',
   'prop': 'stroke',
   'variants': $svg-color-utility-variants
 );
@@ -17,7 +17,7 @@ $config: (
 //============================================
 
 $config: (
-  'name': 'strokeWidth',
+  'name': 'stw',
   'prop': 'stroke-width',
   'variants': $svg-stroke-utility-variants
 );
@@ -28,7 +28,7 @@ $config: (
 //============================================
 
 $config: (
-  'name': 'fill',
+  'name': 'fll',
   'prop': 'fill',
   'variants': $svg-color-utility-variants
 );

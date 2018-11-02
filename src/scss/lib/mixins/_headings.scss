@@ -3,25 +3,25 @@
 //============================================
 
 @mixin h1 {
-  @inlcude fs($fs-h1);
+  @include fs($fs-h1);
 }
 
 @mixin h2 {
-  @inlcude fs($fs-h2);
+  @include fs($fs-h2);
 }
 
 @mixin h3 {
-  @inlcude fs($fs-h3);
+  @include fs($fs-h3);
 }
 
 @mixin h4 {
-  @inlcude fs($fs-h4);
+  @include fs($fs-h4);
 }
 
 @mixin h5 {
-  @inlcude fs($fs-h5);
+  @include fs($fs-h5);
 }
 
 @mixin h6 {
-  @inlcude fs($fs-h6);
+  @include fs($fs-h6);
 }

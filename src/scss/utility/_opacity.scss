@@ -2,10 +2,25 @@
 // Opacity
 //============================================
 
+// Opacity
+//============================================
+
 $config: (
   'name': 'o',
   'prop': 'opacity',
   'variants': $opacity-utility-variants
+);
+
+@include utility-class($config);
+
+// Opacity - Hover
+//============================================
+
+$config: (
+  'name': 'o',
+  'prop': 'opacity',
+  'variants': $opacity-utility-variants,
+  'hover': true
 );
 
 @include utility-class($config);

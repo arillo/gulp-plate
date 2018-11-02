@@ -21,7 +21,13 @@ $config: (
   'name': 'maxW',
   'prop': 'max-width',
   'mqs': $mqs,
-  'variants': $width-utility-variants
+  'variants':
+    map-merge(
+      $width-utility-variants,
+      (
+        'none': none
+      )
+    )
 );
 
 @include utility-class($config);

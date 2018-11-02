@@ -1,0 +1,12 @@
+//============================================
+// Font size
+//============================================
+
+$config: (
+  'name': 'fs',
+  'prop': 'font-size',
+  'mqs': $mqs,
+  'variants': $font-size-utility-variants
+);
+
+@include utility-class($config);

@@ -22,7 +22,7 @@ body .browserWarning {
 
 .browserWarning_inner {
   h3 {
-    @inlcude fs($fs-h3);
+    @include fs($fs-h3);
     font-weight: bold;
     margin-bottom: $space-half;
   }

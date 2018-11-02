@@ -1,10 +1,10 @@
 // sass-lint:disable empty-line-between-blocks
 
 //============================================
-// Dimension utility mixin
+// Spacing utility mixin
 //============================================
 
-@mixin generate-dimension-helpers($configs...) {
+@mixin generate-spacing-helpers($configs...) {
   @each $config in $configs {
     $mq: map-get($config, 'mq');
     $pull: map-get($config, 'pull');
@@ -29,22 +29,34 @@
         }
 
         @if $pull {
-          @inlcude generate-dimension-block($key, $name, $val, $type: 'pull', $multiplier: -1);
+          @include generate-spacing-block(
+            $key,
+            $name,
+            $val,
+            $type: 'pull',
+            $multiplier: -1
+          );
         }
 
         @if $push {
-          @inlcude generate-dimension-block($key, $name, $val, $type: 'push');
+          @include generate-spacing-block($key, $name, $val, $type: 'push');
         }
 
         @if $padd {
-          @inlcude generate-dimension-block($key, $name, $val, $type: 'padd', $prop: 'padding');
+          @include generate-spacing-block(
+            $key,
+            $name,
+            $val,
+            $type: 'padd',
+            $prop: 'padding'
+          );
         }
       }
     }
   }
 }
 
-@mixin generate-dimension-block(
+@mixin generate-spacing-block(
   $key,
   $name,
   $val,

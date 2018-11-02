@@ -245,7 +245,7 @@
 // Images general
 .typography {
   img {
-    @incude size(auto, auto)
+    @include size(auto, auto);
     max-width: 100%;
   }
 }

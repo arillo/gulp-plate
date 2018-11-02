@@ -1,8 +1,8 @@
 //============================================
-// Dimension utilities
+// Spacing utilities
 //============================================
 
-// Dimension utilities
+// Spacing utilities
 //============================================
 
 // Generate helper classes following this pattern
@@ -23,48 +23,48 @@
 // '' (nothing) = all sides
 
 // Amounts and media-queries
-// See `$dimension-utility-variants` in
+// See `$spacing-utility-variants` in
 // `base/_vars.scss` for configurations
 
-$dimension-utility-config-xs: (
+$spacing-utility-config-xs: (
   'name': '',
   'pull': true,
   'push': true,
   'padd': true,
   'mq': false,
-  'sizes': $dimension-utility-variants
+  'sizes': $spacing-utility-variants
 );
 
-$dimension-utility-config-sm: (
+$spacing-utility-config-sm: (
   'name': 'sm',
   'pull': true,
   'push': true,
   'padd': true,
   'mq': $mq-sm,
-  'sizes': $dimension-utility-variants
+  'sizes': $spacing-utility-variants
 );
 
-$dimension-utility-config-md: (
+$spacing-utility-config-md: (
   'name': 'md',
   'pull': true,
   'push': true,
   'padd': true,
   'mq': $mq-md,
-  'sizes': $dimension-utility-variants
+  'sizes': $spacing-utility-variants
 );
 
-$dimension-utility-config-lg: (
+$spacing-utility-config-lg: (
   'name': 'lg',
   'pull': true,
   'push': true,
   'padd': true,
   'mq': $mq-lg,
-  'sizes': $dimension-utility-variants
+  'sizes': $spacing-utility-variants
 );
 
-@include generate-dimension-helpers(
-  $dimension-utility-config-xs,
-  $dimension-utility-config-sm,
-  $dimension-utility-config-md,
-  $dimension-utility-config-lg
+@include generate-spacing-helpers(
+  $spacing-utility-config-xs,
+  $spacing-utility-config-sm,
+  $spacing-utility-config-md,
+  $spacing-utility-config-lg
 );

@@ -10,28 +10,6 @@
   text-transform: uppercase;
 }
 
-// Text Color
-//============================================
-
-.u-c-primary {
-  color: $primary;
-}
-
-.u-c-txt {
-  color: $color-txt;
-}
-
-// Text Color Hover
-//============================================
-
-.u-c-primary\:hover {
-  transition: color $motion;
-
-  &:hover {
-    color: $primary;
-  }
-}
-
 // Font Weight
 //============================================
 
@@ -42,7 +20,7 @@
 // Line Height
 //============================================
 
-.u-lh-sm {
+.u-lh-small {
   line-height: 1.2;
 }
 

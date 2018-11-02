@@ -1,0 +1,11 @@
+//============================================
+// Border
+//============================================
+
+$config: (
+  'name': 'bw',
+  'prop': 'border-width',
+  'variants': $border-width-utility-variants
+);
+
+@include utility-class($config);

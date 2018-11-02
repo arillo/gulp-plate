@@ -1,25 +1,25 @@
 //============================================
-// Background
+// Color
 //============================================
 
-// Background
+// Color
 //============================================
 
 $config: (
-  'name': 'bg',
-  'prop': 'background-color',
-  'variants': $background-utility-variants
+  'name': 'c',
+  'prop': 'color',
+  'variants': $color-utility-variants
 );
 
 @include utility-class($config);
 
-// Background - Hover
+// Text Color Hover
 //============================================
 
 $config: (
-  'name': 'bg',
-  'prop': 'background-color',
-  'variants': $background-utility-variants,
+  'name': 'c',
+  'prop': 'color',
+  'variants': $color-utility-variants,
   'hover': true
 );
 

@@ -4,10 +4,10 @@
 
 @mixin center($width, $height: $width, $position: absolute) {
   @if $position {
-    @inlcude pos(50%, top left, $position);
+    @include pos(50%, top left, $position);
   }
 
-  @inlcude size($width, $height);
+  @include size($width, $height);
   margin-left: -$width / 2;
   margin-top: -$height / 2;
 }

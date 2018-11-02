@@ -93,7 +93,7 @@
   vertical-align: baseline;
 
   .form_field-inline > & {
-    @inlcude pos(0.27em 0, top left);
+    @include pos(0.27em 0, top left);
   }
 }
 
@@ -128,14 +128,14 @@
 @supports (-webkit-appearance: none) or (appearance: none) or
   ((-moz-appearance: none) and (mask-type: alpha)) {
   .form_input-select {
-    @inlcude select-style;
+    @include select-style;
   }
 }
 
 // IE
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .form_input-select {
-    @inlcude select-style;
+    @include select-style;
   }
 
   &::-ms-expand {

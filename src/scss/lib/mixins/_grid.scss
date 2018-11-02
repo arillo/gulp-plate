@@ -21,11 +21,12 @@
 @mixin grid($configs...) {
   // Default Classes
   .g-row {
-    @include cf;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
 
   .g {
-    float: left;
     width: 100%;
     min-height: 1px;
     position: relative;
@@ -61,40 +62,21 @@
         padding-left: $gutter-lft;
         padding-right: $gutter-rgt;
       }
-    }
 
-    // Clear
-    @if map-get($config, 'clear') {
-      @each $col in map-get($config, 'clear') {
-        $nth-val: '#{$col}n + 1';
-
-        .g-row-clear-#{$col}#{$name} {
-          > .g {
-            &:nth-child(#{$nth-val}) {
-              clear: left;
-            }
-
-            &:not(:nth-child(#{$nth-val})) {
-              clear: none;
-            }
+      // Units
+      @if $cols {
+        @for $i from 1 through $cols {
+          .g-#{$i}#{$name} {
+            width: $base * $i;
           }
         }
       }
-    }
 
-    // Units
-    @if $cols {
-      @for $i from 1 through $cols {
-        .g-#{$i}#{$name} {
-          width: $base * $i;
-        }
-      }
+      // Helpers
+      @include grid-helper($config, 'off', margin-left, 0);
+      @include grid-helper($config, 'pull', right, auto);
+      @include grid-helper($config, 'push', left, auto);
     }
-
-    // Helpers
-    @include grid-helper($config, 'off', margin-left, 0);
-    @include grid-helper($config, 'pull', right, auto);
-    @include grid-helper($config, 'push', left, auto);
   }
 }
 

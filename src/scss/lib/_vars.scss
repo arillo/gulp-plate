@@ -186,6 +186,17 @@ $grid-config-lg: (
 // Utilities
 //============================================
 
+$border-width-utility-variants: (
+  '2': 2px,
+);
+
+$color-utility-variants: (
+  'primary': $primary,
+  'white': $white,
+  'txt': $color-txt,
+  'inherit': inherit,
+);
+
 $background-utility-variants: (
   'primary': $primary,
   'black': $black,
@@ -220,11 +231,16 @@ $opacity-utility-variants: (
   '0': 0,
 );
 
+$font-size-utility-variants: (
+  '': $fs,
+);
+
 $svg-color-utility-variants: (
   'primary': $primary,
   'white': $white,
   'txt': $color-txt,
   'inherit': inherit,
+  'currentColor': currentColor,
 );
 
 $svg-stroke-utility-variants: (
@@ -237,7 +253,7 @@ $svg-stroke-utility-variants: (
   '3\\.5': 3.5,
 );
 
-$dimension-utility-variants: (
+$spacing-utility-variants: (
   '1': 1px,
   '2': 2px,
   '3': 3px,

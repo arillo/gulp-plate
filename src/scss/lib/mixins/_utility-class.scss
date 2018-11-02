@@ -9,12 +9,20 @@
   $prop: map-get($config, 'prop');
   $mqs: map-get($config, 'mqs');
   $variants: map-get($config, 'variants');
+  $hover: map-get($config, 'hover');
 
-  @include utility-class-helper($name, $prop, $variants);
+  @include utility-class-helper($name, $prop, $variants, $hover: $hover);
 
   @if $mqs {
     @each $mq-name, $mq in $mqs {
-      @include utility-class-helper($name, $prop, $variants, $mq, $mq-name);
+      @include utility-class-helper(
+        $name,
+        $prop,
+        $variants,
+        $mq,
+        $mq-name,
+        $hover
+      );
     }
   }
 }
@@ -25,14 +33,38 @@
   $prop,
   $variants,
   $mq: false,
-  $mq-name: false
+  $mq-name: false,
+  $hover: false
 ) {
   $mq-name: if($mq-name, '#{\@}#{$mq-name}', '');
 
   @include mq($mq) {
-    @each $key, $val in $variants {
-      .u-#{$name}-#{$key}#{$mq-name} {
-        #{$prop}: #{$val};
+    @if $hover {
+      $mq-name: if($hover, '#{\:hover}#{$mq-name}', '');
+
+      @each $key, $val in $variants {
+        $key: if(str-length($key) > 0, '-#{$key}', '');
+
+        .u-#{$name}#{$key}#{$mq-name} {
+          transition: #{$prop} $motion;
+
+          &.u-hover:active,
+          &.u-hover:focus,
+          &.u-hover:hover,
+          .u-hover:active &,
+          .u-hover:focus &,
+          .u-hover:hover & {
+            #{$prop}: #{$val};
+          }
+        }
+      }
+    } @else {
+      @each $key, $val in $variants {
+        $key: if(str-length($key) > 0, '-#{$key}', '');
+
+        .u-#{$name}#{$key}#{$mq-name} {
+          #{$prop}: #{$val};
+        }
       }
     }
   }
