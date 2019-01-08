@@ -1,6 +1,6 @@
 {
   "name": "gulp-plate",
-  "version": "1.4.7",
+  "version": "2.0.0",
   "description": "Gulp boilerplate for static page generation",
   "repository": {
     "type": "git",
@@ -9,14 +9,8 @@
   "scripts": {
     "start": "gulp watch",
     "build": "gulp",
-    "b": "npm run build",
-    "gulp": "npm run build",
-    "g": "npm run build",
-    "watch": "npm start",
-    "w": "npm start",
-    "production": "NODE_ENV='production' gulp production",
-    "prod": "npm run production",
-    "p": "npm run production",
+    "watch": "npm start",,
+    "prod": "NODE_ENV='production' gulp production",
     "lint-tasks": "./node_modules/.bin/eslint --config .eslintrc.js 'gulpfile.js/**/*.js'"
   },
   "license": "MIT",
@@ -68,7 +62,6 @@
     "plugin-error": "^1.0.1",
     "postcss-import": "^12.0.1",
     "prettier": "^1.15.3",
-    "run-sequence": "^2.2.1",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.1",
@@ -76,8 +69,8 @@
     "webpack-hot-middleware": "^2.24.3"
   },
   "dependencies": {
+    "destyle.css": "^1.0.2",
     "jquery": "^3.3.1",
-    "normalize.css": "^8.0.1",
     "svg4everybody": "^2.1.9"
   }
 }
