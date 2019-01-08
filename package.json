@@ -9,9 +9,9 @@
   "scripts": {
     "start": "gulp watch",
     "build": "gulp",
-    "watch": "npm start",
+    "watch": "gulp watch",
     "prod": "NODE_ENV='production' gulp production",
-    "lint-tasks": "./node_modules/.bin/eslint --config .eslintrc.js 'gulpfile.js/**/*.js'"
+    "lint-tasks": "eslint --config .eslintrc.js 'gulpfile.js/**/*.js'"
   },
   "license": "MIT",
   "devDependencies": {

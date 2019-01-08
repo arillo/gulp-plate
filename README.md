@@ -4,15 +4,15 @@
 
 Includes the following tools, tasks, and work-flows:
 
-* [Webpack](https://webpack.js.org/) as JavaScript module bundler
-* [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) for live reloading (in memory compilation for faster rebuilds while developing)
-* [ES2015](http://www.ecma-international.org/ecma-262/6.0/) syntax transpiled with [Babel](https://babeljs.io/)
-* [ESLint](http://eslint.org/) for JavaScript linting
-* [Prettier](https://prettier.io/) for JavaScript code formatting
-* [SASS](http://sass-lang.com/) compiled with libsass, [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) and [Sass linting](https://github.com/sasstools/sass-lint)
-* [BrowserSync](http://browsersync.io) for live reloading and static server
-* [svgo](https://github.com/svg/svgo) for SVG compression.
-* [gulp-svg-symbols](https://github.com/Hiswe/gulp-svg-symbols) to generate a SVG icon sprite with `<symbol>` & `<use>` tags
+- [Webpack](https://webpack.js.org/) as JavaScript module bundler
+- [webpack-dev-middleware](https://github.com/webpack/webpack-dev-middleware) for live reloading (in memory compilation for faster rebuilds while developing)
+- [ES2015](http://www.ecma-international.org/ecma-262/6.0/) syntax transpiled with [Babel](https://babeljs.io/)
+- [ESLint](http://eslint.org/) for JavaScript linting
+- [Prettier](https://prettier.io/) for JavaScript code formatting
+- [SASS](http://sass-lang.com/) compiled with libsass, [source maps](https://github.com/sindresorhus/gulp-ruby-sass#sourcemap), [autoprefixer](https://github.com/sindresorhus/gulp-autoprefixer) and [Sass linting](https://github.com/sasstools/sass-lint)
+- [BrowserSync](http://browsersync.io) for live reloading and static server
+- [svgo](https://github.com/svg/svgo) for SVG compression.
+- [gulp-svg-symbols](https://github.com/Hiswe/gulp-svg-symbols) to generate a SVG icon sprite with `<symbol>` & `<use>` tags
 
 Looking for the [SilverStripe](https://github.com/silverstripe) version? [Look here](https://github.com/arillo/silverstripe-gulp-plate).
 
@@ -20,9 +20,9 @@ Looking for the [SilverStripe](https://github.com/silverstripe) version? [Look h
 
 Gulp-plate depends on the following technologies:
 
-* [node.js](http://nodejs.org) as local host environment for gulp (v. 7.5.0 or higher) [1]
-* [gulp](http://gulpjs.com/) as task-runner
-* [yarn](https://yarnpkg.com) as dependency manager
+- [node.js](http://nodejs.org) as local host environment for gulp (v. 7.5.0 or higher) [1]
+- [gulp](http://gulpjs.com/) as task-runner
+- [yarn](https://yarnpkg.com) as dependency manager
 
 [1] It is recommended to install node trough [nvm](https://github.com/creationix/nvm) (Node Version Manager).
 
@@ -40,29 +40,24 @@ $ yarn          # Install dependencies
 ```bash
 # Equivalent
 $ yarn run build
-$ yarn run gulp
-$ yarn run g
 ```
 
-Will run the default task and generate a dev version of the site in the `dist` folder.
+Run the default task and generate a dev version of the site in the `dist` folder.
 
 ```bash
 # Equivalent
 $ yarn start
 $ yarn run watch
-$ yarn run w
 ```
 
-Will run the default task once, start a server and watch for file changes.
+Run the default task once, start a server and watch for file changes.
 
 ```bash
 # Equivalent
-$ yarn run production
 $ yarn run prod
-$ yarn run p
 ```
 
-Will set `NODE_ENV='production'` and generate a production version of the site by compressing js, css & html. This is the folder that should go on the server.
+Set `NODE_ENV='production'` and generate a production version of the site by compressing js, css & html. This is the folder that should go on the server.
 
 If you want to run any other gulp task just append the task name to the build /gulp command:
 
@@ -300,7 +295,7 @@ Docs: https://webpack.js.org/guides/code-splitting-libraries/
 
 ## Roadmap
 
-* [ ] Research Tree-shaking with webpack and implement if possible
+- [ ] Research Tree-shaking with webpack and implement if possible
 
 ## Credits
 

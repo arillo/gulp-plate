@@ -1,7 +1,3 @@
-// This task is not registered by default to prevent
-// webpackDevMiddleware and webpackHotMiddleware be
-// executed unless we are using the watch task.
-
 const browserSync = require('browser-sync');
 const config = require('../config').browserSync;
 const webpack = require('webpack');
