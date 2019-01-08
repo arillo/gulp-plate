@@ -156,9 +156,9 @@
 }
 
 .form_action {
-  @inclue btn;
-  @inclue btn-truncate;
-  @inclue btn-disabled;
+  @include btn;
+  @include btn-truncate;
+  @include btn-disabled;
 
   & + & {
     margin-left: $space-quarter;
