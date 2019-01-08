@@ -28,7 +28,6 @@ const html = {
   dest: `${dest}/`,
   glob: '**/*.{html,json}',
   data: `${src}/html/data/*.json`,
-  extensions: ['html', 'json'],
   excludeFolders: ['layouts', 'shared', 'macros', 'data'],
 
   compression: {
