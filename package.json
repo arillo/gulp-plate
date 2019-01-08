@@ -9,7 +9,7 @@
   "scripts": {
     "start": "gulp watch",
     "build": "gulp",
-    "watch": "npm start",,
+    "watch": "npm start",
     "prod": "NODE_ENV='production' gulp production",
     "lint-tasks": "./node_modules/.bin/eslint --config .eslintrc.js 'gulpfile.js/**/*.js'"
   },
