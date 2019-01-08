@@ -1,6 +1,6 @@
 const config = require('../config').html;
 const data = require('gulp-data');
-const gulp = require('gulp');
+const { src, dest } = require('gulp');
 const handleErrors = require('../util/handleErrors');
 const path = require('path');
 const gulpif = require('gulp-if');
@@ -22,13 +22,12 @@ function getData(isProd) {
 }
 
 const exclude = path.normalize(`!**/{${config.excludeFolders.join(',')}}/**`);
-const src = [path.join(config.src, config.glob), exclude];
+const htmlSrc = [path.join(config.src, config.glob), exclude];
 
-gulp.task('html', () => {
+function html() {
   const isProd = global.env === 'prod';
 
-  return gulp
-    .src(src)
+  return src(htmlSrc)
     .pipe(data(getData(isProd)))
     .on('error', handleErrors)
     .pipe(
@@ -42,5 +41,7 @@ gulp.task('html', () => {
     )
     .on('error', handleErrors)
     .pipe(gulpif(isProd, htmlmin(config.compression)))
-    .pipe(gulp.dest(config.dest));
-});
+    .pipe(dest(config.dest));
+}
+
+module.exports = html;

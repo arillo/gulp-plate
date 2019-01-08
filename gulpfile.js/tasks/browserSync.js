@@ -3,14 +3,13 @@
 // executed unless we are using the watch task.
 
 const browserSync = require('browser-sync');
-const gulp = require('gulp');
 const config = require('../config').browserSync;
 const webpack = require('webpack');
 const getWebpackConfig = require('../util/getWebpackConfig');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
-function browserSyncTask() {
+function browserSyncTask(done) {
   const wpConfig = getWebpackConfig('watch');
   const bundler = webpack(wpConfig);
 
@@ -24,10 +23,7 @@ function browserSyncTask() {
   ];
 
   browserSync.init(config);
+  done();
 }
 
-function registerTask() {
-  gulp.task('browserSync', browserSyncTask);
-}
-
-module.exports = registerTask();
+module.exports = browserSyncTask;

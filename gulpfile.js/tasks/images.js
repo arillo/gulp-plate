@@ -1,12 +1,13 @@
 const changed = require('gulp-changed');
-const gulp = require('gulp');
+const { src, dest } = require('gulp');
 const svgo = require('gulp-svgo');
 const config = require('../config').images;
 
-gulp.task('images', () => {
-  return gulp
-    .src(config.src)
+function images() {
+  return src(config.src)
     .pipe(changed(config.dest))
     .pipe(svgo({ plugins: [{ removeViewBox: false }, { cleanupIDs: false }] }))
-    .pipe(gulp.dest(config.dest));
-});
+    .pipe(dest(config.dest));
+}
+
+module.exports = images;

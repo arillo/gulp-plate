@@ -1,4 +1,4 @@
-const gulp = require('gulp');
+const { src, dest } = require('gulp');
 const browserSync = require('browser-sync');
 const sass = require('gulp-sass');
 const sassLint = require('gulp-sass-lint');
@@ -14,15 +14,14 @@ const removeClasses = require('../util/removeCssClasses')(config.remove);
 
 const procesors = [importer, removeClasses, autoprefixer()];
 
-gulp.task('scss', () => {
+function scss() {
   const isProd = global.env === 'prod';
   if (isProd) {
     procesors.push(nano(config.compression));
   }
 
   return (
-    gulp
-      .src(config.src)
+    src(config.src)
       // Linting
       .pipe(sassLint())
       .pipe(sassLint.format())
@@ -43,7 +42,9 @@ gulp.task('scss', () => {
       .pipe(gulpif(!isProd, sourcemaps.write()))
 
       // Dest & reloading
-      .pipe(gulp.dest(config.dest))
+      .pipe(dest(config.dest))
       .pipe(gulpif(!isProd, browserSync.reload({ stream: true })))
   );
-});
+}
+
+module.exports = scss;

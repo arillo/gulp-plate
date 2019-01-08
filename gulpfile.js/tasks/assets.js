@@ -1,14 +1,16 @@
-const gulp = require('gulp');
+const { src, dest } = require('gulp');
 const config = require('../config').assets;
 
-gulp.task('assets', callback => {
+function assets(callback) {
   if (config.length <= 0) {
     return callback();
   }
 
   config.forEach(entry => {
-    gulp.src(entry.src).pipe(gulp.dest(entry.dest));
+    src(entry.src).pipe(dest(entry.dest));
   });
 
   return callback();
-});
+}
+
+module.exports = assets;
