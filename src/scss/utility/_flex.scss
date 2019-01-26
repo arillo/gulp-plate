@@ -13,8 +13,8 @@ $config: (
     'row': row,
     'col': column,
     'rowRev': row-reverse,
-    'colRev': column-reverse
-  )
+    'colRev': column-reverse,
+  ),
 );
 
 @include utility-class($config);
@@ -29,8 +29,8 @@ $config: (
   'variants': (
     'wrap': wrap,
     'nowrap': nowrap,
-    'wrapRev': wrap-reverse
-  )
+    'wrapRev': wrap-reverse,
+  ),
 );
 
 @include utility-class($config);
@@ -47,8 +47,8 @@ $config: (
     'end': flex-end,
     'center': center,
     'between': space-between,
-    'around': space-around
-  )
+    'around': space-around,
+  ),
 );
 
 @include utility-class($config);
@@ -65,8 +65,8 @@ $config: (
     'end': flex-end,
     'center': center,
     'base': baseline,
-    'stretch': stretch
-  )
+    'stretch': stretch,
+  ),
 );
 
 @include utility-class($config);
@@ -84,8 +84,8 @@ $config: (
     'center': center,
     'between': space-between,
     'around': space-around,
-    'stretch': stretch
-  )
+    'stretch': stretch,
+  ),
 );
 
 @include utility-class($config);
@@ -94,8 +94,8 @@ $config: (
 //============================================
 
 $config: (
-  'name': 'flxAlignItems',
-  'prop': 'align-items',
+  'name': 'flxAlignSelf',
+  'prop': 'align-self',
   'mqs': $mqs,
   'variants': (
     'auto': auto,
@@ -103,8 +103,8 @@ $config: (
     'end': flex-end,
     'center': center,
     'base': baseline,
-    'stretch': stretch
-  )
+    'stretch': stretch,
+  ),
 );
 
 @include utility-class($config);
@@ -126,8 +126,8 @@ $config: (
     '7': 7,
     '8': 8,
     '9': 9,
-    'last': 999
-  )
+    'last': 999,
+  ),
 );
 
 @include utility-class($config);
@@ -141,8 +141,8 @@ $config: (
   'mqs': $mqs,
   'variants': (
     '1': 1,
-    '0': 0
-  )
+    '0': 0,
+  ),
 );
 
 @include utility-class($config);
@@ -153,8 +153,8 @@ $config: (
   'mqs': $mqs,
   'variants': (
     '1': 1,
-    '0': 0
-  )
+    '0': 0,
+  ),
 );
 
 @include utility-class($config);
@@ -165,8 +165,8 @@ $config: (
   'mqs': $mqs,
   'variants': (
     'grow': 1 0 auto,
-    'none': none
-  )
+    'none': none,
+  ),
 );
 
 @include utility-class($config);

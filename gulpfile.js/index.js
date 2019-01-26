@@ -24,13 +24,18 @@ function setProd(cb) {
   cb();
 }
 
+function reload(cb) {
+  bs.reload();
+  cb();
+}
+
 function watchFiles(cb) {
   global.env = 'watch';
 
-  watch(config.sprite.src, series(sprite, bs.reload));
+  watch(config.sprite.src, series(sprite, reload));
   watch(config.scss.src, scss);
-  watch(config.images.src, series(images, bs.reload));
-  watch(`${config.html.src}/${config.html.glob}`, series(html, bs.reload));
+  watch(config.images.src, series(images, reload));
+  watch(config.html.src, series(html, reload));
   cb();
 }
 
