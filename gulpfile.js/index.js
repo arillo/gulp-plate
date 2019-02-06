@@ -3,6 +3,7 @@ const bs = require('browser-sync');
 
 const config = require('./config');
 
+const clean = require('./tasks/clean');
 const sprite = require('./tasks/sprite');
 const scss = require('./tasks/scss');
 const html = require('./tasks/html');
@@ -39,9 +40,21 @@ function watchFiles(cb) {
   cb();
 }
 
-const _default = series(setBuild, sprite, parallel(...tasks, webpack));
-const _prod = series(setProd, sprite, parallel(...tasks, webpack), report);
-const _watch = series(watchFiles, sprite, parallel(...tasks), browserSync);
+const _default = series(clean, setBuild, sprite, parallel(...tasks, webpack));
+const _prod = series(
+  clean,
+  setProd,
+  sprite,
+  parallel(...tasks, webpack),
+  report
+);
+const _watch = series(
+  clean,
+  watchFiles,
+  sprite,
+  parallel(...tasks),
+  browserSync
+);
 
 module.exports = {
   default: _default,
