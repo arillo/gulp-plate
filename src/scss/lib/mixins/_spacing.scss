@@ -1,8 +1,8 @@
 // sass-lint:disable empty-line-between-blocks
 
-//============================================
+// ============================================
 // Spacing utility mixin
-//============================================
+// ============================================
 
 @mixin generate-spacing-helpers($configs...) {
   @each $config in $configs {

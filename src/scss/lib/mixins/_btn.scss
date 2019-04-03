@@ -1,6 +1,6 @@
-//============================================
+// ============================================
 // Buttons
-//============================================
+// ============================================
 
 // Button styles are used in different places, this
 // includes third-party modules where a `.btn` class
@@ -18,7 +18,7 @@
 // The `.btn` class definition is located at modules/_btn.sass
 
 // Main
-//============================================
+// ============================================
 
 @mixin btn {
   transition: background-color $motion, border-color $motion;
@@ -51,7 +51,7 @@
 }
 
 // Disabled state
-//============================================
+// ============================================
 
 // 1. Overwrite pseudo state styles
 
@@ -66,7 +66,7 @@
 }
 
 // Btn Truncate
-//============================================
+// ============================================
 
 @mixin btn-truncate {
   @include truncate;
