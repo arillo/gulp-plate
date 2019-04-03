@@ -5,15 +5,15 @@
     <title>{% block title %}{{ title }}{% endblock %}</title>
     <link rel="stylesheet" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% include "shared/app-icons.html" %}
+    {% include "shared/app-icons.njk" %}
     {% block head %}{% endblock %}
   </head>
   <body>
     {% block content %}{% endblock %}
 
-    {% include "shared/grid-helper.html" %}
+    {% include "shared/grid-helper.njk" %}
 
-    {% include "shared/browser-warning.html" %}
+    {% include "shared/browser-warning.njk" %}
     {% block javascript %}
       <script src="js/main.js"></script>
     {% endblock %}

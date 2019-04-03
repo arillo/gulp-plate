@@ -8,9 +8,10 @@ const render = require('gulp-nunjucks-render');
 const fs = require('fs');
 const glob = require('glob');
 const htmlmin = require('gulp-htmlmin');
+const rename = require('gulp-rename');
 
 function getData(isProd) {
-  const jsonData = { isProd };
+  const jsonData = { isProd, ref: Date.now() };
   const files = glob.sync(config.data);
 
   files.forEach(el => {
@@ -41,6 +42,7 @@ function html() {
     )
     .on('error', handleErrors)
     .pipe(gulpif(isProd, htmlmin(config.compression)))
+    .pipe(rename({ extname: '.html' }))
     .pipe(dest(config.dest));
 }
 

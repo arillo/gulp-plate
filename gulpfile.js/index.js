@@ -40,6 +40,7 @@ function watchFiles(cb) {
   watch(config.scss.src, scss);
   watch(config.images.src, series(images, reload));
   watch(config.html.src, series(html, reload));
+  watch(config.html.data, series(html, reload));
   cb();
 }
 

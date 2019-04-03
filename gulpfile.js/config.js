@@ -26,9 +26,9 @@ const browserSync = {
 const html = {
   src: `${src}/html`,
   dest: `${dest}/`,
-  glob: '**/*.{html,json}',
-  data: `${src}/html/data/*.json`,
-  excludeFolders: ['layouts', 'shared', 'macros', 'data'],
+  glob: '**/*.njk',
+  data: `${src}/data/*.json`,
+  excludeFolders: ['layouts', 'shared'],
 
   compression: {
     collapseWhitespace: true,
