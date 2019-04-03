@@ -87,19 +87,15 @@ $motion: 200ms;
 // Layout
 //============================================
 
-// XS
 $layout-gutter-xs: 16px;
 $layout-width-xs: 416px;
 
-// SM
 $layout-gutter-sm: 20px;
 $layout-width-sm: 728px;
 
-// MD
 $layout-gutter-md: 22px;
 $layout-width-md: 966px;
 
-// LG
 $layout-gutter-lg: 30px;
 $layout-width-lg: 1290px;
 
@@ -183,6 +179,13 @@ $grid-config-lg: (
   'clear': 3 4,
 );
 
+$grid-config: (
+  $grid-config-xs,
+  $grid-config-sm,
+  $grid-config-md,
+  $grid-config-lg
+);
+
 // Utilities
 //============================================
 
@@ -204,35 +207,26 @@ $background-utility-variants: (
 
 $width-utility-variants: (
   '100\\%': 100%,
-  '90\\%': 90%,
-  '50\\%': 50%,
-  '200': 200px,
-  '100': 100px,
 );
 
 $height-utility-variants: (
   '100\\%': 100%,
-  'auto': auto,
-  '100vh': 100vh,
-  '0': 0,
 );
 
 $opacity-utility-variants: (
   '100': 1,
-  '90': 0.9,
-  '80': 0.8,
-  '70': 0.7,
-  '60': 0.6,
   '50': 0.5,
-  '40': 0.4,
   '30': 0.3,
   '20': 0.2,
-  '10': 0.1,
   '0': 0,
 );
 
 $font-size-utility-variants: (
   '': $fs,
+);
+
+$line-height-utility-variants: (
+  '120': 1.2,
 );
 
 $svg-color-utility-variants: (

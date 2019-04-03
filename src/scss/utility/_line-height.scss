@@ -1,0 +1,12 @@
+//============================================
+// Line Height
+//============================================
+
+$config: (
+  'name': 'lh',
+  'prop': 'line-height',
+  'mqs': $mqs,
+  'variants': $line-height-utility-variants,
+);
+
+@include utility-class($config);

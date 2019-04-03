@@ -2,10 +2,9 @@
 // Grid
 //============================================
 
-
 // Generate Grid classes
 //============================================
 
 // See `lib/mixins/_grid.sass`
 
-@include grid($grid-config-xs, $grid-config-sm, $grid-config-md, $grid-config-lg);
+@include grid($grid-config);
