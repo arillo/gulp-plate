@@ -1,6 +1,6 @@
 const config = require('../config').webpack;
 const webpack = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const Terser = require('terser-webpack-plugin');
 
 module.exports = env => {
   if (!config.plugins) {
@@ -33,9 +33,10 @@ module.exports = env => {
         'process.env': {
           NODE_ENV: JSON.stringify('production'),
         },
-      }),
-      new UglifyJSPlugin()
+      })
     );
+    config.optimization = {};
+    config.optimization.minimizer = [new Terser()];
   }
 
   return config;
