@@ -25,14 +25,17 @@ function setProd(cb) {
   cb();
 }
 
+function setWatch(cb) {
+  global.env = 'watch';
+  cb();
+}
+
 function reload(cb) {
   bs.reload();
   cb();
 }
 
 function watchFiles(cb) {
-  global.env = 'watch';
-
   watch(config.sprite.src, series(sprite, reload));
   watch(config.scss.src, scss);
   watch(config.images.src, series(images, reload));
@@ -50,9 +53,10 @@ const _prod = series(
 );
 const _watch = series(
   clean,
-  watchFiles,
+  setWatch,
   sprite,
   parallel(...tasks),
+  watchFiles,
   browserSync
 );
 
