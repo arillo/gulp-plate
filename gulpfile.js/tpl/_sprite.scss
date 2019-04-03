@@ -1,6 +1,8 @@
-//============================================
+// ============================================
 // Sprite Definition
-//============================================
+// ============================================
+
+// Automatically generated file, do not edit directly
 
 $i-map: (<% _.forEach( icons, function( icon ){ %>
   <%= icon.id %>-width: <%= icon.width %>,
